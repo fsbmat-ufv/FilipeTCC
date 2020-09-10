@@ -16,63 +16,75 @@ library(lubridate)
 library(ISwR)
 library(dtplyr)
 library(stringr)
+library(plotly)
 
-
-#dt2000 <- read.xlsx("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.xlsx", colNames = TRUE)
-#names(dt2000)<- c("Hora"          ,
-#"Dia"           ,
-#"Data"          , 
-#"Mandante"      ,
-#"Visitante"     ,
-#"Vencedor"      , 
-#"Rodada"        ,
-#"Arena"         ,
-#"GolsMan"       ,
-#"GolsVisit"     , 
-#"EstadoMan"     ,
-#"EstadoVisit"     ,
-#"EstadoVenc")  
-
-#dt2000$Mandante <- abjutils::rm_accent(dt2000$Mandante)
-#dt2000$Mandante <- str_squish(dt2000$Mandante)
-#dt2000$Mandante <- str_trim(dt2000$Mandante, side = c("both", "left", "right"))
-#dt2000$Mandante <- str_to_upper(dt2000$Mandante)
-
-#dt2000$Visitante <- abjutils::rm_accent(dt2000$Visitante)
-#dt2000$Visitante <- str_squish(dt2000$Visitante)
-#dt2000$Visitante <- str_trim(dt2000$Visitante, side = c("both", "left", "right"))
-#dt2000$Visitante <- str_to_upper(dt2000$Visitante)
-
-#dt2000$Dia <- abjutils::rm_accent(dt2000$Dia)
-#dt2000$Dia <- str_squish(dt2000$Dia)
-#dt2000$Dia <- str_trim(dt2000$Dia, side = c("both", "left", "right"))
-#dt2000$Dia <- str_to_upper(dt2000$Dia)
-
-#dt2000$Arena <- abjutils::rm_accent(dt2000$Arena)
-#dt2000$Arena <- str_squish(dt2000$Arena)
-#dt2000$Arena <- str_trim(dt2000$Arena, side = c("both", "left", "right"))
-#dt2000$Arena <- str_to_upper(dt2000$Arena)
-
-#dt2000$EstadoVenc <- str_to_upper(dt2000$EstadoVenc)
-
-#dt2000$Vencedor <- abjutils::rm_accent(dt2000$Vencedor)
-#dt2000$Vencedor <- str_squish(dt2000$Vencedor)
-#dt2000$Vencedor <- str_trim(dt2000$Vencedor, side = c("both", "left", "right"))
-#dt2000$Vencedor <- str_to_upper(dt2000$Vencedor)
-
-#dt2000$Rodada <- abjutils::rm_accent(dt2000$Rodada)
-#dt2000$Rodada <- str_squish(dt2000$Rodada)
-#dt2000$Rodada <- str_trim(dt2000$Rodada, side = c("both", "left", "right"))
-#dt2000$Rodada <- str_to_upper(dt2000$Rodada)
-
-
-
+# dt2000 <- fread("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.csv")
+# #dt2000 <- read.xlsx("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.xlsx", colNames = TRUE)
+# names(dt2000)<- c("Hora"          ,
+# "Dia"           ,
+# "Data"          ,
+# "Mandante"      ,
+# "Visitante"     ,
+# "Vencedor"      ,
+# "Rodada"        ,
+# "Arena"         ,
+# "GolsMan"       ,
+# "GolsVisit"     ,
+# "EstadoMan"     ,
+# "EstadoVisit"     ,
+# "EstadoVenc")
+# 
+# dt2000$Mandante <- abjutils::rm_accent(dt2000$Mandante)
+# dt2000$Mandante <- str_squish(dt2000$Mandante)
+# dt2000$Mandante <- str_trim(dt2000$Mandante, side = c("both", "left", "right"))
+# dt2000$Mandante <- str_to_upper(dt2000$Mandante)
+# dt2000$Visitante <- abjutils::rm_accent(dt2000$Visitante)
+# dt2000$Visitante <- str_squish(dt2000$Visitante)
+# dt2000$Visitante <- str_trim(dt2000$Visitante, side = c("both", "left", "right"))
+# dt2000$Visitante <- str_to_upper(dt2000$Visitante)
+# dt2000$Dia <- abjutils::rm_accent(dt2000$Dia)
+# dt2000$Dia <- str_squish(dt2000$Dia)
+# dt2000$Dia <- str_trim(dt2000$Dia, side = c("both", "left", "right"))
+# dt2000$Dia <- str_to_upper(dt2000$Dia)
+# dt2000$Arena <- abjutils::rm_accent(dt2000$Arena)
+# dt2000$Arena <- str_squish(dt2000$Arena)
+# dt2000$Arena <- str_trim(dt2000$Arena, side = c("both", "left", "right"))
+# dt2000$Arena <- str_to_upper(dt2000$Arena)
+# dt2000$EstadoVenc <- str_to_upper(dt2000$EstadoVenc)
+# dt2000$Vencedor <- abjutils::rm_accent(dt2000$Vencedor)
+# dt2000$Vencedor <- str_squish(dt2000$Vencedor)
+# dt2000$Vencedor <- str_trim(dt2000$Vencedor, side = c("both", "left", "right"))
+# dt2000$Vencedor <- str_to_upper(dt2000$Vencedor)
+# dt2000$Rodada <- abjutils::rm_accent(dt2000$Rodada)
+# dt2000$Rodada <- str_squish(dt2000$Rodada)
+# dt2000$Rodada <- str_trim(dt2000$Rodada, side = c("both", "left", "right"))
+# dt2000$Rodada <- str_to_upper(dt2000$Rodada)
+# dt2000$Rodada <- str_replace_all(dt2000$Rodada, "ª", "")
+# dt2000$Data <- as.Date((dt2000$Data), format = "%d-%m-%Y")
 
 
 #saveRDS(dt2000, file = "dt2000.Rds")
 dt2000 <- readRDS("dt2000.Rds")
-dt2000$Rodada <- str_replace_all(dt2000$Rodada, "ª", "")
-#dt2000$Data <- as.Date(as.character(dt2000$Data), format = "%d/%m/%Y")
+dt2000$Data <- as.Date(as.character(dt2000$Data), format = "%Y-%m-%d")
+dt2000$Vencedor[dt2000$Vencedor=="-"] <- "EMPATE"
+
+
+#dt2000$Data <- format(dt2000$Data,"%d-%m-%Y")
+dt2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01"))
+str(dt2000)
+
+#analise grafica
+head(dt2000)
+v2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor) %>% summarise(Quant=n(),.groups="drop")   
+  plot <- ggplot(v2003,aes(Quant,reorder(Vencedor,Quant),fill=Vencedor))+
+  geom_col(show.legend = FALSE)+
+  xlab("Quantidades de Vitórias")+
+  ylab("Times que disputaram o Campeonato")+
+  geom_text(aes(label=Quant),nudge_x = 4)+
+  theme_bw()+
+  ggtitle("Número de vitórias no Brasileirão 2003")
+ggplotly(plot)
 
 
 ano03 <- dt2000 %>% filter(Data>=37709 & Data<=37969)
