@@ -312,5 +312,28 @@ ar %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena))+
     geom_text(aes(label=Quant),nudge_x = 4)+
     theme_bw()+
     ggtitle("Número de vitórias no Brasileirão 2018-19")
+
   
-  
+  str(dt2003)
+dados <- dt2000 %>% filter(Data>=as.Date("2003-01-01"))
+dados$Ano <- year(dados$Data)
+saveRDS(dados,"dados.rds")  
+
+numcruzM <- dados %>% filter(Mandante =="CRUZEIRO") %>% summarise(golsM=sum(GolsMan))
+numcruzV <- dados %>% filter(Visitante =="CRUZEIRO") %>% summarise(golsV=sum(GolsVisit))
+(numcruz <- numcruzM + numcruzV)
+
+mandanteNG <- dados %>% group_by(Mandante) %>% summarise(golsM=sum(GolsMan))
+names(mandanteNG) <- c("Time","GolsM")
+visitanteNG <- dados %>% group_by(Visitante) %>% summarise(golsM=sum(GolsVisit))
+names(visitanteNG) <- c("Time","GolsV")
+totGols <- left_join(mandanteNG,visitanteNG,by="Time")
+totGols$Total <- rowSums(totGols[,2:3])
+
+dados$vitMan <- ifelse(dados$Mandante==dados$Vencedor,1,0)
+testeM <- dados %>% group_by(Mandante) %>% summarise(vitM=sum(vitMan))
+dados$vitVist <- ifelse(dados$Visitante==dados$Vencedor,1,0)
+testeV <- dados %>% group_by(Visitante) %>% summarise(vitV=sum(vitVist))
+
+dados$derM <- ifelse(dados$Mandante==dados$Vencedor,0,1)
+testeD <- dados %>% group_by(Mandante) %>% summarise(derm=sum(derM))
