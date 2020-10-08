@@ -1,0 +1,11 @@
+comparativo entre os campeonatos 
+numeros de vitorias totais de tds os anos 
+numero de gols totais de visit e mand 
+10 estadios com mais jogos
+10 estadios com menos jogos 
+numeros de derrotas 
+numeros de empates 
+vitorias man
+vitorias visit 
+derrotas man
+derrotas visit 

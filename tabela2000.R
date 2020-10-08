@@ -17,6 +17,10 @@ library(ISwR)
 library(dtplyr)
 library(stringr)
 library(plotly)
+library(dplyr)
+library(readr)
+library(animation)
+library(ggthemes)
 
 # dt2000 <- fread("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.csv")
 # #dt2000 <- read.xlsx("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.xlsx", colNames = TRUE)
@@ -75,68 +79,238 @@ str(dt2000)
 
 #analise grafica
 head(dt2000)
-v2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+v2003 <- 
+  dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
   group_by(Vencedor) %>% summarise(Quant=n(),.groups="drop")   
-  plot <- ggplot(v2003,aes(Quant,reorder(Vencedor,Quant),fill=Vencedor))+
+ v2003 %>% ggplot(aes(Quant,reorder(Vencedor,Quant),fill=Vencedor))+
   geom_col(show.legend = FALSE)+
-  xlab("Quantidades de Vitórias")+
+   theme(panel.background = element_rect(fill = "white", colour = "black")) +
+   theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+   xlab("Quantidades de Vitórias/Empates")+
   ylab("Times que disputaram o Campeonato")+
   geom_text(aes(label=Quant),nudge_x = 4)+
   theme_bw()+
   ggtitle("Número de vitórias no Brasileirão 2003")
-ggplotly(plot)
+ggplotly(v2003)
+
+are2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Arena) %>% summarise(Quant=n(),.groups="drop") 
+  are2003 %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+   xlab("Quantidades de jogos nas Arenas")+
+  ylab("Árenas que participaram do Campeonato")+
+  geom_text(aes(label=Quant),nudge_x = 4)+
+  ggtitle("Número de jogos disputados nas árenas no Brasileirão 2003")
+ggplotly(a2003)
+
+head(dt2000)
+gm2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(GolsMan) %>% summarise(Quant=n(),.groups="drop") 
+  gm2003 %>% ggplot(aes(GolsMan,Quant,fill=GolsMan))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Gols dos times mandantes")+
+  ylab("Quantidade de gols por jogos dos times mandandtes")+
+  geom_text(aes(label=Quant),nudge_y = 5)+
+  ggtitle("Número de gols dos mandantes no Brasileirão 2003")
+ggplotly(gm2003)
+
+head(dt2000)
+gv2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(GolsVisit) %>% summarise(Quant=n(),.groups="drop") 
+gv2003 %>%  ggplot(aes(GolsVisit,Quant,fill=GolsVisit))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Gols dos times visitantes")+
+  ylab("Quantidade de gols por jgos pelos times visitantes")+
+    geom_text(aes(label=Quant),nudge_y = 5)+
+  ggtitle("Número de gols dos visitantes no Brasileirão 2003")
+ggplotly(gv2003)
+
+head(dt2000)
+venare2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,Arena) %>% summarise(Quant=n(),.groups="drop") 
+#rod2003 %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Quant))+
+ # geom_col(show.legend = FALSE)+
+#  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+#  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+#  xlab("Gols dos times visitantes")+
+#  ylab("Quantidade de gols por jgos pelos times visitantes")+
+#  geom_text(aes(label=Quant),nudge_X = 5)+
+#  ggtitle("Número de gols dos visitantes no Brasileirão 2003")
+#ggplotly(gv2003)
+
+head(dt2000)
+vgm2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,GolsMan) %>% summarise(Quant=n(),.groups="drop") 
+
+head(dt2000)
+vgv2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,GolsVisit) %>% summarise(Quant=n(),.groups="drop") 
+
+head(dt2000)
+vrodare <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,Rodada,Arena) %>% summarise(Quant=n(),.groups="drop") 
+
+head(dt2000)
+mandvenare <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,Mandante,Arena) %>% summarise(Quant=n(),.groups="drop") 
+
+head(dt2000)
+visitvenare <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,Visitante,Arena) %>% summarise(Quant=n(),.groups="drop") 
+
+head(dt2000)
+visitvenndia <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,Visitante,Dia) %>% summarise(Quant=n(),.groups="drop") 
+
+head(dt2000)
+mandvenndia <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,Mandante,Dia) %>% summarise(Quant=n(),.groups="drop") 
+
+head(dt2000)
+gmvenndia <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>% 
+  group_by(Vencedor,GolsMan,Dia) %>% summarise(Quant=n(),.groups="drop") 
 
 
-ano03 <- dt2000 %>% filter(Data>=37709 & Data<=37969)
-vitorias03 <- ano03 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano04 <- dt2000 %>% filter(Data>=38098 & Data<=38340)
-vitorias04 <- ano04 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano05 <- dt2000 %>% filter(Data>=38465 & Data<=38690)
-vitorias05 <- ano05 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano06 <- dt2000 %>% filter(Data>=38822 & Data<=39054)
-vitorias06 <- ano06 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano07 <- dt2000 %>% filter(Data>=39214 & Data<=39418)
-vitorias07 <- ano07 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano08 <- dt2000 %>% filter(Data>=39578 & Data<=39789)
-vitorias08 <- ano08 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano09 <- dt2000 %>% filter(Data>=39942 & Data<=40153)
-vitorias09 <- ano09 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano10 <- dt2000 %>% filter(Data>=40306 & Data<=40517)
-vitorias10 <- ano10 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano11 <- dt2000 %>% filter(Data>=40684 & Data<=40881)
-vitorias11 <- ano11 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano12 <- dt2000 %>% filter(Data>=41048 & Data<=41245)
-vitorias12 <- ano12 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano13 <- dt2000 %>% filter(Data>=41419 & Data<=41616)
-vitorias13 <- ano13 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano14 <- dt2000 %>% filter(Data>=41748 & Data<=41980)
-vitorias14 <- ano14 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano15 <- dt2000 %>% filter(Data>=42133 & Data<=42344)
-vitorias15 <- ano15 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano16 <- dt2000 %>% filter(Data>=42504 & Data<=42715)
-vitorias16 <- ano16 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano17 <- dt2000 %>% filter(Data>=42868 & Data<=43072)
-vitorias17 <- ano17 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano18 <- dt2000 %>% filter(Data>=43204 & Data<=43436)
-vitorias18 <- ano18 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
-
-ano19 <- dt2000 %>% filter(Data>=43582 & Data<=43807)
-vitorias19 <- ano19 [c(1:552),c("Vencedor","Rodada","EstadoVenc")]
+head(dt2000)
+gvvenndia <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>%
+  group_by(Vencedor,GolsVisit,Dia) %>% summarise(Quant=n(),.groups="drop") 
 
 
+head(dt2000)
+venestdv <- dt2000 %>% filter(Data>=as.Date("2003-01-01") & Data<=as.Date("2003-12-31")) %>%
+  group_by(Vencedor,EstadoVenc) %>% summarise(Quant=n(),.groups="drop")
+venestdv %>%  ggplot(aes(EstadoVenc,Quant,fill=EstadoVenc))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Estados Vencedores")+
+  ylab("Quantidade de vitórias")+
+ggtitle("Número de vitórias dos times de cada estado no Brasileirão 2003")
+ggplotly(venestdv)
 
+head(dt2000)
+vitot <- dt2000 %>%
+  group_by(Vencedor) %>% summarise(Quant=n(),.groups="drop")
+  vitot %>%  ggplot(aes(Quant,reorder(Vencedor,Quant),fill=Vencedor))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Estados Vencedores")+
+  ylab("Quantidade de vitórias gerais")+
+  geom_text(aes(label=Quant),nudge_x = 30)+
+  ggtitle("Número de vitórias dos times nas edições do Brasileirão")
+
+head(dt2000)
+ar <- dt2000 %>%
+  group_by(Arena) %>% summarise(Quant=n(),.groups="drop")
+ar %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Estádios")+
+  ylab("Quantidade de jogos nos estádios")+
+  geom_text(aes(label=Quant),nudge_x = 30)+
+    ggtitle("Número de jogos em cada estádio nas edições do Brasileirão")
+
+
+  
+
+  
+  head(dt2000)
+  gm200067 <- dt2000 %>% filter(Data>=as.Date("2006-01-01") & Data<=as.Date("2007-12-31")) %>% 
+    group_by(GolsMan) %>% summarise(Quant=n(),.groups="drop") 
+  gm200067 %>%    ggplot(aes(GolsMan,Quant,fill=GolsMan))+
+    geom_col(show.legend = FALSE)+
+    theme(panel.background = element_rect(fill = "white", colour = "black")) +
+    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+    xlab("Gols dos times Mandantes")+
+    ylab("Quantidade de gols por jogos pelos times mandantes")+
+    geom_text(aes(label=Quant),nudge_y = 5)+
+    ggtitle("Número de gols dos mandantes no Brasileirão 2006-07")
+  
+  
+  
+  head(dt2000)
+  gm20001819 <- dt2000 %>% filter(Data>=as.Date("2018-01-01") & Data<=as.Date("2019-12-31")) %>% 
+    group_by(GolsMan) %>% summarise(Quant=n(),.groups="drop") 
+  gm20001819 %>%  ggplot(aes(GolsMan,Quant,fill=GolsMan))+
+    geom_col(show.legend = FALSE)+
+    theme(panel.background = element_rect(fill = "white", colour = "black")) +
+    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+    xlab("Gols dos times Mandantes")+
+    ylab("Quantidade de gols por jogos pelos times mandantes")+
+    geom_text(aes(label=Quant),nudge_y = 5)+
+    ggtitle("Número de gols dos mandantes no Brasileirão 2018-19")
+
+  head(dt2000)
+  gv200067 <- dt2000 %>% filter(Data>=as.Date("2006-01-01") & Data<=as.Date("2007-12-31")) %>% 
+    group_by(GolsVisit) %>% summarise(Quant=n(),.groups="drop") 
+  gv200067 %>%    ggplot(aes(GolsVisit,Quant,fill=GolsVisit))+
+    geom_col(show.legend = FALSE)+
+    theme(panel.background = element_rect(fill = "white", colour = "black")) +
+    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+    xlab("Gols dos times Visitantes")+
+    ylab("Quantidade de gols por jogos pelos times visitantes")+
+    geom_text(aes(label=Quant),nudge_y = 5)+
+    ggtitle("Número de gols dos visitantes no Brasileirão 2006-07")
+  
+  head(dt2000)
+  gv20001819 <- dt2000 %>% filter(Data>=as.Date("2018-01-01") & Data<=as.Date("2019-12-31")) %>% 
+    group_by(GolsVisit) %>% summarise(Quant=n(),.groups="drop") 
+  gv20001819 %>%  ggplot(aes(GolsVisit,Quant,fill=GolsVisit))+
+    geom_col(show.legend = FALSE)+
+    theme(panel.background = element_rect(fill = "white", colour = "black")) +
+    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+    xlab("Gols dos times Visitantes")+
+    ylab("Quantidade de gols por jogos pelos times visitantes")+
+    geom_text(aes(label=Quant),nudge_y = 5)+
+    ggtitle("Número de gols dos visitantes no Brasileirão 2018-19")
+  
+  
+    v2000304 <- dt2000 %>% filter(Data>=as.Date("2004-01-01") & Data<=as.Date("2004-12-31")) %>% 
+    group_by(Vencedor) %>% summarise(Quant=n(),.groups="drop")    
+  v2000304 %>%  ggplot(aes(Quant,reorder(Vencedor,Quant),fill=Vencedor))+
+       geom_col(show.legend = FALSE)+
+    theme(panel.background = element_rect(fill = "white", colour = "black")) +
+    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+    xlab("Quantidades de Vitórias/Empates")+
+    ylab("Times que disputaram o Campeonato")+
+    geom_text(aes(label=Quant),nudge_x = 4)+
+    theme_bw()+
+    ggtitle("Número de vitórias no Brasileirão 2003-04")
+
+  
+  v2001819 <- 
+    dt2000 %>% filter(Data>=as.Date("2018-01-01") & Data<=as.Date("2019-12-31")) %>% 
+    group_by(Vencedor) %>% summarise(Quant=n(),.groups="drop")    
+  v2001819 %>%  ggplot(aes(Quant,reorder(Vencedor,Quant),fill=Vencedor))+
+    geom_col(show.legend = FALSE)+
+    theme(panel.background = element_rect(fill = "white", colour = "black")) +
+    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+    xlab("Quantidades de Vitórias/Empates")+
+    ylab("Times que disputaram o Campeonato")+
+    geom_text(aes(label=Quant),nudge_x = 4)+
+    theme_bw()+
+    ggtitle("Número de vitórias no Brasileirão 2018-19")
+
+
+  gv2001819 <- 
+    dt2000 %>% filter(Data>=as.Date("2018-01-01") & Data<=as.Date("2019-12-31")) %>% 
+    group_by(Vencedor,GolsMan) %>% summarise(Quant=n(),.groups="drop")    
+  gv2001819 %>%  ggplot(aes(Quant,Vencedor,fill=Vencedor))+
+    geom_col(show.legend = FALSE)+
+    theme(panel.background = element_rect(fill = "white", colour = "black")) +
+    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+    xlab("Quantidades de Vitórias/Empates")+
+    ylab("Times que disputaram o Campeonato")+
+    geom_text(aes(label=Quant),nudge_x = 4)+
+    theme_bw()+
+    ggtitle("Número de vitórias no Brasileirão 2018-19")
+  
+  
