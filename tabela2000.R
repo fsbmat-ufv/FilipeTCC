@@ -75,7 +75,27 @@ dt2000$Vencedor[dt2000$Vencedor=="-"] <- "EMPATE"
 
 #dt2000$Data <- format(dt2000$Data,"%d-%m-%Y")
 dt2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01"))
-str(dt2000)
+dt2003$Ano <- year(dt2003$Data)
+
+dt2003$Derrotado <- ifelse(dt2003$Vencedor=="EMPATE", "EMPATE",ifelse(dt2003$Visitante==dt2003$Vencedor,dt2003$Mandante, dt2003$Visitante))
+dt2003$PontMandante <- ifelse(dt2003$Vencedor=="EMPATE", 1,ifelse(dt2003$Mandante==dt2003$Vencedor&dt2003$Vencedor!="EMPATE",3, 0))
+dt2003$PontVisitante <- ifelse(dt2003$Vencedor=="EMPATE", 1,ifelse(dt2003$Visitante==dt2003$Vencedor&dt2003$Vencedor!="EMPATE",3, 0))
+
+
+saveRDS(dt2003,"dados.rds") 
+
+# dt1 <- dt2003 %>% filter(Ano=="2019", Mandante=="CSA") %>% select(Mandante, PontMandante)
+# dt2 <- dt2003 %>% filter(Ano=="2019", Visitante=="CSA") %>% select(Visitante, PontVisitante)
+
+dt1 <- dt2003 %>% filter(Ano=="2019") %>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+dt2 <- dt2003 %>% filter(Ano=="2019") %>% group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
+
+dt <- data.frame(dt1[,1:2],dt2[,2])
+dt$Pontos <- rowSums(dt[,2:3])
+
+
+dt$PontVisitante <- ifelse(dt$PontVisitante==dt$PontMandante, 0, dt$PontVisitante)
+colSums(dt[,2:3])
 
 #analise grafica
 head(dt2000)
