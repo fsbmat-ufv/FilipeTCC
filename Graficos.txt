@@ -9,3 +9,12 @@ vitorias man
 vitorias visit 
 derrotas man
 derrotas visit 
+
+comparativo entre os campeonatos (Tenho de 2003)
+7,8,9 - numero de vitorias totais como mandante, como visitante, totais (OK,OK,OK)
+**numero de derrotas totais como mandante, como visitante, totais (,)
+*numero de empates totais como mandante, como visitante,totais (,,)
+4,5,6 - numero de gols mandt, visit, totais (OK,OK,OK) 
+2 - 10 estadios com mais jogos (OK)
+3 - 10 estadios com menos jogos (OK)  
+1 - numero de jogos em cada estadio (OK)
