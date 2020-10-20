@@ -22,8 +22,12 @@ library(readr)
 library(animation)
 library(ggthemes)
 
+<<<<<<< HEAD
+ #dt2000 <- fread("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.csv")
+=======
 dt2000 <- fread("Campeonato2000.csv")
 dt2000 <- as.data.frame(dt2000)
+>>>>>>> 33a9dc157be724feaa9be9e679b4f29867dca0a5
 # #dt2000 <- read.xlsx("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.xlsx", colNames = TRUE)
 names(dt2000)<- c("Hora"          ,
 "Dia"           ,
@@ -224,8 +228,8 @@ venestdv %>%  ggplot(aes(EstadoVenc,Quant,fill=EstadoVenc))+
 ggtitle("Número de vitórias dos times de cada estado no Brasileirão 2003")
 ggplotly(venestdv)
 
-head(dt2000)
-vitot <- dt2000 %>%
+head(dt2003)
+vitot <- dt2003 %>%
   group_by(Vencedor) %>% summarise(Quant=n(),.groups="drop")
   vitot %>%  ggplot(aes(Quant,reorder(Vencedor,Quant),fill=Vencedor))+
   geom_col(show.legend = FALSE)+
@@ -234,7 +238,7 @@ vitot <- dt2000 %>%
   xlab("Estados Vencedores")+
   ylab("Quantidade de vitórias gerais")+
   geom_text(aes(label=Quant),nudge_x = 30)+
-  ggtitle("Número de vitórias dos times nas edições do Brasileirão")
+  ggtitle("Número de vitórias dos times nas edições de pontos corridos do Brasileirão")
 
 head(dt2000)
 ar <- dt2000 %>%
@@ -248,6 +252,27 @@ ar %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena))+
   geom_text(aes(label=Quant),nudge_x = 30)+
     ggtitle("Número de jogos em cada estádio nas edições do Brasileirão")
 
+ar %>% select("Arena")
+regular <- ar %>% filter(Quant<=5)
+regular %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Estádios")+
+  ylab("Quantidade de jogos nos estádios")+
+  geom_text(aes(label=Quant),nudge_x = 10)+
+  ggtitle("Os estádios com menos jogos no Brasileirão de pontos corridos")
+
+ar %>% select("Arena")
+bom <- ar %>% filter(Quant>255)
+bom %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Estádios")+
+  ylab("Quantidade de jogos nos estádios")+
+  geom_text(aes(label=Quant),nudge_x = 30)+
+  ggtitle("Os 10 estádios com mais jogos no Brasileirão de pontos corridos")
 
   
 
@@ -333,15 +358,6 @@ ar %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena))+
   gv2001819 <- 
     dt2000 %>% filter(Data>=as.Date("2018-01-01") & Data<=as.Date("2019-12-31")) %>% 
     group_by(Vencedor,GolsMan) %>% summarise(Quant=n(),.groups="drop")    
-  gv2001819 %>%  ggplot(aes(Quant,Vencedor,fill=Vencedor))+
-    geom_col(show.legend = FALSE)+
-    theme(panel.background = element_rect(fill = "white", colour = "black")) +
-    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
-    xlab("Quantidades de Vitórias/Empates")+
-    ylab("Times que disputaram o Campeonato")+
-    geom_text(aes(label=Quant),nudge_x = 4)+
-    theme_bw()+
-    ggtitle("Número de vitórias no Brasileirão 2018-19")
 
   
   str(dt2003)
@@ -353,17 +369,124 @@ numcruzM <- dados %>% filter(Mandante =="CRUZEIRO") %>% summarise(golsM=sum(Gols
 numcruzV <- dados %>% filter(Visitante =="CRUZEIRO") %>% summarise(golsV=sum(GolsVisit))
 (numcruz <- numcruzM + numcruzV)
 
-mandanteNG <- dados %>% group_by(Mandante) %>% summarise(golsM=sum(GolsMan))
+mandanteNG <- dados %>%  filter(Ano=="2019") %>% group_by(Mandante) %>% summarise(golsM=sum(GolsMan))
 names(mandanteNG) <- c("Time","GolsM")
-visitanteNG <- dados %>% group_by(Visitante) %>% summarise(golsM=sum(GolsVisit))
+visitanteNG <- dados %>% filter(Ano=="2019") %>% group_by(Visitante) %>% summarise(golsM=sum(GolsVisit))
 names(visitanteNG) <- c("Time","GolsV")
 totGols <- left_join(mandanteNG,visitanteNG,by="Time")
 totGols$Total <- rowSums(totGols[,2:3])
+totGols %>%  ggplot(aes(GolsM,reorder(Time,GolsM),fill=GolsM))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Quantidades de gols no Brasileirão como mandante")+
+  ylab("Times que disputaram o Campeonato")+
+  geom_text(aes(label=GolsM),nudge_x = 4)+
+  theme_bw()+
+  ggtitle("Número de gols dos times como mandante no Brasileirão")
+
+totGols %>%  ggplot(aes(GolsV,reorder(Time,GolsV),fill=GolsV))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Quantidades de gols no Brasileirão como visitante")+
+  ylab("Times que disputaram o Campeonato")+
+  geom_text(aes(label=GolsV),nudge_x = 10)+
+  theme_bw()+
+  ggtitle("Número de gols dos times como visitantes no Brasileirão")
+
+totGols %>%  ggplot(aes(Total,reorder(Time,Total),fill=Total))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Quantidades de gols no Brasileirão")+
+  ylab("Times que disputaram o Campeonato")+
+  geom_text(aes(label=Total),nudge_x = 18)+
+  theme_bw()+
+  ggtitle("Total de gols dos times no Brasileirão")
 
 dados$vitMan <- ifelse(dados$Mandante==dados$Vencedor,1,0)
-testeM <- dados %>% group_by(Mandante) %>% summarise(vitM=sum(vitMan))
+testeM <- dados %>% filter(Ano=="2019") %>% group_by(Mandante) %>% summarise(vitM=sum(vitMan))
+names(testeM) <- c("Time","VitM")
+testeM %>%  ggplot(aes(VitM,reorder(Time,VitM),fill=VitM))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Quantidades de vitórias como mandante no Brasileirão")+
+  ylab("Times que disputaram o Campeonato")+
+  geom_text(aes(label=VitM),nudge_x = 8)+
+  theme_bw()+
+  ggtitle("Quantidades de vitórias como mandante no Brasileirão de pontos corridos")
+
 dados$vitVist <- ifelse(dados$Visitante==dados$Vencedor,1,0)
-testeV <- dados %>% group_by(Visitante) %>% summarise(vitV=sum(vitVist))
+testeV <- dados %>% filter(Ano=="2019") %>% group_by(Visitante) %>% summarise(vitV=sum(vitVist))
+names(testeV) <- c("Time","VitV")
+testeV %>%  ggplot(aes(VitV,reorder(Time,VitV),fill=VitV))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Quantidades de vitórias como visitante no Brasileirão")+
+  ylab("Times que disputaram o Campeonato")+
+  geom_text(aes(label=VitV),nudge_x = 8)+
+  theme_bw()+
+  ggtitle("Quantidades de vitórias como visitante no Brasileirão de pontos corridos")
+
+totvit <- left_join(testeM,testeV,by="Time")
+totvit$Total <- rowSums(totvit[,2:3])
+
 
 dados$derM <- ifelse(dados$Mandante==dados$Vencedor,0,1)
-testeD <- dados %>% group_by(Mandante) %>% summarise(derm=sum(derM))
+testeDM <- dados %>% group_by(Mandante) %>% summarise(derm=sum(derM))
+names(testeDM) <- c("Time","DerM")
+
+dados$derV <- ifelse(dados$Visitante==dados$Vencedor,0,1)
+testeDV <- dados %>% group_by(Visitante) %>% summarise(derm=sum(derV))
+names(testeDV) <- c("Time","DerV")
+
+totdet <- left_join(testeDM,testeDV,by="Time")
+totdet$Total <- rowSums(totdet[,2:3])
+
+##
+dados$empM <- (dados$vencedor="EMPATE")
+testeEmpM <- dados %>% group_by(Vencedor) %>% summarise(p=sum(empM))
+names(testeEmpM) <- c("Time","EmpM")
+
+dados$eM <- ifelse(dados$Mandante==dados$Vencedor,1,1)
+testeEM <- dados %>% group_by(Vencedor) %>% summarise(em=sum(eM))
+names(testeEM) <- c("Time","EmpM")
+
+dados$Em <- ifelse(dados$Visitante==dados$Vencedor,1,1)
+testeEV <- dados %>% group_by(Vencedor) %>% summarise(me=sum(Em))
+names(testeVM) <- c("Time","EmpM")
+
+
+head(dt2000)
+venestdv19 <- dt2000 %>% filter(Data>=as.Date("2019-01-01") & Data<=as.Date("2019-12-31")) %>%
+  group_by(Mandante,Visitante,Vencedor) %>% summarise(Quant=n(),.groups="drop")
+
+venestdv19$vv19 <- ifelse(venestdv19$Mandante==venestdv19$Vencedor,3,0)
+testeV19 <- venestdv19 %>% group_by(Mandante) %>% summarise(v19=sum(vv19))
+names(testeV19) <- c("Time","VitM")
+venestdv19$vvl19 <- ifelse(venestdv19$Visitante==venestdv19$Vencedor,3,0)
+testeVV19 <- venestdv19 %>% group_by(Visitante) %>% summarise(vl19=sum(vvl19))
+names(testeVV19) <- c("Time","VitV")
+tot19<- left_join(testeV19,testeVV19,by="Time")
+tot19$Total <- rowSums(tot19[,2:3])
+
+venestdv19$Em19 <- ifelse(venestdv19$Visitante==venestdv19$Vencedor,1,1)
+testeEM19 <- venestdv19 %>% group_by(Vencedor) %>% summarise(me19=sum(Em19))
+names(testeEM19) <- c("Time","EmpM")
+
+
+
+
+
+
+
+
+
+
+head(dados)
+testeEmpV <- dados %>% filter(dados$Vencedor=="EMPATE") %>% 
+  group_by(Vencedor) %>% summarise(Quant=n(),.groups="drop") 
+
