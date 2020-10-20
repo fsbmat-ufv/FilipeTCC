@@ -23,6 +23,7 @@ shinyServer(function(input, output, session) {
     })
     
     output$plot1 <- renderPlotly({
+        
         plot1 <- dados %>% filter(Ano==input$Ano1, Vencedor!="EMPATE") %>% 
             group_by(Vencedor) %>% summarise(Quant=n(),.groups="drop") %>% 
             ggplot(aes(Quant,reorder(Vencedor,Quant),fill=Vencedor, text=paste("Núm. de Vitórias =", Quant, "<br>",
@@ -36,7 +37,9 @@ shinyServer(function(input, output, session) {
             theme_bw()+
             ggtitle(paste("Número de vitórias no Brasileirão", input$Ano1))
         ggplotly(plot1, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "top")
-    })
+        
+        
+        })
     
    #  output$plot2 <- renderLeaflet({
    #      dados %>% group_by(Country, latitude, longitude) %>% summarise(NrUniv=n_distinct(University)) %>% 
