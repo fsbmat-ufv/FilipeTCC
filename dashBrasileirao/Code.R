@@ -8,21 +8,7 @@ library("plotly")
 
 
 #saveRDS(dt2000, file = "dt2000.Rds")
-dt2000 <- readRDS("dt2000.Rds")
-dt2000$Data <- as.Date(as.character(dt2000$Data), format = "%Y-%m-%d")
-dt2000$Vencedor[dt2000$Vencedor=="-"] <- "EMPATE"
 
-
-#dt2000$Data <- format(dt2000$Data,"%d-%m-%Y")
-dt2003 <- dt2000 %>% filter(Data>=as.Date("2003-01-01"))
-dt2003$Ano <- year(dt2003$Data)
-
-dt2003$Derrotado <- ifelse(dt2003$Vencedor=="EMPATE", "EMPATE",ifelse(dt2003$Visitante==dt2003$Vencedor,dt2003$Mandante, dt2003$Visitante))
-dt2003$PontMandante <- ifelse(dt2003$Vencedor=="EMPATE", 1,ifelse(dt2003$Mandante==dt2003$Vencedor&dt2003$Vencedor!="EMPATE",3, 0))
-dt2003$PontVisitante <- ifelse(dt2003$Vencedor=="EMPATE", 1,ifelse(dt2003$Visitante==dt2003$Vencedor&dt2003$Vencedor!="EMPATE",3, 0))
-
-
-saveRDS(dt2003,"dados.rds")
 dados <- readRDS("dados.rds")
 
 ###########################Grafico 1##########################

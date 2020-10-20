@@ -22,7 +22,7 @@ library(readr)
 library(animation)
 library(ggthemes)
 
-# dt2000 <- fread("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.csv")
+ #dt2000 <- fread("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.csv")
 # #dt2000 <- read.xlsx("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/Campeonato2000.xlsx", colNames = TRUE)
 # names(dt2000)<- c("Hora"          ,
 # "Dia"           ,
@@ -355,9 +355,9 @@ numcruzM <- dados %>% filter(Mandante =="CRUZEIRO") %>% summarise(golsM=sum(Gols
 numcruzV <- dados %>% filter(Visitante =="CRUZEIRO") %>% summarise(golsV=sum(GolsVisit))
 (numcruz <- numcruzM + numcruzV)
 
-mandanteNG <- dados %>% group_by(Mandante) %>% summarise(golsM=sum(GolsMan))
+mandanteNG <- dados %>%  filter(Ano=="2019") %>% group_by(Mandante) %>% summarise(golsM=sum(GolsMan))
 names(mandanteNG) <- c("Time","GolsM")
-visitanteNG <- dados %>% group_by(Visitante) %>% summarise(golsM=sum(GolsVisit))
+visitanteNG <- dados %>% filter(Ano=="2019") %>% group_by(Visitante) %>% summarise(golsM=sum(GolsVisit))
 names(visitanteNG) <- c("Time","GolsV")
 totGols <- left_join(mandanteNG,visitanteNG,by="Time")
 totGols$Total <- rowSums(totGols[,2:3])
@@ -392,7 +392,7 @@ totGols %>%  ggplot(aes(Total,reorder(Time,Total),fill=Total))+
   ggtitle("Total de gols dos times no Brasileirão")
 
 dados$vitMan <- ifelse(dados$Mandante==dados$Vencedor,1,0)
-testeM <- dados %>% group_by(Mandante) %>% summarise(vitM=sum(vitMan))
+testeM <- dados %>% filter(Ano=="2019") %>% group_by(Mandante) %>% summarise(vitM=sum(vitMan))
 names(testeM) <- c("Time","VitM")
 testeM %>%  ggplot(aes(VitM,reorder(Time,VitM),fill=VitM))+
   geom_col(show.legend = FALSE)+
@@ -405,7 +405,7 @@ testeM %>%  ggplot(aes(VitM,reorder(Time,VitM),fill=VitM))+
   ggtitle("Quantidades de vitórias como mandante no Brasileirão de pontos corridos")
 
 dados$vitVist <- ifelse(dados$Visitante==dados$Vencedor,1,0)
-testeV <- dados %>% group_by(Visitante) %>% summarise(vitV=sum(vitVist))
+testeV <- dados %>% filter(Ano=="2019") %>% group_by(Visitante) %>% summarise(vitV=sum(vitVist))
 names(testeV) <- c("Time","VitV")
 testeV %>%  ggplot(aes(VitV,reorder(Time,VitV),fill=VitV))+
   geom_col(show.legend = FALSE)+
