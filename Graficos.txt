@@ -1,3 +1,59 @@
+#######################################################################
+Ajustes no Shiny
+#######################################################################
+
+CONSEGUIR SEPARAR ENTRE GERAL E ANO NA HORA DE VISUALIZAR 
+COR DOS GRÁFICOS 
+ESCALA DOS GRÁFICOS 
+MONTAR LAYOUT DA PÁGINA
+
+#######################################################################
+Ordem no Shiny
+#######################################################################
+
+V 19,20,21 - numero de jogos como mandante, visitante, total (OK,OK,OK) (ANO Ñ)
+V 16,17,18 - numero de gols como mandante, visitante, totais (OK,OK,OK) (ANO Ñ)
+V 13,14,15 - numero de derrotas como mandante, como visitante, totais (OK,OK,OK) 
+V 10,11,12 - numero de empates como mandante, como visitante,totais (OK,OK,OK) (ANO Ñ)
+V 7,8,9 - numero de vitorias como mandante, como visitante, totais (OK,OK,OK) 
+V 4,5,6 - pontuação como mandante, visitante, total (OK,OK,OK) (ANO Ñ)
+V 1,2,3 - numero de jogos em cada estadio, estadio com mais jogos, estadio com menos jogos (OK,OK,OK) 
+
+#######################################################################
+
+#######################################################################
+
+
+
+
+#######################################################################
+Ordem dos Gráficos:
+#######################################################################
+comparativo entre os campeonatos (Tenho de 2003)
+
+19,20,21 - numero de jogos como mandante, visitante, total (OK,OK,OK)
+16,17,18 - numero de empates totais como mandante, como visitante,totais (OK,OK,OK)
+13,14,15 - pontuação como mandante, visitante, total (OK,OK,OK)
+10,11,12 - numero de derrotas totais como mandante, como visitante, totais (OK,OK,OK)
+7,8,9 - numero de vitorias totais como mandante, como visitante, totais (OK,OK,OK)
+4,5,6 - numero de gols mandt, visit, totais (OK,OK,OK) 
+1,2,3 - numero de jogos em cada estadio, estadio com mais jogos, estadio com menos jogos (OK,OK,OK)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################################################
+
 comparativo entre os campeonatos 
 numeros de vitorias totais de tds os anos 
 numero de gols totais de visit e mand 
@@ -9,14 +65,3 @@ vitorias man
 vitorias visit 
 derrotas man
 derrotas visit 
-
-comparativo entre os campeonatos (Tenho de 2003)
-
-19,20,21 - numero de jogos como mandante, visitante, total (OK,OK,OK)
-16,17,18 - numero de empates totais como mandante, como visitante,totais (OK,OK,OK)
-13,14,15 - pontuação como mandante, visitante, total (OK,OK,OK)
-10,11,12 - numero de derrotas totais como mandante, como visitante, totais (OK,OK,OK)
-7,8,9 - numero de vitorias totais como mandante, como visitante, totais (OK,OK,OK)
-4,5,6 - numero de gols mandt, visit, totais (OK,OK,OK) 
-1,2,3 - numero de jogos em cada estadio, estadio com mais jogos, estadio com menos jogos (OK,OK,OK)
-

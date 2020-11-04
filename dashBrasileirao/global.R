@@ -52,3 +52,4 @@ dred = 'rgb(100,30,30)'
 dados <- readRDS("dados.Rds")
 #pop <- data.table::fread("Populacao.csv")
 #names(pop) <- c("UF_EXERCICIO", "POPULACAO", "REGIAO")
+
