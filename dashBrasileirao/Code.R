@@ -803,5 +803,67 @@ A9FV <- dados %>% filter(Ano=="2009", Visitante=="FLAMENGO") %>%
 
 head(dados)
 A9FM <- dados %>% filter(Ano=="2009", Mandante=="FLAMENGO") %>%
-  group_by(Mandante,Visitante,Vencedor)   
+  group_by(Mandante,Visitante,Vencedor)  
+
+
+####################################
+dt1 <- dados %>% filter(Ano=="2019") %>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+dt2 <- dados %>% filter(Ano=="2019") %>% group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
+
+dt <- data.frame(dt1[,1:2],dt2[,2])
+
+dt$Pontos <- rowSums(dt[,2:3])
+
+tres <- dt %>% top_n(3, Pontos)
+names(tres) <- c("Time", "PontMan", "PontVis","Pontos")
+
+#saveRDS(tres, "tres.rds")
+
+library(png)
+ouro <- png::readPNG('~/GitHub/StackOverflow/Figs/Ouro.png')
+prata <- png::readPNG('~/GitHub/StackOverflow/Figs/Prata.png')
+bronze <- png::readPNG('~/GitHub/StackOverflow/Figs/Bronze.png')
+
+plot <- tres %>% ggplot(aes(Time, Pontos, 
+                            fill=Time, 
+                            text=paste("Time:", Time, "<br>", 
+                                       "Pontuação: ", Pontos)))+
+  geom_col(show.legend = FALSE)+
+  theme_bw()+
+  geom_text(aes(label=Pontos),nudge_y = 2)
+
+ggplotly(plot, tooltip = "text", width = 600, height = 600)%>% 
+  layout(images = list(list(
+    source = raster2uri(as.raster(ouro)),
+    x = 0.75, y = 75, 
+    sizex = 0.5, sizey = 15.1,
+    xref = "x", yref = "y",
+    xanchor = "left", yanchor = "bottom",
+    sizing = "stretch"
+  ), list(
+    source = raster2uri(as.raster(prata)),
+    x = 1.75, y = 59, 
+    sizex = 0.5, sizey = 15.1,
+    xref = "x", yref = "y",
+    xanchor = "left", yanchor = "bottom",
+    sizing = "stretch"
+  ), list(
+    source = raster2uri(as.raster(bronze)),
+    x = 2.75, y = 59, 
+    sizex = 0.5, sizey = 15.1,
+    xref = "x", yref = "y",
+    xanchor = "left", yanchor = "bottom",
+    sizing = "stretch"
+  )),
+  showlegend = FALSE, 
+  title = list(text = paste0('Os três primeiros colocados',
+                             '<br>',
+                             '<sup>',
+                             'Campeonato Brasileiro de 2019',
+                             '</sup>')), 
+  margin=0) %>%
+  style(textposition = "top")
+
+
+
 
