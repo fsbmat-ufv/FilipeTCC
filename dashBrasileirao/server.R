@@ -23,10 +23,42 @@ shinyServer(function(input, output, session) {
     })
     
     ################################# GRAFICO ARENA ###################
+    
+    output$plot21 <- renderPlotly({
+       
+       #head(dados)
+       
+       plot21 <- dados %>% 
+          filter(Ano==input$Ano1)%>% 
+          group_by(Arena) %>% summarise(Quant=n(),.groups="drop") %>%  
+          ggplot(aes(Quant, reorder(Arena,Quant), 
+                     fill=Arena, 
+                     text=paste("Núm. de Jogos =", Quant, "<br>",
+                                "Arena = ", Arena)))+
+          geom_col(show.legend = FALSE)+
+          theme(panel.background = element_rect(fill = "white", colour = "black")) +
+          theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+          xlab("Número de jogos nos estádios")+
+          ylab("Nome dos estádios")+
+          theme_bw()+
+          geom_text(aes(label=Quant),nudge_x = 1)+
+          ggtitle("Quantidade de jogos totais em cada estádio nas edições do Brasileirão",input$Ano1)
+       ggplotly(plot21, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+       
+    })
    
      output$plot1 <- renderPlotly({  
-     plot1 <- bom %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena, text=paste("Núm. de Jogos =", Quant, "<br>",
-                                                                                    "Arena = ", Arena)))+
+        
+        # ar <- dados %>%
+        #    group_by(Arena) %>% summarise(Quant=n(),.groups="drop") %>% filter(Quant>=255)
+        
+     plot1 <- dados %>%
+        group_by(Arena) %>% summarise(Quant=n(),.groups="drop") %>% 
+        filter(Quant>=255) %>%  
+        ggplot(aes(Quant, reorder(Arena,Quant), 
+                   fill=Arena, 
+                   text=paste("Núm. de Jogos =", Quant, "<br>",
+                              "Arena = ", Arena)))+
        geom_col(show.legend = FALSE)+
        theme(panel.background = element_rect(fill = "white", colour = "black")) +
        theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
@@ -41,7 +73,8 @@ shinyServer(function(input, output, session) {
    
    output$plot2 <- renderPlotly({
      
-     plot2 <- regular %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena, text=paste("Núm. de Jogos =", Quant, "<br>",
+     plot2 <- dados %>%
+        group_by(Arena) %>% summarise(Quant=n(),.groups="drop") %>% filter(Quant<=5) %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena, text=paste("Núm. de Jogos =", Quant, "<br>",
                                                                                                 "Arena = ", Arena)))+
        geom_col(show.legend = FALSE)+
        theme(panel.background = element_rect(fill = "white", colour = "black")) +
@@ -49,40 +82,21 @@ shinyServer(function(input, output, session) {
        xlab("Número de jogos nas Arenas")+
        ylab("Nome das Arenas")+
        theme_classic()+
-       geom_text(aes(label=Quant),nudge_x = 0.5)+
+       geom_text(aes(label=Quant),nudge_x = 0.1)+
        ggtitle("As arenas com menos jogos no Brasileirão ")
-     ggplotly(plot2, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "top")
+     ggplotly(plot2, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
    }) 
    
-   output$plot21 <- renderPlotly({
-      
-      head(dados)
-      ar <- dados %>% 
-         filter(Ano==input$Ano1)%>% 
-         group_by(Arena) %>% summarise(Quant=n(),.groups="drop")
-      plot21 <- ar %>%  ggplot(aes(Quant,reorder(Arena,Quant),fill=Arena,fill=Time, text=paste("Núm. de Jogos =", Quant, "<br>",
-                                                                                               "Arena = ", Arena)))+
-         geom_col(show.legend = FALSE)+
-         theme(panel.background = element_rect(fill = "white", colour = "black")) +
-         theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
-         xlab("Número de jogos nos estádios")+
-         ylab("Nome dos estádios")+
-         theme_bw()+
-         geom_text(aes(label=Quant),nudge_x = 1)+
-         ggtitle("Quantidade de jogos totais em cada estádio nas edições do Brasileirão",input$Ano1)
-      ggplotly(plot21, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "top")
-      
-   })
+   
    
 ################################# GRAFICO PONTOS ###################
    
    output$plot3 <- renderPlotly({
      
-      head(dados)
-      ptM <- dados %>% 
-         filter(Ano==input$Ano51)%>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+      
          
-     plot3 <- ptM %>% ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=PontMan, text=paste("Núm. de Pontos =", PontMan, "<br>",
+     plot3 <- dados %>% 
+         filter(Ano==input$Ano51)%>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante)) %>% ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=PontMan, text=paste("Núm. de Pontos =", PontMan, "<br>",
                                                                                              "Time = ", Mandante)))+
        geom_col(show.legend = FALSE)+
        theme(panel.background = element_rect(fill = "white", colour = "black")) +
@@ -97,11 +111,10 @@ shinyServer(function(input, output, session) {
    }) 
      
    output$plot4 <- renderPlotly({
-      head(dados)
-      ptV <- dados %>% 
-         filter(Ano==input$Ano52)%>%  group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
       
-     plot4 <- ptV %>% ggplot(aes(PontVis,reorder(Visitante,PontVis),fill=PontVis, text=paste("Núm. de Pontos =", PontVis, "<br>",
+      
+     plot4 <- dados %>% 
+         filter(Ano==input$Ano52)%>%  group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante)) %>% ggplot(aes(PontVis,reorder(Visitante,PontVis),fill=PontVis, text=paste("Núm. de Pontos =", PontVis, "<br>",
                                                                                               "Time = ", Visitante)))+
        geom_col(show.legend = FALSE)+
        theme(panel.background = element_rect(fill = "white", colour = "black")) +
@@ -116,20 +129,60 @@ shinyServer(function(input, output, session) {
    }) 
    
    output$plot5 <- renderPlotly({
-     head(dados)
       
-    
-      plot5 <- ptfinal  %>% ggplot(aes(Pontos,reorder(Mandante,Pontos),fill=Pontos, text=paste("Pontuação =", Pontos, "<br>",
-                                                                                              "Time = ", Mandante)))+
-       geom_col(show.legend = FALSE)+
-       theme(panel.background = element_rect(fill = "white", colour = "black")) +
-       theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
-       xlab("Número de pontos dos times")+
-       ylab("Times que disputaram o Brasileirão")+
-       theme_classic()+
-       geom_text(aes(label=Pontos),nudge_x = 30)+
-       ggtitle("Pontuação final no Brasileirão")
-     ggplotly(plot5, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "top")
+      if(input$Ano53=="Todos os anos") {
+         
+         ptM <- dados %>% 
+            #filter(Ano==input$Ano53)%>% 
+            group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+         
+         ptV <- dados %>% 
+            #filter(Ano==input$Ano53)%>% 
+            group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
+         
+         ptfinal <- data.frame(ptM[,1:2],ptV[,2])
+         
+         ptfinal$Pontos <- rowSums(ptfinal[,2:3])
+         
+         plot5 <- ptfinal  %>% ggplot(aes(Pontos,reorder(Mandante,Pontos),fill=Mandante, text=paste("Pontuação =", Pontos, "<br>",
+                                                                                                  "Time = ", Mandante)))+
+            geom_col(show.legend = FALSE)+
+            theme(panel.background = element_rect(fill = "white", colour = "black")) +
+            theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+            xlab("Número de pontos dos times")+
+            ylab("Times que disputaram o Brasileirão")+
+            theme_classic()+
+            geom_text(aes(label=Pontos),nudge_x = 30)+
+            ggtitle("Pontuação final no Brasileirão")
+         ggplotly(plot5, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+         
+      } else {
+         
+         ptM <- dados %>% 
+            filter(Ano==input$Ano53)%>% 
+            group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+         
+         ptV <- dados %>% 
+            filter(Ano==input$Ano53)%>% 
+            group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
+         
+         ptfinal <- data.frame(ptM[,1:2],ptV[,2])
+         
+         ptfinal$Pontos <- rowSums(ptfinal[,2:3])
+         
+         plot5 <- ptfinal  %>% ggplot(aes(Pontos,reorder(Mandante,Pontos),fill=Pontos, text=paste("Pontuação =", Pontos, "<br>",
+                                                                                                  "Time = ", Mandante)))+
+            geom_col(show.legend = FALSE)+
+            theme(panel.background = element_rect(fill = "white", colour = "black")) +
+            theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+            xlab("Número de pontos dos times")+
+            ylab("Times que disputaram o Brasileirão")+
+            theme_classic()+
+            geom_text(aes(label=Pontos),nudge_x = 30)+
+            ggtitle("Pontuação final no Brasileirão")
+         ggplotly(plot5, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+         
+      }
      
    }) 
    ################################# GRAFICO VITORIAS ###################

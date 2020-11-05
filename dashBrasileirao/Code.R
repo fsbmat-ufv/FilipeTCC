@@ -820,9 +820,9 @@ names(tres) <- c("Time", "PontMan", "PontVis","Pontos")
 #saveRDS(tres, "tres.rds")
 
 library(png)
-ouro <- png::readPNG('~/GitHub/StackOverflow/Figs/Ouro.png')
-prata <- png::readPNG('~/GitHub/StackOverflow/Figs/Prata.png')
-bronze <- png::readPNG('~/GitHub/StackOverflow/Figs/Bronze.png')
+ouro <- png::readPNG('Ouro.png')
+prata <- png::readPNG('Prata.png')
+bronze <- png::readPNG('Bronze.png')
 
 plot <- tres %>% ggplot(aes(Time, Pontos, 
                             fill=Time, 

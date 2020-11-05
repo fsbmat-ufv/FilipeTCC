@@ -10,16 +10,33 @@
 
 # Define UI for application
 
-######################## PLANO TABELA ############################
+######################## Imagem inicial ############################
 
 shinyUI(fluidPage(
-  navbarPage(title="Análise do Brasileirão", theme = shinytheme("flatly"),
+  navbarPage(title="Brasileirão 2003-2019", theme = shinytheme("flatly"),
+             tabPanel("Inicio",
+                      #tabsetPanel(
+                        #tabPanel(" ",
+                                 fluidRow(
+                                   column(12,
+                                          img(src = "Brasileirao.jpg", height = 680, width = 1550)#DT::dataTableOutput("table1")
+                                          ))#)
+                        ##
+                        
+                        
+                        
+                      #)# barra de navegacao interna
+             ),# barra de navegacao superior (Dados do Participante)
+             
+             ####################### Aba Tabela ############################
+             
              tabPanel("Tabela Brasileirão",
                       tabsetPanel(
                         tabPanel("Tabela Brasileirão de 2003-2019",
                                  fluidRow(
                                    column(12,
-                                          DT::dataTableOutput("table1"))))
+                                          DT::dataTableOutput("table1")
+                                   )))
                         ##
                         
                         
@@ -76,7 +93,8 @@ shinyUI(fluidPage(
                                 fluidRow(column(3, 
                                                 selectInput("Ano53", 
                                                             strong("Escolha uma opção:"), 
-                                                            choices=c("2003"="2003",
+                                                            choices=c("Todos os anos"= "Todos os anos",
+                                                                      "2003"="2003",
                                                                       "2004"="2004",
                                                                       "2005"="2005",
                                                                       "2006"="2006",
