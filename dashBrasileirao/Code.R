@@ -311,7 +311,7 @@ ptfinal %>%  ggplot(aes(Pontos,reorder(Mandante,Pontos),fill=Pontos))+
 
 head(dados)
 empate <- dados %>% filter(Vencedor=="EMPATE") %>%
-  #filter(Ano=="2019",Vencedor=="EMPATE")%>%
+  filter(Ano=="2019",Vencedor=="EMPATE")%>%
   group_by(Mandante,Visitante,Vencedor) %>% summarise(Quant=n(),.groups="drop")
 
 empate$emm <- ifelse(empate$Mandante!=empate$Vencedor,1,0)
@@ -349,10 +349,10 @@ emv %>%  ggplot(aes(EmpV,reorder(Time,EmpV),fill=EmpV))+
 ########################### EMPT T ##########################
 totEmpate <- left_join(emv,emm,by="Time")
 totEmpate$Total <- rowSums(totEmpate[,2:3])
-head(dados)
-totEmpate <- dados %>%  
-  filter(Ano=="2019")%>%
-  group_by(Time) %>% summarise(Quant=n(),.groups="drop")
+#head(dados)
+#totEmpate <- dados  %>% 
+  #filter(Ano=="2019") %>% 
+  #group_by(Time) %>% summarise(Quant=n(),.groups="drop")
 
 totEmpate %>%  ggplot(aes(Total,reorder(Time,Total),fill=Total))+
   geom_col(show.legend = FALSE)+
@@ -807,8 +807,8 @@ A9FM <- dados %>% filter(Ano=="2009", Mandante=="FLAMENGO") %>%
 
 
 ####################################
-dt1 <- dados %>% filter(Ano=="2019") %>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
-dt2 <- dados %>% filter(Ano=="2019") %>% group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
+dt1 <- dados %>% filter(Ano=="2004") %>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+dt2 <- dados %>% filter(Ano=="2004") %>% group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
 
 dt <- data.frame(dt1[,1:2],dt2[,2])
 
@@ -822,7 +822,7 @@ names(tres) <- c("Time", "PontMan", "PontVis","Pontos")
 library(png)
 ouro <- png::readPNG('Ouro.png')
 prata <- png::readPNG('Prata.png')
-bronze <- png::readPNG('Bronze.png')
+bronze <- png::readPNG('Bronze.png')   
 
 plot <- tres %>% ggplot(aes(Time, Pontos, 
                             fill=Time, 
