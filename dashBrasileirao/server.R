@@ -222,7 +222,7 @@ shinyServer(function(input, output, session) {
    }) 
  
      output$plot99 <- renderPlotly({
-   
+   #input$Ano99
       dt1 <- dados %>% filter(Ano==input$Ano99) %>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
       dt2 <- dados %>% filter(Ano==input$Ano99) %>% group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
       
@@ -230,7 +230,7 @@ shinyServer(function(input, output, session) {
       
       dt$Pontos <- rowSums(dt[,2:3])
       
-      tres <- dt %>% top_n(3, Pontos)
+      tres <- dt %>% top_n(3, Pontos) %>%  arrange(desc(Pontos)) %>% head(3)
       names(tres) <- c("Time", "PontMan", "PontVis","Pontos") 
   
       
@@ -238,33 +238,35 @@ shinyServer(function(input, output, session) {
    ouro <- png::readPNG('Ouro.png')
    prata <- png::readPNG('Prata.png')
    bronze <- png::readPNG('Bronze.png')    
+   #max(tres$Pontos)
+   num <- sort(tres$Pontos, decreasing = T)
    
-   plot <- tres %>% ggplot(aes(Time,Pontos,
+   plot <- tres %>% ggplot(aes(reorder(Time,-Pontos), Pontos,
                                fill=Pontos, 
                                text=paste("Time:", Time, "<br>", 
                                           "Pontuação: ", Pontos)))+
       geom_col(show.legend = FALSE)+
-      theme_bw()+
-      geom_text(aes(label=Pontos),nudge_y = 0.2)
+      theme_bw()+xlab(paste0("Maiores pontuadores do ano ", input$Ano99))+
+      geom_text(aes(label=Pontos),nudge_y = 1)
    
    ggplotly(plot, tooltip = "text", width = 600, height = 600)%>% 
       layout(images = list(list(
          source = raster2uri(as.raster(ouro)),
-         x = 0.75, y = 75, 
+         x = 0.75, y = (head(num)[1]-15), 
          sizex = 0.5, sizey = 15.1,
          xref = "x", yref = "y",
          xanchor = "left", yanchor = "bottom",
          sizing = "stretch"
       ), list(
          source = raster2uri(as.raster(prata)),
-         x = 1.75, y = 59, 
+         x = 1.75, y = (head(num)[2]-15), 
          sizex = 0.5, sizey = 15.1,
          xref = "x", yref = "y",
          xanchor = "left", yanchor = "bottom",
          sizing = "stretch"
       ), list(
          source = raster2uri(as.raster(bronze)),
-         x = 2.75, y = 59, 
+         x = 2.75, y = (head(num)[3]-15), 
          sizex = 0.5, sizey = 15.1,
          xref = "x", yref = "y",
          xanchor = "left", yanchor = "bottom",
