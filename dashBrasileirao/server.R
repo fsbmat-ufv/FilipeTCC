@@ -283,6 +283,38 @@ shinyServer(function(input, output, session) {
    
    }) 
    
+     output$plot98 <- renderPlotly({
+        dt3 <- dados %>% filter(Ano==input$Ano98) %>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+        dt4 <- dados %>% filter(Ano==input$Ano98) %>% group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
+        
+        dt4 <- data.frame(dt3[,1:2],dt4[,2])
+        
+        dt4$Pontos <- rowSums(dt4[,2:3])
+        
+        quatro <- dt4 %>% top_n(4, -Pontos) %>%  arrange(desc(Pontos)) %>% head(4)
+        names(quatro) <- c("Time", "PontMan", "PontVis","Pontos") 
+     
+        plot <- quatro %>% ggplot(aes(reorder(Time,-Pontos), Pontos,
+                                    fill=Pontos, 
+                                    text=paste("Time:", Time, "<br>", 
+                                               "Pontuação: ", Pontos)))+
+           geom_col(show.legend = FALSE)+
+           theme_bw()+xlab(paste0("Menores pontuadores do ano ", input$Ano98))+
+           geom_text(aes(label=Pontos),nudge_y = 1)
+        
+        ggplotly(plot, tooltip = "text", width = 600, height = 600)
+     
+   
+        
+        
+          })     
+     
+     
+     
+     
+     
+     
+     
    
    ################################# GRAFICO VITORIAS ###################
    

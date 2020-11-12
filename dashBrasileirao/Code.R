@@ -866,4 +866,13 @@ ggplotly(plot, tooltip = "text", width = 600, height = 600)%>%
 
 
 
+  dt3 <- dados %>% filter(Ano=="2019") %>% group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+  dt4 <- dados %>% filter(Ano=="2019") %>% group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante))
+  
+  dt4 <- data.frame(dt3[,1:2],dt4[,2])
+  
+  dt4$Pontos <- rowSums(dt4[,2:3])
+  
+  quatro <- dt4 %>% top_n(4, -Pontos) %>%  arrange(desc(Pontos)) %>% head(4)
+  names(quatro) <- c("Time", "PontMan", "PontVis","Pontos") 
 
