@@ -220,6 +220,124 @@ shinyServer(function(input, output, session) {
       }
      
    }) 
+   
+   output$tabAno53 <- renderTable({
+      
+      if(input$Ano53=="2003"){
+         
+         tab2003 <- data.frame("Informações"= c("1", "2", "3"), "Descrição"=c("Ponte Preta escalou irregularmente o jogador Roberto nas partidas contra Internacional e Juventude, pelas rodadas 1 e 2 respectivamente, e perdeu os pontos conquistados nessas partidas. Internacional e Juventude ganharam 3 pontos cada.", 
+                                                                              "O Paysandu escalou irregularmente os jogadores Júnior Amorim e Aldrovani e por esse motivo perdeu oito pontos. Desses pontos, três foram para a Ponte Preta, três para o São Caetano, dois para o Corinthians e mais dois para o Fluminense.", 
+                                                                           "Cruzeiro, São Paulo, Flamengo e Grêmio classificaram-se automaticamente para a Copa Sul-Americana pelo ranking da Conmebol."))
+         
+         tab2003
+         
+         } else{
+         
+            if(input$Ano53=="2004"){
+               
+               tab2004 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("O Santos, por ser o campeão, também teve direito a disputar a Copa Sul-Americana de 2005.", 
+                                                                               "O São Caetano foi punido com a perda de 24 pontos pelo STJD, pela morte do jogador Serginho."))
+               
+               tab2004
+               
+            } else {
+               
+               if(input$Ano53=="2005"){
+                  
+                  
+               } else {
+                  
+                  if(input$Ano53=="2006"){
+                     
+                     
+                  } else {
+                     
+                     if(input$Ano53=="2007"){
+                        
+                        
+                     } else {
+                        
+                        if(input$Ano53=="2008"){
+                           
+                           
+                        } else {
+                           
+                           if(input$Ano53=="2009"){
+                              
+                              
+                           } else {
+                              
+                              if(input$Ano53=="2010"){
+                                 
+                                 
+                              } else {
+                                 
+                                 if(input$Ano53=="2011"){
+                                    
+                                    
+                                 } else {
+                                    
+                                    if(input$Ano53=="2012"){
+                                       
+                                       
+                                    } else {
+                                       
+                                       if(input$Ano53=="2013"){
+                                          
+                                          
+                                       } else {
+                                          
+                                          if(input$Ano53=="2014"){
+                                             
+                                             
+                                          } else {
+                                             
+                                             if(input$Ano53=="2015"){
+                                                
+                                                
+                                             } else {
+                                                
+                                                if(input$Ano53=="2016"){
+                                                   
+                                                   
+                                                } else {
+                                                   
+                                                   if(input$Ano53=="2017"){
+                                                      
+                                                      
+                                                   } else {
+                                                      
+                                                      if(input$Ano53=="2018"){
+                                                         
+                                                         
+                                                      } else {
+                                                         
+                                                         if(input$Ano53=="2019"){
+                                                            
+                                                            
+                                                         } else {
+                                                            
+                                                            #Text
+                                                         }
+                                                      }
+                                                   }
+                                                }
+                                             }
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+            
+      }
+      
+   })
  
      output$plot99 <- renderPlotly({
    #input$Ano99
