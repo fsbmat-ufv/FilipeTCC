@@ -575,10 +575,11 @@ shinyUI(fluidPage(
                                                  plotlyOutput("plot20", height = 800))))
                         
                       )# barra de navegacao interna
-             )# barra de navegacao superior (Dados da Escola)  
+             ),# barra de navegacao superior (Dados da Escola)  
            
   
-             
+  tabPanel("Sobre", icon = icon("comment", lib = "glyphicon"),
+                      includeMarkdown("sobre.md"))
                     
     )#navbarPage
 )#fluidPage

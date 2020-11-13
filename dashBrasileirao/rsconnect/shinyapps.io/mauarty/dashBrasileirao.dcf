@@ -1,0 +1,13 @@
+name: dashBrasileirao
+title: dashBrasileirao
+username:
+account: mauarty
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3219596
+bundleId: 3853237
+url: https://mauarty.shinyapps.io/dashBrasileirao/
+when: 1605205135.67723
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Code.R|Code2.R|plotly.R
