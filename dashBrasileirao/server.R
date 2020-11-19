@@ -225,9 +225,10 @@ shinyServer(function(input, output, session) {
       
       if(input$Ano53=="2003"){
          
-         tab2003 <- data.frame("Informações"= c("1", "2", "3"), "Descrição"=c("Ponte Preta escalou irregularmente o jogador Roberto nas partidas contra Internacional e Juventude, pelas rodadas 1 e 2 respectivamente, e perdeu os pontos conquistados nessas partidas. Internacional e Juventude ganharam 3 pontos cada.", 
+         tab2003 <- data.frame("Informações"= c("1", "2", "3","4"), "Descrição"=c("Ponte Preta escalou irregularmente o jogador Roberto nas partidas contra Internacional e Juventude, pelas rodadas 1 e 2 respectivamente, e perdeu os pontos conquistados nessas partidas. Internacional e Juventude ganharam 3 pontos cada.", 
                                                                               "O Paysandu escalou irregularmente os jogadores Júnior Amorim e Aldrovani e por esse motivo perdeu oito pontos. Desses pontos, três foram para a Ponte Preta, três para o São Caetano, dois para o Corinthians e mais dois para o Fluminense.", 
-                                                                           "Cruzeiro, São Paulo, Flamengo e Grêmio classificaram-se automaticamente para a Copa Sul-Americana pelo ranking da Conmebol."))
+                                                                              "Libertadores 2004: Cruzeiro, Santos, São Paulo, São Caetano, Coritiba",
+                                                                             "Sul-Americana 2004: Internacional, Atlético-MG, Flamengo, Goias, Paraná, Figueirense, Grêmio."))
          
          tab2003
          
@@ -235,8 +236,9 @@ shinyServer(function(input, output, session) {
          
             if(input$Ano53=="2004"){
                
-               tab2004 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("O Santos, por ser o campeão, também teve direito a disputar a Copa Sul-Americana de 2005.", 
-                                                                               "O São Caetano foi punido com a perda de 24 pontos pelo STJD, pela morte do jogador Serginho."))
+               tab2004 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("O São Caetano foi punido com a perda de 24 pontos pelo STJD, pela morte do jogador Serginho.",
+                                                                               "Libertadores 2005: Santos, Atlético-PR, São Paulo, Palmeiras.",
+                                                                               "Sul-Americana 2005: Corinthians, Goiás, Juventude, Internacional, Fluminense, Cruzeiro."))
                
                tab2004
                
@@ -244,76 +246,142 @@ shinyServer(function(input, output, session) {
                
                if(input$Ano53=="2005"){
                   
+                  tab2005 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("São Paulo tinha vaga garantida na Copa Libertadores de 2006 por ser campeão da Copa Libertadores 2005. O Corinthians, por ser o campeão, também teve direito a disputar a Copa Sul-Americana de 2006.", 
+                                                                                       "Libertadores 2006: Corinthias, Internacional, Goiás, Palmeiras, São Paulo",
+                                                                                       "Sul-Americana 2006: Fluminense, Atlético-PR, Paraná, Cruzeiro, Botafogo, Santos, Vasco da Gama."))
+                     tab2005                                                                  
+                  
                   
                } else {
                   
                   if(input$Ano53=="2006"){
                      
+                     tab2006 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Internacional e Flamengo tinham vaga garantida Libertadores 2007 por serem campeões da Libertadores 2006 e da Copa do Brasil de 2006, respectivamente. Além disso, o São Paulo, por ser campeão, também ganhava o direito de participar da Libertadores 2007.", 
+                                                                                         "Libertadores 2007: São Paulo, Internacional, Grêmio, Santos, Paraná, Flamengo.",
+                                                                                         "Sul-Americana 2007: Vasco da Gama, Figueirense, Goiás, Corinthians, Cruzeiro, Botafogo, Atlético-PR."))
+                     tab2006   
                      
                   } else {
                      
                      if(input$Ano53=="2007"){
                         
+                        tab2007 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("O Fluminense já estava classificado para a Libertadores 2008 por ser campeão da Copa do Brasil de 2007. O São Paulo, por ser o campeão, também teve direito a disputar a Copa Sul-Americana de 2008.", 
+                                                                                            "Libertadores 2008: São Paulo, Santos, Flamengo, Fluminense, Cruzeiro.",
+                                                                                            "Sul-Americana 2008: Grêmio, Palmeiras, Atlético-MG, Botafogo, Vasco da Gama, Internacional, Atlético-PR."))
+                        tab2007
                         
                      } else {
                         
                         if(input$Ano53=="2008"){
                            
+                           tab2008 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O Sport teve vaga garantida na Copa Libertadores da América de 2009 por ser campeão da Copa do Brasil de 2008.", 
+                                                                                               "O Internacional, por ser campeão da Copa Sul-Americana de 2008, garantiu a vaga na competição do ano seguinte e abriu mais uma vaga para a Copa Sul-Americana de 2009.",
+                                                                                               "Libertadores 2009: São Paulo, Grêmio, Cruzeiro, Palmeiras, Sport.",
+                                                                                               "Sul-Americana 2009: Flamengo, Internacional, Botafogo, Goiás, Coritiba, Vitória, Atlético-MG, Atlético-PR, Fluminense."))
+                           tab2008
                            
                         } else {
                            
                            if(input$Ano53=="2009"){
                               
+                              tab2009 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("O Corinthians tinha vaga garantida na Libertadores de 2010 por ter sido campeão da Copa do Brasil de 2009.", 
+                                                                                                      "Libertadores 2010: Flamengo, Internacional, São Paulo, Cruzeiro, Corinthians.",
+                                                                                                      "Sul-Americana 2010: Palmeias, Avaí, Atlético-MG, Grêmio, Goiás, Grêmio Barueri, Santos, Vitória."))
+                              tab2009
                               
                            } else {
                               
                               if(input$Ano53=="2010"){
                                  
+                                 tab2010 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O Grêmio Prudente foi punido com a perda de três pontos devido à escalação irregular do atleta Paulão, que havia sido suspenso dois dias antes na partida contra o Flamengo pela 3ª rodada.",
+                                                                                                        "Internacional e Santos tinham vaga garantida na Copa Libertadores de 2011 por serem campeões da Copa Libertadores 2010 e da Copa do Brasil de 2010, respectivamente.", 
+                                                                                                         "Libertadores 2011: Fluminense, Cruzeiro, Corinthians, Grêmio, Internacional, Santos.",
+                                                                                                         "Sul-Americana 2011: Atlético-PR, Botafogo, São Paulo, Palmeiras, Vasco da Gama, Ceará, Atlético-MG, Flamengo."))
+                                 tab2010
                                  
                               } else {
                                  
                                  if(input$Ano53=="2011"){
                                     
+                                    tab2011 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Santos e Vasco da Gama tinham vaga garantida na Copa Libertadores de 2012 por serem campeões da Copa Libertadores 2011 e Copa do Brasil de 2011, respectivamente.",
+                                                                                                         "Libertadores 2012: Corinthians, Vasco da Gama, Fluminense, Flamengo, Internacional.",
+                                                                                                         "Sul-Americana 2012: São Paulo, Figueirense, Coritiba, Botafogo, Palmeiras, Grêmio, Atlético-GO, Bahia."))
+                                    tab2011
                                     
                                  } else {
                                     
                                     if(input$Ano53=="2012"){
                                        
+                                       tab2012 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Corinthians e Palmeiras tinham vaga garantida na Copa Libertadores de 2013 por serem campeões da Copa Libertadores de 2012 e Copa do Brasil de 2012, respectivamente.",
+                                                                                                           "Libertadores 2013: Fluminense, Atlético-MG, Grêmio, São Paulo, Corinthians.",
+                                                                                                           "Sul-Americana 2013: "))
+                                       tab2012
                                        
                                     } else {
                                        
                                        if(input$Ano53=="2013"){
                                           
+                                          tab2013 <- data.frame("Informações"= c("1", "2","3","4","5"), "Descrição"=c("Atlético Mineiro e Flamengo tinham vaga garantida na Copa Libertadores de 2014 por serem campeões, respectivamente, da Copa Libertadores de 2013 e da Copa do Brasil de 2013.",
+                                                                                                                       "O Flamengo foi punido pelo STJD com a perda de 4 pontos por escalação de jogador irregular.",
+                                                                                                                       "A Portuguesa foi punida pelo STJD com a perda de 4 pontos por escalação de jogador irregular.",
+                                                                                                                       "Libertadores 2014: Cruzeiro, Grêmio, Atlético-PR, Botafogo, Atlético-MG, Flamengo.",
+                                                                                                                       "Sul-Americana 2014: "))
+                                          tab2013
                                           
                                        } else {
                                           
                                           if(input$Ano53=="2014"){
                                              
+                                             tab2014 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Atlético Mineiro tem vaga garantida na Copa Libertadores de 2015 por ter sido campeão da Copa do Brasil de 2014.",
+                                                                                                                 "Libertadores 2015: Cruzeiro, São Paulo, Internacional, Corinthians, Atlético-MG.",
+                                                                                                                 "Sul-Americana 2015: "))
+                                             tab2014
                                              
                                           } else {
                                              
                                              if(input$Ano53=="2015"){
                                                 
+                                                tab2015 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Palmeiras tem vaga garantida na Copa Libertadores de 2016 por ser campeão da Copa do Brasil de 2015.",
+                                                                                                                    "Libertadores 2016: Corinthians, Atlético-MG, Grêmio, São Paulo, Palmeiras.",
+                                                                                                                    "Sul-Americana 2016: "))
+                                                tab2015
                                                 
                                              } else {
                                                 
                                                 if(input$Ano53=="2016"){
                                                    
+                                                   tab2016 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Grêmio e Chapecoense têm vaga garantida na Copa Libertadores de 2017 por serem campeões, respectivamente, da Copa do Brasil de 2016 e da Copa Sul-Americana de 2016.",
+                                                                                                                        "O Santa Cruz foi penalizado com a perda de três pontos por atraso no pagamentos de salários.",
+                                                                                                                        "Libertadores 2017: Palmeiras, Santos, Flamengo, Atlético-MG, Botafogo, Atlético-PR, Grêmio, Chapecoense.",
+                                                                                                                       "Sul-Americana 2017: Corinthians, Ponte Preta, São Paulo, Cruzeiro, Fluminense, Sport."))
+                                                   tab2016
                                                    
                                                 } else {
                                                    
                                                    if(input$Ano53=="2017"){
                                                       
+                                                      tab2017 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Cruzeiro e Grêmio têm vaga garantida na Copa Libertadores de 2018 por serem campeões, respectivamente, da Copa do Brasil de 2017 e da Copa Libertadores de 2017.",
+                                                                                                                          "Libertadores 2018: Corinthians, Palmeiras, Santos, Grêmio, Cruzeiro, Flamengo, Vasco da Gama, Chapecoense.",
+                                                                                                                          "Sul-Americana 2018: Atlético-MG,Botafogo, Athletico-PR, Bahia, São Paulo, Fluminense."))
+                                                      tab2017
                                                       
                                                    } else {
                                                       
                                                       if(input$Ano53=="2018"){
                                                          
+                                                         tab2018 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Cruzeiro e Atlético Paranaense têm vaga garantida na Copa Libertadores de 2019 por serem campeões, respectivamente, da Copa do Brasil de 2018 e da Copa Sul-Americana de 2018.",
+                                                                                                                             "Libertadores 2019: Palmeiras, Flamengo, Internacional, Grêmio, São Paulo, Atlético-MG, Athletico-PR, Cruzeiro.",
+                                                                                                                             "Sul-Americana 2019: Botafogo, Santos,Bahia, Fluminense, Corinthians, Chapecoense."))
+                                                         tab2018
                                                          
                                                       } else {
                                                          
                                                          if(input$Ano53=="2019"){
                                                             
+                                                            tab2019 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Flamengo e Athletico Paranaense têm vagas garantidas na Copa Libertadores de 2020 por serem campeões da Copa Libertadores de 2019 e da Copa do Brasil de 2019, respectivamente.",
+                                                                                                                                "Libertadores 2020: Flamengo, Santos, Palmeiras, Grêmio, Athletico-PR, São Paulo, Internacional, Corinthians.",
+                                                                                                                                "Sul-Americana 2020: Fortaleza, Góias, Bahia, Vasco da Gama, Atlético-MG, Fluminense."))
+                                                            tab2019
                                                             
                                                          } else {
                                                             
