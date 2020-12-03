@@ -876,3 +876,29 @@ ggplotly(plot, tooltip = "text", width = 600, height = 600)%>%
   quatro <- dt4 %>% top_n(4, -Pontos) %>%  arrange(desc(Pontos)) %>% head(4)
   names(quatro) <- c("Time", "PontMan", "PontVis","Pontos") 
 
+  
+
+
+  confrontos <- dados %>% 
+    filter(Mandante=="CRUZEIRO",Visitante=="FLAMENGO")%>% 
+    group_by(Mandante,Visitante) 
+  
+  
+  
+  
+  
+  head(dados)
+  confrotnos <- dados %>% 
+    #filter(Ano=="2019")%>% 
+    group_by(Mandante) %>% summarise(Quant=n(),.groups="drop")
+  
+  
+  
+
+
+  
+ 
+  
+
+  
+  

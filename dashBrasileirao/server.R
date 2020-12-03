@@ -312,9 +312,10 @@ shinyServer(function(input, output, session) {
                                     
                                     if(input$Ano53=="2012"){
                                        
-                                       tab2012 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Corinthians e Palmeiras tinham vaga garantida na Copa Libertadores de 2013 por serem campeões da Copa Libertadores de 2012 e Copa do Brasil de 2012, respectivamente.",
+                                       tab2012 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Corinthians e Palmeiras tinham vaga garantida na Copa Libertadores de 2013 por serem campeões da Copa Libertadores de 2012 e Copa do Brasil de 2012, respectivamente e o São Paulo
+                                                                                                           tinha vaga na Sul-Americana 2013 por ter sido da Sul-Americana 2012",
                                                                                                            "Libertadores 2013: Fluminense, Atlético-MG, Grêmio, São Paulo, Corinthians.",
-                                                                                                           "Sul-Americana 2013: "))
+                                                                                                           "Sul-Americana 2013: São Paulo, Náutico, Coritiba, Ponte Preta, Bahia, Portuguesa, Criciúma, Vitória, Sport."))
                                        tab2012
                                        
                                     } else {
@@ -325,7 +326,7 @@ shinyServer(function(input, output, session) {
                                                                                                                        "O Flamengo foi punido pelo STJD com a perda de 4 pontos por escalação de jogador irregular.",
                                                                                                                        "A Portuguesa foi punida pelo STJD com a perda de 4 pontos por escalação de jogador irregular.",
                                                                                                                        "Libertadores 2014: Cruzeiro, Grêmio, Atlético-PR, Botafogo, Atlético-MG, Flamengo.",
-                                                                                                                       "Sul-Americana 2014: "))
+                                                                                                                       "Sul-Americana 2014: Vitória, Goiás, São Paulo, Bahia, Internacional, Criciúma, Fluminense, Sport."))
                                           tab2013
                                           
                                        } else {
@@ -334,7 +335,7 @@ shinyServer(function(input, output, session) {
                                              
                                              tab2014 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Atlético Mineiro tem vaga garantida na Copa Libertadores de 2015 por ter sido campeão da Copa do Brasil de 2014.",
                                                                                                                  "Libertadores 2015: Cruzeiro, São Paulo, Internacional, Corinthians, Atlético-MG.",
-                                                                                                                 "Sul-Americana 2015: "))
+                                                                                                                 "Sul-Americana 2015: Atlético-PR, Sport, Goiás, Chapecoense, Joinville, Ponte Preta, Bahia."))
                                              tab2014
                                              
                                           } else {
@@ -343,7 +344,7 @@ shinyServer(function(input, output, session) {
                                                 
                                                 tab2015 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Palmeiras tem vaga garantida na Copa Libertadores de 2016 por ser campeão da Copa do Brasil de 2015.",
                                                                                                                     "Libertadores 2016: Corinthians, Atlético-MG, Grêmio, São Paulo, Palmeiras.",
-                                                                                                                    "Sul-Americana 2016: "))
+                                                                                                                    "Sul-Americana 2016: Sport, Flamengo, Chapecoense, Coritiba, Figueirense, Vitória, Santa Cruz. "))
                                                 tab2015
                                                 
                                              } else {
@@ -1157,5 +1158,23 @@ output$plot59 <- renderPlotly({
      
    })        
    
+   output$plot122 <- renderPlotly({
+      
+      plot122 <- dados %>% 
+         filter(Mandante=="TIME84",Visitante=="TIME85")%>% 
+         group_by(Mandante,Visitante) 
+     
 
+      
+      
+      
+      
+   })        
+   
+   
+   
+   
+   
+   
+   
 })
