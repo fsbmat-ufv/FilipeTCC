@@ -1161,7 +1161,7 @@ output$plot59 <- renderPlotly({
    output$plot122 <- renderPlotly({
       
       plot122 <- dados %>% 
-         filter(Mandante=="TIME84",Visitante=="TIME85")%>% 
+         filter(Mandante==input$TIME84,Visitante==input$TIME85) %>% 
          group_by(Mandante,Visitante) 
      
 
