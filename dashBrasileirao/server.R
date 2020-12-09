@@ -1158,15 +1158,11 @@ output$plot59 <- renderPlotly({
      
    })        
    
-   output$plot122 <- renderPlotly({
-      
-      plot122 <- dados %>% 
-         filter(Mandante=="TIME84",Visitante=="TIME85")%>% 
-         group_by(Mandante,Visitante) 
-     
-
-      
-      
+   output$tab122 <- DT::renderDataTable({
+      DT::datatable(  confrontos <- dados %>% 
+                         filter(Mandante==input$TIME123,Visitante==input$TIME124)%>% 
+                         group_by(Mandante,Visitante) 
+                )
       
       
    })        
@@ -1175,6 +1171,9 @@ output$plot59 <- renderPlotly({
    
    
    
+ 
    
+   
+     
    
 })

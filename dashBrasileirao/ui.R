@@ -72,14 +72,14 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot21", height = 800)))),
+                                                 plotlyOutput("plot21", height = 600)))),
                         
                         tabPanel("Arenas com mais jogos",
                                  fluidRow(column(9,
-                                                 plotlyOutput("plot1", height = 800)))),
+                                                 plotlyOutput("plot1", height = 600)))),
                         tabPanel("Arenas com menos jogos",
                                  fluidRow(column(9,
-                                                 plotlyOutput("plot2", height = 800))))
+                                                 plotlyOutput("plot2", height = 600))))
                         
                       )# barra de navegacao interna
              ),# barra de navegacao superior (Dados da Escola)
@@ -139,7 +139,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot3", height = 800)))),
+                                                 plotlyOutput("plot3", height = 600)))),
                        
                         tabPanel("Pontuação como Visitante",
                                  fluidRow(column(3, 
@@ -165,7 +165,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot4", height = 800)))),
+                                                 plotlyOutput("plot4", height = 600)))),
                        tabPanel("Campeões",
                                 fluidRow(column(3, 
                                                 selectInput("Ano99", 
@@ -189,7 +189,7 @@ shinyUI(fluidPage(
                                                                       "2019"="2019"),
                                                             selected = "2019")),
                                          column(9,
-                                                plotlyOutput("plot99", height = 800)))),
+                                                plotlyOutput("plot99", height = 600)))),
                        tabPanel("Rebaixados",
                                 fluidRow(column(3, 
                                                 selectInput("Ano98", 
@@ -213,7 +213,7 @@ shinyUI(fluidPage(
                                                                       "2019"="2019"),
                                                             selected = "2019")),
                                          column(9,
-                                                plotlyOutput("plot98", height = 800))))
+                                                plotlyOutput("plot98", height = 600))))
                         
                       )# barra de navegacao interna
              ),# barra de navegacao superior (Dados da Escola)  
@@ -247,7 +247,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot22", height = 800)))),
+                                                 plotlyOutput("plot22", height = 600)))),
                         tabPanel("Vitórias como Mandante",
                                  fluidRow(column(3, 
                                                  selectInput("Ano22", 
@@ -272,7 +272,7 @@ shinyUI(fluidPage(
                                                                "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot6", height = 800)))),
+                                                 plotlyOutput("plot6", height = 600)))),
                         
                                      tabPanel("Vitórias como Visitante",
                                  fluidRow(column(3, 
@@ -298,7 +298,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot7", height = 800))))
+                                                 plotlyOutput("plot7", height = 600))))
                        
                         
                       )# barra de navegacao interna
@@ -333,7 +333,7 @@ shinyUI(fluidPage(
                                                                                 "2019"="2019"),
                                                                       selected = "2019")),
                                                    column(9,
-                                                          plotlyOutput("plot9", height = 800)))),
+                                                          plotlyOutput("plot9", height = 600)))),
                         tabPanel("Empates como Mandante",
                                                   fluidRow(column(3, 
                                                           selectInput("Ano92", 
@@ -358,7 +358,7 @@ shinyUI(fluidPage(
                                                                                 "2019"="2019"),
                                                                       selected = "2019")),
                                                    column(9,
-                                                          plotlyOutput("plot10", height = 800)))),
+                                                          plotlyOutput("plot10", height = 600)))),
                                                    tabPanel("Empates como Visitante",
                                                    fluidRow(column(3, 
                                                              selectInput("Ano93", 
@@ -383,7 +383,7 @@ shinyUI(fluidPage(
                                                                                                 "2019"="2019"),
                                                                                       selected = "2019")),
                                                                    column(9,
-                                                                          plotlyOutput("plot11", height = 800))))
+                                                                          plotlyOutput("plot11", height = 600))))
                         
                         
                       )# barra de navegacao interna
@@ -418,7 +418,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot23", height = 800)))),
+                                                 plotlyOutput("plot23", height = 600)))),
                         tabPanel("Derrotas como Mandante",
                                  fluidRow(column(3,
                                                  selectInput("Ano95", 
@@ -443,7 +443,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot13", height = 800)))),
+                                                 plotlyOutput("plot13", height = 600)))),
                         tabPanel("Derrotas como Visitante",
                                  fluidRow(column(3,
                                                  selectInput("Ano94", 
@@ -468,7 +468,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot14", height = 800))))
+                                                 plotlyOutput("plot14", height = 600))))
                       
                         
                       )# barra de navegacao interna
@@ -503,7 +503,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot59", height = 800)))),
+                                                 plotlyOutput("plot59", height = 600)))),
                         tabPanel("Gols como Mandante",
                                  fluidRow(column(3, 
                                                  selectInput("Ano84", 
@@ -528,7 +528,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot16", height = 800)))),
+                                                 plotlyOutput("plot16", height = 600)))),
                         tabPanel("Gols como Visitante",
                                  fluidRow(column(3, 
                                                  selectInput("Ano85", 
@@ -553,7 +553,7 @@ shinyUI(fluidPage(
                                                                        "2019"="2019"),
                                                              selected = "2019")),
                                           column(9,
-                                                 plotlyOutput("plot17", height = 800))))
+                                                 plotlyOutput("plot17", height = 600))))
                         
                         
                       )# barra de navegacao interna
@@ -566,142 +566,136 @@ shinyUI(fluidPage(
                         ##
                         tabPanel("Jogos disputados",
                                  fluidRow(column(9,
-                                                 plotlyOutput("plot18", height = 800)))),
+                                                 plotlyOutput("plot18", height = 600)))),
                         tabPanel("Jogos como Mandante",
                                  fluidRow(column(9,
-                                                 plotlyOutput("plot19", height = 800)))),
+                                                 plotlyOutput("plot19", height = 600)))),
                         tabPanel("Jogos como Visitante",
                                  fluidRow(column(9,
-                                                 plotlyOutput("plot20", height = 800))),
-                                 tabPanel("Confrontos",
-                                          fluidRow(column(3, 
-                                                          selectInput("Ano122", 
-                                                                      strong("Selecione o ano:"), 
-                                                                      choices=c("Todos os anos"= "Todos os anos",
-                                                                                "2003"="2003",
-                                                                                "2004"="2004",
-                                                                                "2005"="2005",
-                                                                                "2006"="2006",
-                                                                                "2007"="2007",
-                                                                                "2008"="2008",
-                                                                                "2009"="2009",
-                                                                                "2010"="2010",
-                                                                                "2011"="2011",
-                                                                                "2012"="2012",
-                                                                                "2013"="2013",
-                                                                                "2014"="2014",
-                                                                                "2015"="2015",
-                                                                                "2016"="2016",
-                                                                                "2017"="2017",
-                                                                                "2018"="2018",
-                                                                                "2019"="2019"),
-                                                                      selected = "2019")),
-                                                           selectInput("TIME84", 
-                                                                      strong("Selecione o Mandante:"), 
-                                                                      choices=c("AMERICA-MG",
-                                                                                "AMERICA-RN",
-                                                                                "ATHLETICO-PR",
-                                                                                "ATLETICO-GO",
-                                                                                "ATLETICO-MG",
-                                                                                "AVAI",
-                                                                                "BAHIA",
-                                                                                "BARUERI",
-                                                                                "BOTAFOGO-RJ",
-                                                                                "BRASILIENSE",
-                                                                                "CEARA",
-                                                                                "CHAPECOENSE",
-                                                                                "CORINTHIANS",
-                                                                                "CORITIBA",
-                                                                                "CRICIUMA",
-                                                                                "CRUZEIRO",
-                                                                                "CSA",
-                                                                                "FIGUEIRENSE",
-                                                                                "FLAMENGO",
-                                                                                "FLUMINENSE",
-                                                                                "FORTALEZA",
-                                                                                "GOIAS",
-                                                                                "GREMIO",
-                                                                                "GREMIO PRUDENTE",
-                                                                                "GUARANI",
-                                                                                "INTERNACIONAL",
-                                                                                "IPATINGA",
-                                                                                "JOINVILLE",
-                                                                                "JUVENTUDE",
-                                                                                "NAUTICO",
-                                                                                "PALMEIRAS",
-                                                                                "PARANA",
-                                                                                "PAYSANDU",
-                                                                                "PONTE PRETA",
-                                                                                "PORTUGUESA",
-                                                                                "SANTA CRUZ",
-                                                                                "SANTO ANDRE",
-                                                                                "SANTOS",
-                                                                                "SAO CAETANO",
-                                                                                "SAO PAULO",
-                                                                                "SPORT",
-                                                                                "VASCO",
-                                                                                "VITORIA"
-                                                                                
-                                                                                ),
-                                                                      selected = "FLAMENGO")),
-                                                
-                                                                            selectInput("TIME85", 
-                                                                                        strong("Selecione o Visitante:"), 
-                                                                                        choices=c(
-                                                                                          "AMERICA-MG",
-                                                                                          "AMERICA-RN",
-                                                                                          "ATHLETICO-PR",
-                                                                                          "ATLETICO-GO",
-                                                                                          "ATLETICO-MG",
-                                                                                          "AVAI",
-                                                                                          "BAHIA",
-                                                                                          "BARUERI",
-                                                                                          "BOTAFOGO-RJ",
-                                                                                          "BRASILIENSE",
-                                                                                          "CEARA",
-                                                                                          "CHAPECOENSE",
-                                                                                          "CORINTHIANS",
-                                                                                          "CORITIBA",
-                                                                                          "CRICIUMA",
-                                                                                          "CRUZEIRO",
-                                                                                          "CSA",
-                                                                                          "FIGUEIRENSE",
-                                                                                          "FLAMENGO",
-                                                                                          "FLUMINENSE",
-                                                                                          "FORTALEZA",
-                                                                                          "GOIAS",
-                                                                                          "GREMIO",
-                                                                                          "GREMIO PRUDENTE",
-                                                                                          "GUARANI",
-                                                                                          "INTERNACIONAL",
-                                                                                          "IPATINGA",
-                                                                                          "JOINVILLE",
-                                                                                          "JUVENTUDE",
-                                                                                          "NAUTICO",
-                                                                                          "PALMEIRAS",
-                                                                                          "PARANA",
-                                                                                          "PAYSANDU",
-                                                                                          "PONTE PRETA",
-                                                                                          "PORTUGUESA",
-                                                                                          "SANTA CRUZ",
-                                                                                          "SANTO ANDRE",
-                                                                                          "SANTOS",
-                                                                                          "SAO CAETANO",
-                                                                                          "SAO PAULO",
-                                                                                          "SPORT",
-                                                                                          "VASCO",
-                                                                                          "VITORIA"
-                                                                                             ),
-                                                                                        selected = "CRUZEIRO")),
-                                                                     
-                                                                                       column(9,
-                                                          plotlyOutput("plot122", height = 800)))
+                                                 plotlyOutput("plot20", height = 600))))
+                                
+                        
                         
                       )# barra de navegacao interna
              ),# barra de navegacao superior (Dados da Escola)  
            
-  
-  tabPanel("Sobre", icon = icon("comment", lib = "glyphicon"),
+          
+                        tabPanel("Confrontos",
+                                 tabsetPanel(
+                                   ##
+                                   tabPanel("Equipes",
+                                            fluidRow(column(3, 
+                                                            selectInput("TIME123", 
+                                                                        strong("Selecione o Mandante:"), 
+                                                                        choices=c("AMERICA-MG",
+                                                                                  "AMERICA-RN",
+                                                                                  "ATHLETICO-PR",
+                                                                                  "ATLETICO-GO",
+                                                                                  "ATLETICO-MG",
+                                                                                  "AVAI",
+                                                                                  "BAHIA",
+                                                                                  "BARUERI",
+                                                                                  "BOTAFOGO-RJ",
+                                                                                  "BRASILIENSE",
+                                                                                  "CEARA",
+                                                                                  "CHAPECOENSE",
+                                                                                  "CORINTHIANS",
+                                                                                  "CORITIBA",
+                                                                                  "CRICIUMA",
+                                                                                  "CRUZEIRO",
+                                                                                  "CSA",
+                                                                                  "FIGUEIRENSE",
+                                                                                  "FLAMENGO",
+                                                                                  "FLUMINENSE",
+                                                                                  "FORTALEZA",
+                                                                                  "GOIAS",
+                                                                                  "GREMIO",
+                                                                                  "GREMIO PRUDENTE",
+                                                                                  "GUARANI",
+                                                                                  "INTERNACIONAL",
+                                                                                  "IPATINGA",
+                                                                                  "JOINVILLE",
+                                                                                  "JUVENTUDE",
+                                                                                  "NAUTICO",
+                                                                                  "PALMEIRAS",
+                                                                                  "PARANA",
+                                                                                  "PAYSANDU",
+                                                                                  "PONTE PRETA",
+                                                                                  "PORTUGUESA",
+                                                                                  "SANTA CRUZ",
+                                                                                  "SANTO ANDRE",
+                                                                                  "SANTOS",
+                                                                                  "SAO CAETANO",
+                                                                                  "SAO PAULO",
+                                                                                  "SPORT",
+                                                                                  "VASCO",
+                                                                                  "VITORIA"
+                                                                                  
+                                                                        ),
+                                                                        selected = "FLAMENGO")),
+                                                     
+                                                     selectInput("TIME124", 
+                                                                 strong("Selecione o Visitante:"), 
+                                                                 choices=c(
+                                                                   "AMERICA-MG",
+                                                                   "AMERICA-RN",
+                                                                   "ATHLETICO-PR",
+                                                                   "ATLETICO-GO",
+                                                                   "ATLETICO-MG",
+                                                                   "AVAI",
+                                                                   "BAHIA",
+                                                                   "BARUERI",
+                                                                   "BOTAFOGO-RJ",
+                                                                   "BRASILIENSE",
+                                                                   "CEARA",
+                                                                   "CHAPECOENSE",
+                                                                   "CORINTHIANS",
+                                                                   "CORITIBA",
+                                                                   "CRICIUMA",
+                                                                   "CRUZEIRO",
+                                                                   "CSA",
+                                                                   "FIGUEIRENSE",
+                                                                   "FLAMENGO",
+                                                                   "FLUMINENSE",
+                                                                   "FORTALEZA",
+                                                                   "GOIAS",
+                                                                   "GREMIO",
+                                                                   "GREMIO PRUDENTE",
+                                                                   "GUARANI",
+                                                                   "INTERNACIONAL",
+                                                                   "IPATINGA",
+                                                                   "JOINVILLE",
+                                                                   "JUVENTUDE",
+                                                                   "NAUTICO",
+                                                                   "PALMEIRAS",
+                                                                   "PARANA",
+                                                                   "PAYSANDU",
+                                                                   "PONTE PRETA",
+                                                                   "PORTUGUESA",
+                                                                   "SANTA CRUZ",
+                                                                   "SANTO ANDRE",
+                                                                   "SANTOS",
+                                                                   "SAO CAETANO",
+                                                                   "SAO PAULO",
+                                                                   "SPORT",
+                                                                   "VASCO",
+                                                                   "VITORIA"
+                                                                 ),
+                                                                 selected = "CRUZEIRO")),
+                                            
+                                            column(9,
+                                                   DT::dataTableOutput("tab122")))
+ 
+            
+                        
+                        
+                        
+                        
+                      )# barra de navegacao interna
+             ),# barra de navegacao superior (Dados da Escola)  
+             
+             
+                       tabPanel("Sobre", icon = icon("comment", lib = "glyphicon"),
                       includeMarkdown("sobre.md"))
                     
     )#navbarPage
