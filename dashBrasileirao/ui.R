@@ -632,7 +632,7 @@ shinyUI(fluidPage(
                                                                                   "VITORIA"
                                                                                   
                                                                         ),
-                                                                        selected = "FLAMENGO")),
+                                                                        selected = "FLAMENGO"),
                                                      
                                                      selectInput("TIME124", 
                                                                  strong("Selecione o Visitante:"), 
@@ -683,8 +683,8 @@ shinyUI(fluidPage(
                                                                  ),
                                                                  selected = "CRUZEIRO")),
                                             
-                                            column(12,
-                                                   DT::dataTableOutput("tab122")))
+                                            column(9,
+                                                   DT::dataTableOutput("tab122"))))
  
             
                         
