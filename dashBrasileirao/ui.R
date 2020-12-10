@@ -683,8 +683,12 @@ shinyUI(fluidPage(
                                                                  ),
                                                                  selected = "CRUZEIRO")),
                                             
+<<<<<<< HEAD
                                             column(9,
                                                    DT::dataTableOutput("tab122"))))
+=======
+                                            column(9, DT::dataTableOutput("tab122"))))
+>>>>>>> 70ede7fdd1ec910c79eed7db96cf6f33f0fb9813
  
             
                         
