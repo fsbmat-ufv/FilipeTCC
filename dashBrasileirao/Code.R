@@ -938,12 +938,12 @@ ggplotly(plot, tooltip = "text", width = 600, height = 600)%>%
   links$Time <- str_to_upper(links$Time)
   links$Time <- str_trim(links$Time,side = c("both", "left", "right"))
   link_to_img <- function(x, width = 30) {
-    glue::glue("<img src='{x}' width='{width}'/>")
+    glue::glue("<img src='{x}' ,width='{width}'/>")
   }
   names(links) <- c("Mandante","Links")
   df <- inner_join(dados,links,by="Mandante")%>%
     mutate(logos=link_to_img(Links))
-  df %>% 
+    df %>% 
     group_by(Mandante,logos) %>% summarise(PontMan=sum(PontMandante))%>%
     ggplot(aes(PontMan,reorder(logos,PontMan),fill=PontMan))+
     geom_col(aes(x = 700), fill="white", color = "grey", width = 0.85) +
