@@ -933,14 +933,19 @@ ggplotly(plot, tooltip = "text", width = 600, height = 600)%>%
   library(png)
   library("openxlsx")
   links <- read.xlsx("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/dashBrasileirao/LinksClubes.xlsx", colNames = TRUE)
-  
-  
-  
-  ptM <- dados %>% 
-    group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
-     ptM <- mutate(ptM$Mandante = links$Links) %>% 
-  
-    ggplot(aes(PontMan,reorder(Links,PontMan),fill=PontMan))+
+  links$Time <- abjutils::rm_accent(links$Time)
+  links$Time <- str_squish(links$Time)
+  links$Time <- str_to_upper(links$Time)
+  links$Time <- str_trim(links$Time,side = c("both", "left", "right"))
+  link_to_img <- function(x, width = 30) {
+    glue::glue("<img src='{x}' width='{width}'/>")
+  }
+  names(links) <- c("Mandante","Links")
+  df <- inner_join(dados,links,by="Mandante")%>%
+    mutate(logos=link_to_img(Links))
+  df %>% 
+    group_by(Mandante,logos) %>% summarise(PontMan=sum(PontMandante))%>%
+    ggplot(aes(PontMan,reorder(logos,PontMan),fill=PontMan))+
     geom_col(aes(x = 700), fill="white", color = "grey", width = 0.85) +
     geom_col(aes(x = PontMan), alpha = 1.5, width = 0.5) +
     geom_col(width = 0.5) +
