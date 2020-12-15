@@ -930,7 +930,7 @@ ggplotly(plot, tooltip = "text", width = 600, height = 600)%>%
 
   
   
-  
+  library(png)
   library("openxlsx")
   links <- read.xlsx("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/dashBrasileirao/LinksClubes.xlsx", colNames = TRUE)
   
@@ -938,7 +938,7 @@ ggplotly(plot, tooltip = "text", width = 600, height = 600)%>%
   
   ptM <- dados %>% 
     group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
-     ptM <- mutate(ptMt,Mandante = links(Time)) %>% 
+     ptM <- mutate(ptM$Mandante = links$Links) %>% 
   
     ggplot(aes(PontMan,reorder(Links,PontMan),fill=PontMan))+
     geom_col(aes(x = 700), fill="white", color = "grey", width = 0.85) +
