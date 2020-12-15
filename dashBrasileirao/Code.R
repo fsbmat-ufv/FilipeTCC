@@ -9,6 +9,7 @@ library(plotly)
 library(devtools)
 
 
+
 #saveRDS(dt2000, file = "dt2000.Rds")
 
 dados <- readRDS("dados.rds")
@@ -892,9 +893,82 @@ ggplotly(plot, tooltip = "text", width = 600, height = 600)%>%
     #filter(Ano=="2019")%>% 
     group_by(Mandante) %>% summarise(Quant=n(),.groups="drop")
   
+  ptM <- dados %>% 
+    #filter(Ano=="2019") %>% 
+    group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+  ptM %>%  ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=PontMan))+
+    geom_col(show.legend = FALSE)+
+    theme(panel.background = element_rect(fill = "white", colour = "black")) +
+    theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+    xlab("Número de pontos dos times como mandante")+
+    ylab("Times que disputaram o Brasileirão")+
+    geom_text(aes(label=PontMan),nudge_x = 1)+
+    theme_bw()+
+    ggtitle("Quantidades de pontos dos times como mandante no Brasileirão")
+  .
   
   
+  
+  
+  ptM <- dados %>% 
+    #filter(Ano=="2003")%>% 
+    group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+  ptM %>%  ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=PontMan))+
+    geom_col(aes(x = 700), fill="white", color = "grey", width = 0.85) +
+    geom_col(aes(x = PontMan), alpha = 1.5, width = 0.5) +
+    geom_col(width = 0.5) +
+    scale_fill_identity() +
+    scale_x_continuous(breaks = c(10,50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550 ,600, 
+                                  650, 700)) +
+    theme_minimal() +
 
+    xlab("Número de pontos dos times como mandante")+
+    ylab("Times que disputaram o Brasileirão")+
+    geom_text(aes(label=PontMan),nudge_x = 15)+
+    theme_classic()+
+    ggtitle("Quantidades de pontos dos times como mandante no Brasileirão")  
+
+  
+  
+  
+  library("openxlsx")
+  links <- read.xlsx("C:/Users/Filipe Fulgêncio/Documents/github/FilipeTCC/dashBrasileirao/LinksClubes.xlsx", colNames = TRUE)
+  
+  
+  
+  ptM <- dados %>% 
+    group_by(Mandante) %>% summarise(PontMan=sum(PontMandante))
+     ptM <- mutate(ptMt,Mandante = links(Time)) %>% 
+  
+    ggplot(aes(PontMan,reorder(Links,PontMan),fill=PontMan))+
+    geom_col(aes(x = 700), fill="white", color = "grey", width = 0.85) +
+    geom_col(aes(x = PontMan), alpha = 1.5, width = 0.5) +
+    geom_col(width = 0.5) +
+    scale_fill_identity() +
+    scale_x_continuous(breaks = c(10,50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550 ,600, 
+                                  650, 700)) +
+    theme_minimal() +
+    theme(
+      text = element_text(family = "Chivo"),
+      panel.grid.major.y = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.grid.major.x = element_line(color = "grey", size = 0.2),
+      panel.ontop = TRUE,
+      axis.text.y = element_text(margin = margin(r = -25, unit = "pt")),
+      axis.text.x = element_text(size = 16, color = "grey"),
+      plot.title = element_text(size = 36, face = "bold"),
+      plot.subtitle = element_text(size = 24),
+      plot.margin = unit(c(0.5, 1.5, 0.5, 1.5), "cm")
+    ) +
+    xlab("Número de pontos dos times como mandante")+
+    ylab("Times que disputaram o Brasileirão")+
+    geom_text(aes(label=PontMan),nudge_x = 15)+
+    theme_classic()+
+    ggtitle("Quantidades de pontos dos times como mandante no Brasileirão")  
+
+  
+  
+   
 
   
  
