@@ -1,3 +1,7 @@
+rm(list = ls())
+graphics.off()
+cat("\014")
+
 library("openxlsx")
 library(ggplot2)
 library(ggalt)
