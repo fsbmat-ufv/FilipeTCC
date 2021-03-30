@@ -93,7 +93,7 @@ shinyServer(function(input, output, session) {
   
   output$plot3 <- renderPlotly({
     
-    if(input$Temporada51=="Todos os Temporadas") {
+    if(input$Temporada51=="Todas Temporada") {
       plot3 <- d2021 %>% #filter(Temporada==input$Temporada51)%>% 
         group_by(Mandante) %>% summarise(PontMan=sum(PontMandante)) %>% ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=Mandante, text=paste("Núm. de Pontos =", PontMan, "<br>",
                                                                                                                                                "Time = ", Mandante)))+
@@ -128,7 +128,7 @@ shinyServer(function(input, output, session) {
   
   output$plot4 <- renderPlotly({
     
-    if(input$Temporada52=="Todos os Temporadas") {   
+    if(input$Temporada52=="Todas Temporada") {   
       plot4 <- d2021 %>% 
         #filter(Temporada==input$Temporada52)%>%  
         group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante)) %>% ggplot(aes(PontVis,reorder(Visitante,PontVis),fill=Visitante, text=paste("Núm. de Pontos =", PontVis, "<br>",
@@ -165,7 +165,7 @@ shinyServer(function(input, output, session) {
   
   output$plot5 <- renderPlotly({
     
-    if(input$Temporada53=="Todos os Temporadas") {
+    if(input$Temporada53=="Todas Temporada") {
       
       ptM <- d2021 %>% 
         #filter(Temporada==input$Temporada53)%>% 
@@ -542,7 +542,7 @@ shinyServer(function(input, output, session) {
   
   output$plot6 <- renderPlotly({
     
-    if(input$Temporada22=="Todos os Temporadas") {
+    if(input$Temporada22=="Todas Temporada") {
       
       d2021$vitMan <- ifelse(d2021$Mandante==d2021$Vencedor,1,0)
       testeM <- d2021 %>% filter(Vencedor!="EMPATE") %>% 
@@ -583,7 +583,7 @@ shinyServer(function(input, output, session) {
   
   output$plot7 <- renderPlotly({
     
-    if(input$Temporada42=="Todos os Temporadas") {
+    if(input$Temporada42=="Todas Temporada") {
       
       d2021$vitVist <- ifelse(d2021$Visitante==d2021$Vencedor,1,0)
       testeV <- d2021 %>% filter(Vencedor!="EMPATE") %>% 
@@ -625,7 +625,7 @@ shinyServer(function(input, output, session) {
   
   output$plot22 <- renderPlotly({
     
-    if(input$Temporada2=="Todos os Temporadas") {
+    if(input$Temporada2=="Todas Temporada") {
       
       plot22 <- d2021 %>% filter(Vencedor!="EMPATE") %>% 
         
@@ -667,7 +667,7 @@ shinyServer(function(input, output, session) {
   
   output$plot9 <- renderPlotly({
     
-    if(input$Temporada91=="Todos os Temporadas") {
+    if(input$Temporada91=="Todas Temporada") {
       
       empate <- d2021 %>% filter(Vencedor=="EMPATE") %>%
         group_by(Mandante,Visitante,Vencedor) %>% summarise(Quant=n(),.groups="drop")
@@ -734,7 +734,7 @@ shinyServer(function(input, output, session) {
   
   output$plot10 <- renderPlotly({
     
-    if(input$Temporada92=="Todos os Temporadas") {
+    if(input$Temporada92=="Todas Temporada") {
       empate <- d2021 %>% filter(Vencedor=="EMPATE") %>%
         group_by(Mandante,Visitante,Vencedor) %>% summarise(Quant=n(),.groups="drop")
       
@@ -785,7 +785,7 @@ shinyServer(function(input, output, session) {
   
   output$plot11 <- renderPlotly({
     
-    if(input$Temporada93=="Todos os Temporadas"){
+    if(input$Temporada93=="Todas Temporada"){
       empate <- d2021 %>% filter(Vencedor=="EMPATE") %>%
         group_by(Mandante,Visitante,Vencedor) %>% summarise(Quant=n(),.groups="drop")
       
@@ -842,7 +842,7 @@ shinyServer(function(input, output, session) {
   
   output$plot23 <- renderPlotly({
     
-    if(input$Temporada3=="Todos os Temporadas") {
+    if(input$Temporada3=="Todas Temporada") {
       
       derotpt <- d2021 %>% 
         filter(Vencedor!="EMPATE") %>%  
@@ -882,7 +882,7 @@ shinyServer(function(input, output, session) {
   
   output$plot13 <- renderPlotly({
     
-    if(input$Temporada95=="Todos os Temporadas") {
+    if(input$Temporada95=="Todas Temporada") {
       
       d2021$derMand <- ifelse(d2021$Mandante==d2021$Derrotado,1,0)
       testederM <- d2021 %>% filter(Derrotado!="EMPATE")%>%
@@ -923,7 +923,7 @@ shinyServer(function(input, output, session) {
   }) 
   
   output$plot14 <- renderPlotly({
-    if(input$Temporada94=="Todos os Temporadas") {
+    if(input$Temporada94=="Todas Temporada") {
       
       d2021$derVist <- ifelse(d2021$Visitante==d2021$Derrotado,1,0)
       testederV <- d2021 %>% filter(Derrotado!="EMPATE")%>%  
@@ -967,7 +967,7 @@ shinyServer(function(input, output, session) {
   
   
   output$plot16 <- renderPlotly({
-    if(input$Temporada84=="Todos os Temporadas") {
+    if(input$Temporada84=="Todas Temporada") {
       
       mandanteNG <- d2021 %>%  
         #filter(Temporada=="2019")%>% 
@@ -1010,7 +1010,7 @@ shinyServer(function(input, output, session) {
   }) 
   
   output$plot17 <- renderPlotly({
-    if(input$Temporada85=="Todos os Temporadas") {
+    if(input$Temporada85=="Todas Temporada") {
       
       visitanteNG <- d2021 %>% 
         #filter(Temporada=="2019")%>% 
@@ -1053,7 +1053,7 @@ shinyServer(function(input, output, session) {
   
   
   output$plot59 <- renderPlotly({
-    if(input$Temporada59=="Todos os Temporadas") {
+    if(input$Temporada59=="Todas Temporada") {
       
       mandanteNG <- d2021 %>%  
         #filter(Temporada=="2019")%>% 
