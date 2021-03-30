@@ -13,33 +13,33 @@
 ######################## Imagem inicial ############################
 
 shinyUI(fluidPage(
-  navbarPage(title="Brasileirão 2003-2019", theme = shinytheme("flatly"),
+  navbarPage(title="Brasileirão 2003-2020", theme = shinytheme("flatly"),
              tabPanel("Inicio",
                       #tabsetPanel(
-                        #tabPanel(" ",
-                                 fluidRow(
-                                   column(12,
-                                          img(src = "Brasileirao.jpg", height = 680, width = 1550)#DT::dataTableOutput("table1")
-                                          ))#)
-                        ##
-                        
-                        
-                        
+                      #tabPanel(" ",
+                      fluidRow(
+                        column(12,
+                               img(src = "Brasileirao.jpg", height = 680, width = 1550)#DT::dataTableOutput("table1")
+                        ))#)
+                      ##
+                      
+                      
+                      
                       #)# barra de navegacao interna
-             ),# barra de navegacao superior (Dados do Participante)
+             ),# barra de navegacao superior (d2021 do Participante)
              
              ####################### ABA Tabela ############################
              
              tabPanel("Tabela Brasileirão",
                       tabsetPanel(
-                        tabPanel("Jogos do Brasileirão 2003-2019",
+                        tabPanel("Jogos do Brasileirão 2003-2020",
                                  fluidRow(
                                    column(12,
                                           DT::dataTableOutput("table1")
                                    ))),
                         #
-                                      
-                    
+                        
+                        
                         tabPanel("Confrontos",
                                  fluidRow(column(3, 
                                                  selectInput("TIME123", 
@@ -53,6 +53,7 @@ shinyUI(fluidPage(
                                                                        "BAHIA",
                                                                        "BARUERI",
                                                                        "BOTAFOGO-RJ",
+                                                                       "BRAGANTINO",
                                                                        "BRASILIENSE",
                                                                        "CEARA",
                                                                        "CHAPECOENSE",
@@ -103,6 +104,7 @@ shinyUI(fluidPage(
                                                                "BAHIA",
                                                                "BARUERI",
                                                                "BOTAFOGO-RJ",
+                                                               "BRAGANTINO",
                                                                "BRASILIENSE",
                                                                "CEARA",
                                                                "CHAPECOENSE",
@@ -138,15 +140,15 @@ shinyUI(fluidPage(
                                                                "VASCO",
                                                                "VITORIA"
                                                              ),
-                                                             selected = "CRUZEIRO")),
+                                                             selected = "SAO PAULO")),
                                           column(9, DT::dataTableOutput("tab122"))))
-                                          
+                        
                         ##
                         
                         
                         
                       )# barra de navegacao interna
-             ),# barra de navegacao superior (Dados do Participante)
+             ),# barra de navegacao superior (d2021 do Participante)
              
              ####################### ABA ARENA ############################
              
@@ -155,8 +157,8 @@ shinyUI(fluidPage(
                         ##
                         tabPanel("Jogos por Arena",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano1", 
-                                                             strong("Selecione o ano:"), 
+                                                 selectInput("Temporada1", 
+                                                             strong("Selecione o Ano:"), 
                                                              choices=c("2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -173,8 +175,9 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot21", height = 600)))),
                         
@@ -186,44 +189,45 @@ shinyUI(fluidPage(
                                                  plotlyOutput("plot2", height = 600))))
                         
                       )# barra de navegacao interna
-             ),# barra de navegacao superior (Dados da Escola)
+             ),# barra de navegacao superior (d2021 da Escola)
              
              ######################## ABA PONTOS ############################
-           
+             
              tabPanel("Pontuação",
                       tabsetPanel(
                         ##
-                       tabPanel("Pontuação final",
-                                fluidRow(column(3, 
-                                                selectInput("Ano53", 
-                                                            strong("Selecione o ano:"), 
-                                                            choices=c("Todos os anos"= "Todos os anos",
-                                                                      "2003"="2003",
-                                                                      "2004"="2004",
-                                                                      "2005"="2005",
-                                                                      "2006"="2006",
-                                                                      "2007"="2007",
-                                                                      "2008"="2008",
-                                                                      "2009"="2009",
-                                                                      "2010"="2010",
-                                                                      "2011"="2011",
-                                                                      "2012"="2012",
-                                                                      "2013"="2013",
-                                                                      "2014"="2014",
-                                                                      "2015"="2015",
-                                                                      "2016"="2016",
-                                                                      "2017"="2017",
-                                                                      "2018"="2018",
-                                                                      "2019"="2019"),
-                                                            selected = "2019")),
-                                         column(9,
-                                                plotlyOutput("plot5", height = 600),
-                                                tableOutput("tabAno53")))),
+                        tabPanel("Pontuação final",
+                                 fluidRow(column(3, 
+                                                 selectInput("Temporada53", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
+                                                                       "2003"="2003",
+                                                                       "2004"="2004",
+                                                                       "2005"="2005",
+                                                                       "2006"="2006",
+                                                                       "2007"="2007",
+                                                                       "2008"="2008",
+                                                                       "2009"="2009",
+                                                                       "2010"="2010",
+                                                                       "2011"="2011",
+                                                                       "2012"="2012",
+                                                                       "2013"="2013",
+                                                                       "2014"="2014",
+                                                                       "2015"="2015",
+                                                                       "2016"="2016",
+                                                                       "2017"="2017",
+                                                                       "2018"="2018",
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
+                                          column(9,
+                                                 plotlyOutput("plot5", height = 600),
+                                                 tableOutput("tabTemporada53")))),
                         tabPanel("Pontuação como Mandante",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano51", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada51", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -240,16 +244,17 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot3", height = 600)))),
-                       
+                        
                         tabPanel("Pontuação como Visitante",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano52", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada52", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -266,72 +271,75 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot4", height = 600)))),
-                       tabPanel("Campeões",
-                                fluidRow(column(3, 
-                                                selectInput("Ano99", 
-                                                            strong("Selecione o ano:"), 
-                                                            choices=c("2003"="2003",
-                                                                      "2004"="2004",
-                                                                      "2005"="2005",
-                                                                      "2006"="2006",
-                                                                      "2007"="2007",
-                                                                      "2008"="2008",
-                                                                      "2009"="2009",
-                                                                      "2010"="2010",
-                                                                      "2011"="2011",
-                                                                      "2012"="2012",
-                                                                      "2013"="2013",
-                                                                      "2014"="2014",
-                                                                      "2015"="2015",
-                                                                      "2016"="2016",
-                                                                      "2017"="2017",
-                                                                      "2018"="2018",
-                                                                      "2019"="2019"),
-                                                            selected = "2019")),
-                                         column(9,
-                                                plotlyOutput("plot99", height = 600)))),
-                       tabPanel("Rebaixados",
-                                fluidRow(column(3, 
-                                                selectInput("Ano98", 
-                                                            strong("Selecione o ano:"), 
-                                                            choices=c("2003"="2003",
-                                                                      "2004"="2004",
-                                                                      "2005"="2005",
-                                                                      "2006"="2006",
-                                                                      "2007"="2007",
-                                                                      "2008"="2008",
-                                                                      "2009"="2009",
-                                                                      "2010"="2010",
-                                                                      "2011"="2011",
-                                                                      "2012"="2012",
-                                                                      "2013"="2013",
-                                                                      "2014"="2014",
-                                                                      "2015"="2015",
-                                                                      "2016"="2016",
-                                                                      "2017"="2017",
-                                                                      "2018"="2018",
-                                                                      "2019"="2019"),
-                                                            selected = "2019")),
-                                         column(9,
-                                                plotlyOutput("plot98", height = 600))))
+                        tabPanel("Maior pontuação",
+                                 fluidRow(column(3, 
+                                                 selectInput("Temporada99", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("2003"="2003",
+                                                                       "2004"="2004",
+                                                                       "2005"="2005",
+                                                                       "2006"="2006",
+                                                                       "2007"="2007",
+                                                                       "2008"="2008",
+                                                                       "2009"="2009",
+                                                                       "2010"="2010",
+                                                                       "2011"="2011",
+                                                                       "2012"="2012",
+                                                                       "2013"="2013",
+                                                                       "2014"="2014",
+                                                                       "2015"="2015",
+                                                                       "2016"="2016",
+                                                                       "2017"="2017",
+                                                                       "2018"="2018",
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
+                                          column(9,
+                                                 plotlyOutput("plot99", height = 600)))),
+                        tabPanel("Menor Pontuação",
+                                 fluidRow(column(3, 
+                                                 selectInput("Temporada98", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("2003"="2003",
+                                                                       "2004"="2004",
+                                                                       "2005"="2005",
+                                                                       "2006"="2006",
+                                                                       "2007"="2007",
+                                                                       "2008"="2008",
+                                                                       "2009"="2009",
+                                                                       "2010"="2010",
+                                                                       "2011"="2011",
+                                                                       "2012"="2012",
+                                                                       "2013"="2013",
+                                                                       "2014"="2014",
+                                                                       "2015"="2015",
+                                                                       "2016"="2016",
+                                                                       "2017"="2017",
+                                                                       "2018"="2018",
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
+                                          column(9,
+                                                 plotlyOutput("plot98", height = 600))))
                         
                       )# barra de navegacao interna
-             ),# barra de navegacao superior (Dados da Escola)  
+             ),# barra de navegacao superior (d2021 da Escola)  
              
              ######################## ABA VITORIAS ############################
              
              tabPanel("Vitórias",
                       tabsetPanel(
                         ##
-                        tabPanel("Vitórias por ano",
+                        tabPanel("Vitórias por Temporada",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano2", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada2", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -348,41 +356,16 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot22", height = 600)))),
                         tabPanel("Vitórias como Mandante",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano22", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
-                                                               "2003"="2003",
-                                                               "2004"="2004",
-                                                               "2005"="2005",
-                                                               "2006"="2006",
-                                                               "2007"="2007",
-                                                               "2008"="2008",
-                                                               "2009"="2009",
-                                                               "2010"="2010",
-                                                               "2011"="2011",
-                                                               "2012"="2012",
-                                                               "2013"="2013",
-                                                               "2014"="2014",
-                                                               "2015"="2015",
-                                                               "2016"="2016",
-                                                               "2017"="2017",
-                                                               "2018"="2018",
-                                                               "2019"="2019"),
-                                                             selected = "2019")),
-                                          column(9,
-                                                 plotlyOutput("plot6", height = 600)))),
-                        
-                                     tabPanel("Vitórias como Visitante",
-                                 fluidRow(column(3, 
-                                                 selectInput("Ano42", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada22", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -399,110 +382,141 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
+                                          column(9,
+                                                 plotlyOutput("plot6", height = 600)))),
+                        
+                        tabPanel("Vitórias como Visitante",
+                                 fluidRow(column(3, 
+                                                 selectInput("Temporada42", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
+                                                                       "2003"="2003",
+                                                                       "2004"="2004",
+                                                                       "2005"="2005",
+                                                                       "2006"="2006",
+                                                                       "2007"="2007",
+                                                                       "2008"="2008",
+                                                                       "2009"="2009",
+                                                                       "2010"="2010",
+                                                                       "2011"="2011",
+                                                                       "2012"="2012",
+                                                                       "2013"="2013",
+                                                                       "2014"="2014",
+                                                                       "2015"="2015",
+                                                                       "2016"="2016",
+                                                                       "2017"="2017",
+                                                                       "2018"="2018",
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot7", height = 600))))
-                       
+                        
                         
                       )# barra de navegacao interna
-             ),# barra de navegacao superior (Dados da Escola)  
+             ),# barra de navegacao superior (d2021 da Escola)  
              
              ######################## ABA EMPATES ############################
              
              tabPanel("Empates",
                       tabsetPanel(
                         ##
-                        tabPanel("Empates por ano",
-                                       fluidRow(column(3, 
-                                                      selectInput("Ano91", 
-                                                                      strong("Selecione o ano:"), 
-                                                                      choices=c("Todos os anos"= "Todos os anos",
-                                                                                "2003"="2003",
-                                                                                "2004"="2004",
-                                                                                "2005"="2005",
-                                                                                "2006"="2006",
-                                                                                "2007"="2007",
-                                                                                "2008"="2008",
-                                                                                "2009"="2009",
-                                                                                "2010"="2010",
-                                                                                "2011"="2011",
-                                                                                "2012"="2012",
-                                                                                "2013"="2013",
-                                                                                "2014"="2014",
-                                                                                "2015"="2015",
-                                                                                "2016"="2016",
-                                                                                "2017"="2017",
-                                                                                "2018"="2018",
-                                                                                "2019"="2019"),
-                                                                      selected = "2019")),
-                                                   column(9,
-                                                          plotlyOutput("plot9", height = 600)))),
+                        tabPanel("Empates por Temporada",
+                                 fluidRow(column(3, 
+                                                 selectInput("Temporada91", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
+                                                                       "2003"="2003",
+                                                                       "2004"="2004",
+                                                                       "2005"="2005",
+                                                                       "2006"="2006",
+                                                                       "2007"="2007",
+                                                                       "2008"="2008",
+                                                                       "2009"="2009",
+                                                                       "2010"="2010",
+                                                                       "2011"="2011",
+                                                                       "2012"="2012",
+                                                                       "2013"="2013",
+                                                                       "2014"="2014",
+                                                                       "2015"="2015",
+                                                                       "2016"="2016",
+                                                                       "2017"="2017",
+                                                                       "2018"="2018",
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
+                                          column(9,
+                                                 plotlyOutput("plot9", height = 600)))),
                         tabPanel("Empates como Mandante",
-                                                  fluidRow(column(3, 
-                                                          selectInput("Ano92", 
-                                                                      strong("Selecione o ano:"), 
-                                                                      choices=c("Todos os anos"= "Todos os anos",
-                                                                                "2003"="2003",
-                                                                                "2004"="2004",
-                                                                                "2005"="2005",
-                                                                                "2006"="2006",
-                                                                                "2007"="2007",
-                                                                                "2008"="2008",
-                                                                                "2009"="2009",
-                                                                                "2010"="2010",
-                                                                                "2011"="2011",
-                                                                                "2012"="2012",
-                                                                                "2013"="2013",
-                                                                                "2014"="2014",
-                                                                                "2015"="2015",
-                                                                                "2016"="2016",
-                                                                                "2017"="2017",
-                                                                                "2018"="2018",
-                                                                                "2019"="2019"),
-                                                                      selected = "2019")),
-                                                   column(9,
-                                                          plotlyOutput("plot10", height = 600)))),
-                                                   tabPanel("Empates como Visitante",
-                                                   fluidRow(column(3, 
-                                                             selectInput("Ano93", 
-                                                                                      strong("Selecione o ano:"), 
-                                                                                      choices=c("Todos os anos"= "Todos os anos",
-                                                                                                "2003"="2003",
-                                                                                                "2004"="2004",
-                                                                                                "2005"="2005",
-                                                                                                "2006"="2006",
-                                                                                                "2007"="2007",
-                                                                                                "2008"="2008",
-                                                                                                "2009"="2009",
-                                                                                                "2010"="2010",
-                                                                                                "2011"="2011",
-                                                                                                "2012"="2012",
-                                                                                                "2013"="2013",
-                                                                                                "2014"="2014",
-                                                                                                "2015"="2015",
-                                                                                                "2016"="2016",
-                                                                                                "2017"="2017",
-                                                                                                "2018"="2018",
-                                                                                                "2019"="2019"),
-                                                                                      selected = "2019")),
-                                                                   column(9,
-                                                                          plotlyOutput("plot11", height = 600))))
+                                 fluidRow(column(3, 
+                                                 selectInput("Temporada92", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
+                                                                       "2003"="2003",
+                                                                       "2004"="2004",
+                                                                       "2005"="2005",
+                                                                       "2006"="2006",
+                                                                       "2007"="2007",
+                                                                       "2008"="2008",
+                                                                       "2009"="2009",
+                                                                       "2010"="2010",
+                                                                       "2011"="2011",
+                                                                       "2012"="2012",
+                                                                       "2013"="2013",
+                                                                       "2014"="2014",
+                                                                       "2015"="2015",
+                                                                       "2016"="2016",
+                                                                       "2017"="2017",
+                                                                       "2018"="2018",
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
+                                          column(9,
+                                                 plotlyOutput("plot10", height = 600)))),
+                        tabPanel("Empates como Visitante",
+                                 fluidRow(column(3, 
+                                                 selectInput("Temporada93", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
+                                                                       "2003"="2003",
+                                                                       "2004"="2004",
+                                                                       "2005"="2005",
+                                                                       "2006"="2006",
+                                                                       "2007"="2007",
+                                                                       "2008"="2008",
+                                                                       "2009"="2009",
+                                                                       "2010"="2010",
+                                                                       "2011"="2011",
+                                                                       "2012"="2012",
+                                                                       "2013"="2013",
+                                                                       "2014"="2014",
+                                                                       "2015"="2015",
+                                                                       "2016"="2016",
+                                                                       "2017"="2017",
+                                                                       "2018"="2018",
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
+                                          column(9,
+                                                 plotlyOutput("plot11", height = 600))))
                         
                         
                       )# barra de navegacao interna
-             ),# barra de navegacao superior (Dados da Escola)  
+             ),# barra de navegacao superior (d2021 da Escola)  
              
              ######################## ABA DERROTAS ############################
              
              tabPanel("Derrotas",
                       tabsetPanel(
                         ##
-                        tabPanel("Derrotas por ano",
+                        tabPanel("Derrotas por Temporada",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano3", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada3", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -519,15 +533,16 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot23", height = 600)))),
                         tabPanel("Derrotas como Mandante",
                                  fluidRow(column(3,
-                                                 selectInput("Ano95", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada95", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -544,15 +559,16 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot13", height = 600)))),
                         tabPanel("Derrotas como Visitante",
                                  fluidRow(column(3,
-                                                 selectInput("Ano94", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada94", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -569,25 +585,26 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot14", height = 600))))
-                      
+                        
                         
                       )# barra de navegacao interna
-             ),# barra de navegacao superior (Dados da Escola)  
+             ),# barra de navegacao superior (d2021 da Escola)  
              
              ######################## ABA GOLS ############################
              
              tabPanel("Gols por equipes",
                       tabsetPanel(
                         ##
-                        tabPanel("Gols por ano",
+                        tabPanel("Gols por Temporada",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano59", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada59", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -604,15 +621,16 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot59", height = 600)))),
                         tabPanel("Gols como Mandante",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano84", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada84", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -629,15 +647,16 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot16", height = 600)))),
                         tabPanel("Gols como Visitante",
                                  fluidRow(column(3, 
-                                                 selectInput("Ano85", 
-                                                             strong("Selecione o ano:"), 
-                                                             choices=c("Todos os anos"= "Todos os anos",
+                                                 selectInput("Temporada85", 
+                                                             strong("Selecione o Ano:"), 
+                                                             choices=c("Todos os Anos"= "Todos os Anos",
                                                                        "2003"="2003",
                                                                        "2004"="2004",
                                                                        "2005"="2005",
@@ -654,14 +673,15 @@ shinyUI(fluidPage(
                                                                        "2016"="2016",
                                                                        "2017"="2017",
                                                                        "2018"="2018",
-                                                                       "2019"="2019"),
-                                                             selected = "2019")),
+                                                                       "2019"="2019",
+                                                                       "2020"="2020"),
+                                                             selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot17", height = 600))))
                         
                         
                       )# barra de navegacao interna
-             ),# barra de navegacao superior (Dados da Escola)            
+             ),# barra de navegacao superior (d2021 da Escola)            
              
              ######################## ABA JOGOS ############################
              
@@ -677,19 +697,20 @@ shinyUI(fluidPage(
                         tabPanel("Jogos como Visitante",
                                  fluidRow(column(9,
                                                  plotlyOutput("plot20", height = 600))))
-                                
+                        
                         
                         
                       )# barra de navegacao interna
-             ),# barra de navegacao superior (Dados da Escola)  
-           
-          
-                       
+             ),# barra de navegacao superior (d2021 da Escola)  
              
              
-                       tabPanel("Sobre", icon = icon("comment", lib = "glyphicon"),
+             
+             
+             
+             tabPanel("Sobre", icon = icon("comment", lib = "glyphicon"),
                       includeMarkdown("sobre.md"))
-                    
-    )#navbarPage
+             
+  )#navbarPage
 )#fluidPage
 )#shinyUI
+
