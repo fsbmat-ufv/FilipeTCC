@@ -149,6 +149,62 @@ totGols %>%  ggplot(aes(Total,reorder(Time,Total),fill=Total, text=paste("Núm. 
   ggtitle("Quantidade total de gols dos times nas edições do Brasileirão")
 ggplotly(totGols, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "top")
 
+
+########################### GOLS MS ##########################
+
+mandanteNGSO <- d2021 %>%  
+  #filter(Temporada=="2020")%>% 
+  group_by(Mandante) %>% summarise(golsM=sum(GolsVisit))
+names(mandanteNGSO) <- c("Time","GolsM")
+
+visitanteNGSO <- d2021 %>% 
+  #filter(Temporada=="2020")%>% 
+  group_by(Visitante) %>% summarise(golsM=sum(GolsMan))
+names(visitanteNGSO) <- c("Time","GolsV")
+
+
+plot53 <- left_join(mandanteNGSO,visitanteNGSO,by="Time")
+plot53$Total <- rowSums(totGols[,2:3])
+plot53 %>%  ggplot(aes(GolsM,reorder(Time,GolsM),fill=GolsM, text=paste("Núm. de Gols =", GolsM, "<br>",
+                                                                        "Time = ", Time)))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Número de gols no Brasileirão como mandante")+
+  ylab("Times que disputaram o Brasileirão")+
+  geom_text(aes(label=GolsM),nudge_x = 15)+
+  theme_classic()+
+  ggtitle("Quantidade de gols dos times como mandante no Brasileirão")
+ggplotly(plot53, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "top")
+
+########################### GOLS VS ##########################
+
+plot53 %>%  ggplot(aes(GolsV,reorder(Time,GolsV),fill=GolsV, text=paste("Núm. de Gols =", GolsV, "<br>",
+                                                                        "Time = ", Time)))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Número de gols no Brasileirão como visitante")+
+  ylab("Times que disputaram o Brasileirão")+
+  geom_text(aes(label=GolsV),nudge_x = 10)+
+  theme_classic()+
+  ggtitle("Quantidade de gols dos times como visitantes no Brasileirão")
+ggplotly(totGols, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "top")
+
+########################### GOLS TS ##########################
+
+totGols %>%  ggplot(aes(Total,reorder(Time,Total),fill=Total, text=paste("Núm. de Gols =", Total, "<br>",
+                                                                         "Time = ", Time)))+
+  geom_col(show.legend = FALSE)+
+  theme(panel.background = element_rect(fill = "white", colour = "black")) +
+  theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+  xlab("Número de gols no Brasileirão")+
+  ylab("Times que disputaram o Brasileirão")+
+  #geom_text(aes(label=Total),nudge_x = 27)+
+  theme_bw()+
+  ggtitle("Quantidade total de gols dos times nas edições do Brasileirão")
+ggplotly(totGols, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "top")
+
 ########################### VIT M ##########################
 
 d2021$vitMan <- ifelse(d2021$Mandante==d2021$Vencedor,1,0)

@@ -1111,6 +1111,154 @@ shinyServer(function(input, output, session) {
   })
   
   
+  ################################# GRAFICO GOLS SO ###################
+  
+  
+  output$plot300 <- renderPlotly({
+    if(input$Temporada300=="Todas Temporada") {
+      
+      mandanteNGS <- d2021 %>%  
+        #filter(Temporada=="2019")%>% 
+        group_by(Mandante) %>% summarise(golsM=sum(GolsVisit))
+      names(mandanteNGS) <- c("Time","GolsM")
+      
+      
+      plot300 <-  mandanteNGS %>%  ggplot(aes(GolsM,reorder(Time,GolsM),fill=Time, text=paste("Núm. de Gols =", GolsM, "<br>",
+                                                                                            "Time = ", Time)))+
+        geom_col(show.legend = FALSE)+
+        theme(panel.background = element_rect(fill = "white", colour = "black")) +
+        theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+        xlab("Número de gols sofridos no Brasileirão como mandante")+
+        ylab("Times que disputaram o Brasileirão")+
+        geom_text(aes(label=GolsM),nudge_x = 1)+
+        theme_classic()+
+        ggtitle("Quantidade de gols sofridos dos times como mandante no Brasileirão")
+      ggplotly(plot300, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+    }
+    
+    else{
+      mandanteNGS <- d2021 %>%  
+        filter(Temporada==input$Temporada300)%>% 
+        group_by(Mandante) %>% summarise(golsM=sum(GolsVisit))
+      names(mandanteNGS) <- c("Time","GolsM")
+      
+      
+      plot300 <-  mandanteNGS %>%  ggplot(aes(GolsM,reorder(Time,GolsM),fill=GolsM, text=paste("Núm. de Gols =", GolsM, "<br>",
+                                                                                             "Time = ", Time)))+
+        geom_col(show.legend = FALSE)+
+        theme(panel.background = element_rect(fill = "white", colour = "black")) +
+        theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+        xlab("Número de gols sofridos no Brasileirão como mandante")+
+        ylab("Times que disputaram o Brasileirão")+
+        geom_text(aes(label=GolsM),nudge_x = 1)+
+        theme_classic()+
+        ggtitle("Quantidade de gols sofridos dos times como mandante no Brasileirão")
+      ggplotly(plot300, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+    }
+  }) 
+  
+  output$plot301 <- renderPlotly({
+    if(input$Temporada301=="Todas Temporada") {
+      
+      visitanteNGS <- d2021 %>% 
+        #filter(Temporada=="2019")%>% 
+        group_by(Visitante) %>% summarise(golsM=sum(GolsMan))
+      names(visitanteNGS) <- c("Time","GolsV")
+      
+      
+      plot301 <- visitanteNGS %>%  ggplot(aes(GolsV,reorder(Time,GolsV),fill=Time, text=paste("Núm. de Gols =", GolsV, "<br>",
+                                                                                            "Time = ", Time)))+
+        geom_col(show.legend = FALSE)+
+        theme(panel.background = element_rect(fill = "white", colour = "black")) +
+        theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+        xlab("Número de gols sofridos no Brasileirão como visitante")+
+        ylab("Times que disputaram o Brasileirão")+
+        geom_text(aes(label=GolsV),nudge_x = 1)+
+        theme_classic()+
+        ggtitle("Quantidade de gols sofridos dos times como visitantes no Brasileirão")
+      ggplotly(plot301, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+    }
+    else{
+      visitanteNGS <- d2021 %>% 
+        filter(Temporada==input$Temporada301)%>% 
+        group_by(Visitante) %>% summarise(golsM=sum(GolsMan))
+      names(visitanteNGS) <- c("Time","GolsV")
+      
+      
+      plot301 <- visitanteNGS %>%  ggplot(aes(GolsV,reorder(Time,GolsV),fill=GolsV, text=paste("Núm. de Gols =", GolsV, "<br>",
+                                                                                             "Time = ", Time)))+
+        geom_col(show.legend = FALSE)+
+        theme(panel.background = element_rect(fill = "white", colour = "black")) +
+        theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+        xlab("Número de gols sofridos no Brasileirão como visitante")+
+        ylab("Times que disputaram o Brasileirão")+
+        geom_text(aes(label=GolsV),nudge_x = 1)+
+        theme_classic()+
+        ggtitle("Quantidade de gols sofridos dos times como visitantes no Brasileirão")
+      ggplotly(plot301, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+    }
+  })     
+  
+  
+  output$plot302 <- renderPlotly({
+    if(input$Temporada302=="Todas Temporada") {
+      
+      mandanteNGS <- d2021 %>%  
+        #filter(Temporada=="2019")%>% 
+        group_by(Mandante) %>% summarise(golsM=sum(GolsVisit))
+      names(mandanteNGS) <- c("Time","GolsM")
+      
+      visitanteNGS <- d2021 %>% 
+        #filter(Temporada=="2019")%>% 
+        group_by(Visitante) %>% summarise(golsM=sum(GolsMan))
+      names(visitanteNGS) <- c("Time","GolsV")
+      
+      
+      totGols <- left_join(mandanteNGS,visitanteNGS,by="Time")
+      totGols$Total <- rowSums(totGols[,2:3])
+      
+      plot302 <- totGols %>%  ggplot(aes(Total,reorder(Time,Total),fill=Time, text=paste("Núm. de Gols =", Total, "<br>",
+                                                                                         "Time = ", Time)))+
+        geom_col(show.legend = FALSE)+
+        theme(panel.background = element_rect(fill = "white", colour = "black")) +
+        theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+        xlab("Número de gols sofridos no Brasileirão")+
+        ylab("Times que disputaram o Brasileirão")+
+        geom_text(aes(label=Total),nudge_x = 1)+
+        theme_classic()+
+        ggtitle("Quantidade total de gols sofridos dos times nas edições do Brasileirão")
+      ggplotly(plot302, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+    }
+    else{ 
+      mandanteNGS <- d2021 %>%  
+        filter(Temporada==input$Temporada302)%>% 
+        group_by(Mandante) %>% summarise(golsM=sum(GolsVisit))
+      names(mandanteNGS) <- c("Time","GolsM")
+      
+      visitanteNGS <- d2021 %>% 
+        filter(Temporada==input$Temporada302)%>% 
+        group_by(Visitante) %>% summarise(golsM=sum(GolsMan))
+      names(visitanteNGS) <- c("Time","GolsV")
+      
+      
+      totGols <- left_join(mandanteNGS,visitanteNGS,by="Time")
+      totGols$Total <- rowSums(totGols[,2:3])
+      
+      plot302 <- totGols %>%  ggplot(aes(Total,reorder(Time,Total),fill=Total, text=paste("Núm. de Gols =", Total, "<br>",
+                                                                                          "Time = ", Time)))+
+        geom_col(show.legend = FALSE)+
+        theme(panel.background = element_rect(fill = "white", colour = "black")) +
+        theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
+        xlab("Número de gols sofridos no Brasileirão")+
+        ylab("Times que disputaram o Brasileirão")+
+        geom_text(aes(label=Total),nudge_x = 1)+
+        theme_classic()+
+        ggtitle("Quantidade total de gols sofridos dos times nas edições do Brasileirão")
+      ggplotly(plot302, tooltip = "text") %>% layout(showlegend = FALSE) %>% style(textposition = "right")
+    }
+  })
+  
+  
   
   ################################# GRAFICO JOGOS ###################
   
