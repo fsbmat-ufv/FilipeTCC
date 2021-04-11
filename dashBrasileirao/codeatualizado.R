@@ -95,7 +95,7 @@ dt23$Derrotado <- ifelse(dt23$Vencedor=="EMPATE", "EMPATE",ifelse(dt23$Visitante
 dt23$PontMandante <- ifelse(dt23$Vencedor=="EMPATE", 1,ifelse(dt23$Mandante==dt23$Vencedor&dt23$Vencedor!="EMPATE",3, 0))
 dt23$PontVisitante <- ifelse(dt23$Vencedor=="EMPATE", 1,ifelse(dt23$Visitante==dt23$Vencedor&dt23$Vencedor!="EMPATE",3, 0))
 dt23$ID <- NULL
-dt23$Arena[dt23$Arena=="NILTON SANTOS (ENGENHAO)"] <- "ENGENHAO"
+#dt23$Arena[dt23$Arena=="NILTON SANTOS (ENGENHAO)"] <- "ENGENHAO"
 
 dt23 <- dt23 %>%
   select(Temporada,Data,Dia,Horário,Rodada,Arena,Mandante,Visitante,Vencedor,Derrotado,

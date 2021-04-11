@@ -179,7 +179,8 @@ shinyUI(fluidPage(
                                                                        "2020"="2020"),
                                                              selected = "2020")),
                                           column(9,
-                                                 plotlyOutput("plot21", height = 600)))),
+                                                 plotlyOutput("plot21", height = 600),
+                                                 tableOutput("tabTemporada1")))),
                         
                         tabPanel("Arenas com mais jogos",
                                  fluidRow(column(9,
