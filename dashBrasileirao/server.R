@@ -60,15 +60,15 @@ shinyServer(function(input, output, session) {
       
       if(input$Temporada1=="2004"){
         
-        tab2004 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Palestra Itália, também conhecido popularmente como Parque Antártica."))
+        tab2004 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica."))
         tab2004
         
       } else {
         
         if(input$Temporada1=="2005"){
           
-          tab2005 <- data.frame("Informações"= c("1","2"), "Descrição"=c("Devido às obras o Marcanã, o estádio cediou poucos jogos.",
-                                                                         "O Estádio Palestra Itália, também conhecido popularmente como Parque Antártica."))
+          tab2005 <- data.frame("Informações"= c("1","2"), "Descrição"=c("Devido às obras no Maracanã o estádio sediou poucos jogos.",
+                                                                         "O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica."))
           tab2005                                                                  
           
           
@@ -78,14 +78,14 @@ shinyServer(function(input, output, session) {
             
             tab2006 <- data.frame("Informações"= c("1","2"), "Descrição"=c("O estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
                                                                      de 2006-2008 o estádio teve concessão de naming rights.",
-                                                                           "O Estádio Palestra Itália, também conhecido popularmente como Parque Antártica."))
+                                                                           "O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica."))
             tab2006   
             
           } else {
             
             if(input$Temporada1=="2007"){
               
-              tab2007 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("O Estádio Palestra Itália, também conhecido popularmente como Parque Antártica.",
+              tab2007 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica.",
                                                                                   "Em 2007 foi inaugurado o Estádio Olímpico João Havelange, popularmente conhecido como Engenhão, no Rio de Janeiro.",
                                                                                   "O estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
                                                                      de 2006-2008 o estádio teve concessão de naming rights."))
@@ -95,7 +95,7 @@ shinyServer(function(input, output, session) {
               
               if(input$Temporada1=="2008"){
                 
-                tab2008 <- data.frame("Informações"= c("1","2"), "Descrição"=c("O Estádio Palestra Itália, também conhecido popularmente como Parque Antártica.",
+                tab2008 <- data.frame("Informações"= c("1","2"), "Descrição"=c("O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica.",
                                                                                "O estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
                                                                      de 2006-2008 o estádio teve concessão de naming rights."))
                 tab2008
@@ -104,16 +104,16 @@ shinyServer(function(input, output, session) {
                 
                 if(input$Temporada1=="2009"){
                   
-                  tab2009 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Palestra Itália, também conhecido popularmente como Parque Antártica."))
+                  tab2009 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica."))
                   tab2009
                   
                 } else {
                   
                   if(input$Temporada1=="2010"){
                     
-                    tab2010 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã cediou poucos jogos.",
-                                                                                        "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão cediou poucos jogos.",
-                                                                                        "Em 2010 iniciaram as reformas no Estádio Palestra Itália, também conhecido popularmente como Parque Antártica."))
+                    tab2010 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã sediou poucos jogos.",
+                                                                                        "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão sediou poucos jogos.",
+                                                                                        "Em 2010 iniciaram as reformas no Estádio Palestra Itália é também conhecido popularmente como Parque Antártica."))
                     
                     tab2010
                     
@@ -121,26 +121,26 @@ shinyServer(function(input, output, session) {
                     
                     if(input$Temporada1=="2011"){
                       
-                      tab2011 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã não cediou jogos.",
-                                                                                      "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão não cediou jogos."))
+                      tab2011 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã não sediou jogos.",
+                                                                                      "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão não sediou jogos."))
                       tab2011
                       
                     } else {
                       
                       if(input$Temporada1=="2012"){
                         
-                        tab2012 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã não cediou jogos.",
-                                                                                        "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão não cediou jogos."))
+                        tab2012 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã não sediou jogos.",
+                                                                                        "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão não sediou jogos."))
                         tab2012
                         
                       } else {
                         
                         if(input$Temporada1=="2013"){
                           
-                          tab2013 <- data.frame("Informações"= c("1","2","3"), "Descrição"=c("O Grêmio deixou de mandar seus jogos no Olimpico Monumental e passou a 
+                          tab2013 <- data.frame("Informações"= c("1","2","3"), "Descrição"=c("O Grêmio deixou de mandar seus jogos no Olímpico Monumental e passou a 
                                                                                        jogar na Arena do Grêmio.",
                                                                                              "Em 2013 foi inaugurado a Arena Pernambuco no Recife.",
-                                                                                             "Em 2013 o estádio Beira Rio não cediou jogos pelas reformas da Copa do Mundo no Brasil em 2014."))
+                                                                                             "Em 2013 o estádio Beira Rio não sediou jogos pelas reformas da Copa do Mundo no Brasil em 2014."))
                           tab2013
                           
                         } else {
@@ -157,35 +157,35 @@ shinyServer(function(input, output, session) {
                             
                             if(input$Temporada1=="2015"){
                               
-                              tab2015 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque, conhecido também como Palestra Itália/Arena Palmeiras, teve concessão de naming rights."))
+                              tab2015 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras, teve concessão de naming rights."))
                               tab2015
                               
                             } else {
                               
                               if(input$Temporada1=="2016"){
                                 
-                                tab2016 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque, conhecido também como Palestra Itália/Arena Palmeiras."))
+                                tab2016 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
                                 tab2016
                                 
                               } else {
                                 
                                 if(input$Temporada1=="2017"){
                                   
-                                  tab2017 <- data.frame("Informações"= c("1"), "Descrição"=c("Em 2017 estádio Olimpico Monumental em Goias cediou jogos dos AtléticO-GO."))
+                                  tab2017 <- data.frame("Informações"= c("1"), "Descrição"=c("Em 2017 estádio Olímpico Monumental em Goiás sediou jogos dos Atlético-GO."))
                                   tab2017
                                   
                                 } else {
                                   
                                   if(input$Temporada1=="2018"){
                                     
-                                    tab2018 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque, conhecido também como Palestra Itália/Arena Palmeiras."))
+                                    tab2018 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
                                     tab2018
                                     
                                   } else {
                                     
                                     if(input$Temporada1=="2019"){
                                       
-                                      tab2019 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque, conhecido também como Palestra Itália/Arena Palmeiras."))
+                                      tab2019 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
                                       tab2019
                                       
                                     } else {
@@ -405,10 +405,10 @@ shinyServer(function(input, output, session) {
     if(input$Temporada53=="2003"){
       
       tab2003 <- data.frame("Informações"= c("1", "2", "3","4","5"), "Descrição"=c("Ponte Preta escalou irregularmente o jogador Roberto nas partidas contra Internacional e Juventude, pelas rodadas 1 e 2 respectivamente, e perdeu os pontos conquistados nessas partidas. Internacional e Juventude ganharam 3 pontos cada.", 
-                                                                               "O Paysandu escalou irregularmente os jogadores Júnior Amorim e Aldrovani e por esse motivo perdeu oito pontos. Desses pontos, três foram para a Ponte Preta, três para o São Caetano, dois para o Corinthians e mais dois para o Fluminense.", 
-                                                                               "Libertadores 2004: Cruzeiro, Santos, São Paulo, São Caetano, Coritiba",
-                                                                               "Sul-Americana 2004: Internacional, Atlético-MG, Flamengo, Goias, Paraná, Figueirense, Grêmio.",
-                                                                               "Rebaixados para Série B: Bahia, Fortaleza."))
+                                                                                   "O Paysandu escalou irregularmente os jogadores Júnior Amorim e Aldrovani e por esse motivo perdeu oito pontos. Desses pontos, três foram para a Ponte Preta, três para o São Caetano, dois para o Corinthians e mais dois para o Fluminense.", 
+                                                                                   "Libertadores 2004: Cruzeiro, Santos, São Paulo, São Caetano, Coritiba",
+                                                                                   "Sul-Americana 2004: Internacional, Atlético-MG, Flamengo, Goiás, Paraná, Figueirense, Grêmio.",
+                                                                                   "Rebaixados para Série B: Bahia, Fortaleza."))
       
       tab2003
       
@@ -417,9 +417,9 @@ shinyServer(function(input, output, session) {
       if(input$Temporada53=="2004"){
         
         tab2004 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O São Caetano foi punido com a perda de 24 pontos pelo STJD, pela morte do jogador Serginho.",
-                                                                            "Libertadores 2005: Santos, Atlético-PR, São Paulo, Palmeiras.",
-                                                                            "Sul-Americana 2005: Corinthians, Goiás, Juventude, Internacional, Fluminense, Cruzeiro.",
-                                                                            "Rebaixados para Série B: Criciúma, Guarani, Vitoria, Grêmio."))
+                                                                                "Libertadores 2005: Santos, Atlético-PR, São Paulo, Palmeiras.",
+                                                                                "Sul-Americana 2005: Corinthians, Goiás, Juventude, Internacional, Fluminense, Cruzeiro.",
+                                                                                "Rebaixados para Série B: Criciúma, Guarani, Vitoria, Grêmio."))
         
         tab2004
         
@@ -427,10 +427,10 @@ shinyServer(function(input, output, session) {
         
         if(input$Temporada53=="2005"){
           
-          tab2005 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("São Paulo tinha vaga garantida na Copa Libertadores de 2006 por ser campeão da Copa Libertadores 2005. O Corinthians, por ser o campeão, também teve direito a disputar a Copa Sul-Americana de 2006.", 
-                                                                              "Libertadores 2006: Corinthias, Internacional, Goiás, Palmeiras, São Paulo",
-                                                                              "Sul-Americana 2006: Fluminense, Atlético-PR, Paraná, Cruzeiro, Botafogo, Santos, Vasco da Gama.",
-                                                                              "Rebaixados para Série B: Coritiba, Atlético-MG, Brasiliense, Paysandu."))
+          tab2005 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("São Paulo está classificado para a Copa Libertadores de 2006 por ser campeão da Copa Libertadores 2005. O Corinthians, por ser o campeão do Brasileirão, também está classificado para a Copa Sul-Americana de 2006.", 
+                                                                                  "Libertadores 2006: Corinthians, Internacional, Goiás, Palmeiras, São Paulo",
+                                                                                  "Sul-Americana 2006: Fluminense, Atlético-PR, Paraná, Cruzeiro, Botafogo, Santos, Vasco da Gama.",
+                                                                                  "Rebaixados para Série B: Coritiba, Atlético-MG, Brasiliense, Paysandu."))
           tab2005                                                                  
           
           
@@ -438,41 +438,41 @@ shinyServer(function(input, output, session) {
           
           if(input$Temporada53=="2006"){
             
-            tab2006 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Internacional e Flamengo tinham vaga garantida Libertadores 2007 por serem campeões da Libertadores 2006 e da Copa do Brasil de 2006, respectivamente. Além disso, o São Paulo, por ser campeão, também ganhava o direito de participar da Libertadores 2007.", 
-                                                                                "Libertadores 2007: São Paulo, Internacional, Grêmio, Santos, Paraná, Flamengo.",
-                                                                                "Sul-Americana 2007: Vasco da Gama, Figueirense, Goiás, Corinthians, Cruzeiro, Botafogo, Atlético-PR.",
-                                                                                "Rebaixados para Série B: Ponte Preta, Fortaleza, São Caetano, Santa Cruz."))
+            tab2006 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Internacional e Flamengo estão classificados para a Libertadores 2007 por serem campeões da Libertadores 2006 e da Copa do Brasil de 2006, respectivamente.", 
+                                                                                    "Libertadores 2007: São Paulo, Internacional, Grêmio, Santos, Paraná, Flamengo.",
+                                                                                    "Sul-Americana 2007: Vasco da Gama, Figueirense, Goiás, Corinthians, Cruzeiro, Botafogo, Atlético-PR.",
+                                                                                    "Rebaixados para Série B: Ponte Preta, Fortaleza, São Caetano, Santa Cruz."))
             tab2006   
             
           } else {
             
             if(input$Temporada53=="2007"){
               
-              tab2007 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O Fluminense já estava classificado para a Libertadores 2008 por ser campeão da Copa do Brasil de 2007. O São Paulo, por ser o campeão, também teve direito a disputar a Copa Sul-Americana de 2008.", 
-                                                                                  "Libertadores 2008: São Paulo, Santos, Flamengo, Fluminense, Cruzeiro.",
-                                                                                  "Sul-Americana 2008: Grêmio, Palmeiras, Atlético-MG, Botafogo, Vasco da Gama, Internacional, Atlético-PR.",
-                                                                                  "Rebaixados para Série B: Corinthians, Paraná, Juventude, América-RN."))
+              tab2007 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O Fluminense está classificado para a Libertadores 2008 por ser campeão da Copa do Brasil de 2007. O São Paulo, por ser o campeão do Brasileirão, também tem o direito a disputar a Copa Sul-Americana de 2008.", 
+                                                                                      "Libertadores 2008: São Paulo, Santos, Flamengo, Fluminense, Cruzeiro.",
+                                                                                      "Sul-Americana 2008: Grêmio, Palmeiras, Atlético-MG, Botafogo, Vasco da Gama, Internacional, Atlético-PR.",
+                                                                                      "Rebaixados para Série B: Corinthians, Paraná, Juventude, América-RN."))
               tab2007
               
             } else {
               
               if(input$Temporada53=="2008"){
                 
-                tab2008 <- data.frame("Informações"= c("1", "2","3","4","5"), "Descrição"=c("O Sport teve vaga garantida na Copa Libertadores da América de 2009 por ser campeão da Copa do Brasil de 2008.", 
-                                                                                        "O Internacional, por ser campeão da Copa Sul-Americana de 2008, garantiu a vaga na competição do Temporada seguinte e abriu mais uma vaga para a Copa Sul-Americana de 2009.",
-                                                                                        "Libertadores 2009: São Paulo, Grêmio, Cruzeiro, Palmeiras, Sport.",
-                                                                                        "Sul-Americana 2009: Flamengo, Internacional, Botafogo, Goiás, Coritiba, Vitória, Atlético-MG, Atlético-PR, Fluminense.",
-                                                                                        "Rebaixados para Série B: Figueirense, Vasco, Portuguesa, Ipatinga."))
+                tab2008 <- data.frame("Informações"= c("1", "2","3","4","5"), "Descrição"=c("O Sport tem vaga garantida na Copa Libertadores da América de 2009 por ser campeão da Copa do Brasil de 2008.", 
+                                                                                            "O Internacional, por ser campeão da Copa Sul-Americana de 2008, garantiu a vaga na Copa Sul-Americana de 2009 e, assim, abriu mais uma vaga para a Copa Sul-Americana de 2009 pelo Brasileirão.",
+                                                                                            "Libertadores 2009: São Paulo, Grêmio, Cruzeiro, Palmeiras, Sport.",
+                                                                                            "Sul-Americana 2009: Flamengo, Internacional, Botafogo, Goiás, Coritiba, Vitória, Atlético-MG, Atlético-PR, Fluminense.",
+                                                                                            "Rebaixados para Série B: Figueirense, Vasco, Portuguesa, Ipatinga."))
                 tab2008
                 
               } else {
                 
                 if(input$Temporada53=="2009"){
                   
-                  tab2009 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O Corinthians tinha vaga garantida na Libertadores de 2010 por ter sido campeão da Copa do Brasil de 2009.", 
-                                                                                      "Libertadores 2010: Flamengo, Internacional, São Paulo, Cruzeiro, Corinthians.",
-                                                                                      "Sul-Americana 2010: Palmeias, Avaí, Atlético-MG, Grêmio, Goiás, Grêmio Barueri, Santos, Vitória.",
-                                                                                      "Rebaixados para Série B: Coritiba, Santo André, Náutico, Sport."))
+                  tab2009 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O Corinthians tem vaga garantida na Libertadores de 2010 por ser campeão da Copa do Brasil de 2009.", 
+                                                                                          "Libertadores 2010: Flamengo, Internacional, São Paulo, Cruzeiro, Corinthians.",
+                                                                                          "Sul-Americana 2010: Palmeias, Avaí, Atlético-MG, Grêmio, Goiás, Grêmio Barueri, Santos, Vitória.",
+                                                                                          "Rebaixados para Série B: Coritiba, Santo André, Náutico, Sport."))
                   tab2009
                   
                 } else {
@@ -480,55 +480,54 @@ shinyServer(function(input, output, session) {
                   if(input$Temporada53=="2010"){
                     
                     tab2010 <- data.frame("Informações"= c("1", "2","3","4","5","6"), "Descrição"=c("O Grêmio Prudente foi punido com a perda de três pontos devido à escalação irregular do atleta Paulão, que havia sido suspenso dois dias antes na partida contra o Flamengo pela 3ª rodada.",
-                                                                                            "Internacional e Santos tinham vaga garantida na Copa Libertadores de 2011 por serem campeões da Copa Libertadores 2010 e da Copa do Brasil de 2010, respectivamente.", 
-                                                                                            "Libertadores 2011: Fluminense, Cruzeiro, Corinthians, Grêmio, Internacional, Santos.",
-                                                                                            "Sul-Americana 2011: Atlético-PR, Botafogo, São Paulo, Palmeiras, Vasco da Gama, Ceará, Atlético-MG, Flamengo.",
-                                                                                            "Rebaixados para Série B: Vitória*, Guarani, Góias, Grêmio Prudente.",
-                                                                                            "*O Vitória foi rebaixado para a Série B pelo critério de desempate, visto que terminou  com 9 vitórias e o Atlético-GO com 11 vitórias."))
+                                                                                                    "Internacional e Santos estão garantidos na Copa Libertadores de 2011 por serem campeões da Copa Libertadores 2010 e da Copa do Brasil de 2010, respectivamente.", 
+                                                                                                    "Libertadores 2011: Fluminense, Cruzeiro, Corinthians, Grêmio, Internacional, Santos.",
+                                                                                                    "Sul-Americana 2011: Atlético-PR, Botafogo, São Paulo, Palmeiras, Vasco da Gama, Ceará, Atlético-MG, Flamengo.",
+                                                                                                    "Rebaixados para Série B: Vitória*, Guarani, Goiás, Grêmio Prudente.",
+                                                                                                    "*O Vitória foi rebaixado para a Série B pelo critério de desempate, visto que terminou  com 9 vitórias e o Atlético-GO com 11 vitórias."))
                     tab2010
                     
                   } else {
                     
                     if(input$Temporada53=="2011"){
                       
-                      tab2011 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Santos e Vasco da Gama tinham vaga garantida na Copa Libertadores de 2012 por serem campeões da Copa Libertadores 2011 e Copa do Brasil de 2011, respectivamente.",
-                                                                                          "Libertadores 2012: Corinthians, Vasco da Gama, Fluminense, Flamengo, Internacional.",
-                                                                                          "Sul-Americana 2012: São Paulo, Figueirense, Coritiba, Botafogo, Palmeiras, Grêmio, Atlético-GO, Bahia.",
-                                                                                          "Rebaixados para Série B: Atlético-PR, Ceará, América-MG, Avaí."))
+                      tab2011 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Santos e Vasco da Gama estão garantidos na Copa Libertadores de 2012 por serem campeões da Copa Libertadores 2011 e Copa do Brasil de 2011, respectivamente.",
+                                                                                              "Libertadores 2012: Corinthians, Vasco da Gama, Fluminense, Flamengo, Internacional.",
+                                                                                              "Sul-Americana 2012: São Paulo, Figueirense, Coritiba, Botafogo, Palmeiras, Grêmio, Atlético-GO, Bahia.",
+                                                                                              "Rebaixados para Série B: Atlético-PR, Ceará, América-MG, Avaí."))
                       tab2011
                       
                     } else {
                       
                       if(input$Temporada53=="2012"){
                         
-                        tab2012 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Corinthians e Palmeiras tinham vaga garantida na Copa Libertadores de 2013 por serem campeões da Copa Libertadores de 2012 e Copa do Brasil de 2012, respectivamente e o São Paulo
-                                                                                                           tinha vaga na Sul-Americana 2013 por ter sido da Sul-Americana 2012",
-                                                                                            "Libertadores 2013: Fluminense, Atlético-MG, Grêmio, São Paulo, Corinthians.",
-                                                                                            "Sul-Americana 2013: São Paulo, Náutico, Coritiba, Ponte Preta, Bahia, Portuguesa, Criciúma, Vitória, Sport.",
-                                                                                            "Rebaixados para Série B: Sport, Palmeiras, Figueirense, Atlético-GO."))
+                        tab2012 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Corinthians, Palmeiras e São Paulo estão garantidos na Copa Libertadores de 2013 por serem campeões da Copa Libertadores de 2012, Copa do Brasil de 2012 e Sul-Americana 2012, respectivamente",
+                                                                                                "Libertadores 2013: Fluminense, Atlético-MG, Grêmio, São Paulo, Corinthians.",
+                                                                                                "Sul-Americana 2013: São Paulo, Náutico, Coritiba, Ponte Preta, Bahia, Portuguesa, Criciúma, Vitória, Sport.",
+                                                                                                "Rebaixados para Série B: Sport, Palmeiras, Figueirense, Atlético-GO."))
                         tab2012
                         
                       } else {
                         
                         if(input$Temporada53=="2013"){
                           
-                          tab2013 <- data.frame("Informações"= c("1", "2","3","4","5","6","7"), "Descrição"=c("Atlético Mineiro e Flamengo tinham vaga garantida na Copa Libertadores de 2014 por serem campeões, respectivamente, da Copa Libertadores de 2013 e da Copa do Brasil de 2013.",
-                                                                                                      "O Flamengo foi punido pelo STJD com a perda de 4 pontos por escalação de jogador irregular.",
-                                                                                                      "A Portuguesa foi punida pelo STJD com a perda de 4 pontos por escalação de jogador irregular.",
-                                                                                                      "Libertadores 2014: Cruzeiro, Grêmio, Atlético-PR, Botafogo, Atlético-MG, Flamengo.",
-                                                                                                      "Sul-Americana 2014: Vitória, Goiás, São Paulo, Bahia, Internacional, Criciúma, Fluminense, Sport.",
-                                                                                                      "Rebaixados para Série B: Portuguesa*, Vasco da Gama, Ponte Preta, Náutico.",
-                                                                                                      "*A Portuguesa acabou rebaixada para a Série B pela perda de 4 pontos no STJD, com isso o Criciúma não foi rebaixado."))
+                          tab2013 <- data.frame("Informações"= c("1", "2","3","4","5","6","7"), "Descrição"=c("Atlético Mineiro e Flamengo estão garantidos na Copa Libertadores de 2014 por serem campeões da Copa Libertadores de 2013 e da Copa do Brasil de 2013, respectivamente.",
+                                                                                                              "O Flamengo foi punido pelo STJD com a perda de 4 pontos por escalação de jogador irregular.",
+                                                                                                              "A Portuguesa foi punida pelo STJD com a perda de 4 pontos por escalação de jogador irregular.",
+                                                                                                              "Libertadores 2014: Cruzeiro, Grêmio, Atlético-PR, Botafogo, Atlético-MG, Flamengo.",
+                                                                                                              "Sul-Americana 2014: Vitória, Goiás, São Paulo, Bahia, Internacional, Criciúma, Fluminense, Sport.",
+                                                                                                              "Rebaixados para Série B: Portuguesa*, Vasco da Gama, Ponte Preta, Náutico.",
+                                                                                                              "*A Portuguesa acabou rebaixada para a Série B pela perda de 4 pontos no STJD, com isso o Criciúma não foi rebaixado."))
                           tab2013
                           
                         } else {
                           
                           if(input$Temporada53=="2014"){
                             
-                            tab2014 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Atlético Mineiro tem vaga garantida na Copa Libertadores de 2015 por ter sido campeão da Copa do Brasil de 2014.",
-                                                                                                "Libertadores 2015: Cruzeiro, São Paulo, Internacional, Corinthians, Atlético-MG.",
-                                                                                                "Sul-Americana 2015: Atlético-PR, Sport, Goiás, Chapecoense, Joinville, Ponte Preta, Bahia.",
-                                                                                                "Rebaixados para Série B: Vitória, Bahia, Botafogo, Criciúma."))
+                            tab2014 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Atlético Mineiro tem vaga garantida na Copa Libertadores de 2015 por ser campeão da Copa do Brasil de 2014.",
+                                                                                                    "Libertadores 2015: Cruzeiro, São Paulo, Internacional, Corinthians, Atlético-MG.",
+                                                                                                    "Sul-Americana 2015: Atlético-PR, Sport, Goiás, Chapecoense, Joinville, Ponte Preta, Bahia.",
+                                                                                                    "Rebaixados para Série B: Vitória, Bahia, Botafogo, Criciúma."))
                             tab2014
                             
                           } else {
@@ -536,67 +535,67 @@ shinyServer(function(input, output, session) {
                             if(input$Temporada53=="2015"){
                               
                               tab2015 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Palmeiras tem vaga garantida na Copa Libertadores de 2016 por ser campeão da Copa do Brasil de 2015.",
-                                                                                                  "Libertadores 2016: Corinthians, Atlético-MG, Grêmio, São Paulo, Palmeiras.",
-                                                                                                  "Sul-Americana 2016: Sport, Flamengo, Chapecoense, Coritiba, Figueirense, Vitória, Santa Cruz.",
-                                                                                                  "Rebaixados para Série B: Avaí, Vasco da Gama, Goiás, Joinville."))
+                                                                                                      "Libertadores 2016: Corinthians, Atlético-MG, Grêmio, São Paulo, Palmeiras.",
+                                                                                                      "Sul-Americana 2016: Sport, Flamengo, Chapecoense, Coritiba, Figueirense, Vitória, Santa Cruz.",
+                                                                                                      "Rebaixados para Série B: Avaí, Vasco da Gama, Goiás, Joinville."))
                               tab2015
                               
                             } else {
                               
                               if(input$Temporada53=="2016"){
                                 
-                                tab2016 <- data.frame("Informações"= c("1", "2","3","4","5"), "Descrição"=c("Grêmio e Chapecoense têm vaga garantida na Copa Libertadores de 2017 por serem campeões, respectivamente, da Copa do Brasil de 2016 e da Copa Sul-Americana de 2016.",
-                                                                                                        "O Santa Cruz foi penalizado com a perda de três pontos por atraso no pagamentos de salários.",
-                                                                                                        "Libertadores 2017: Palmeiras, Santos, Flamengo, Atlético-MG, Botafogo, Atlético-PR, Grêmio, Chapecoense.",
-                                                                                                        "Sul-Americana 2017: Corinthians, Ponte Preta, São Paulo, Cruzeiro, Fluminense, Sport.",
-                                                                                                        "Rebaixados para Série B: Internacional, Figueirense, Santa Cruz, América-MG."))
+                                tab2016 <- data.frame("Informações"= c("1", "2","3","4","5"), "Descrição"=c("Grêmio e Chapecoense estão garantidos na Copa Libertadores de 2017 por serem campeões da Copa do Brasil de 2016 e da Copa Sul-Americana de 2016, respectivamente.",
+                                                                                                            "O Santa Cruz foi penalizado com a perda de três pontos por atraso nos pagamentos de salários.",
+                                                                                                            "Libertadores 2017: Palmeiras, Santos, Flamengo, Atlético-MG, Botafogo, Atlético-PR, Grêmio, Chapecoense.",
+                                                                                                            "Sul-Americana 2017: Corinthians, Ponte Preta, São Paulo, Cruzeiro, Fluminense, Sport.",
+                                                                                                            "Rebaixados para Série B: Internacional, Figueirense, Santa Cruz, América-MG."))
                                 tab2016
                                 
                               } else {
                                 
                                 if(input$Temporada53=="2017"){
                                   
-                                  tab2017 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Cruzeiro e Grêmio têm vaga garantida na Copa Libertadores de 2018 por serem campeões, respectivamente, da Copa do Brasil de 2017 e da Copa Libertadores de 2017.",
-                                                                                                      "Libertadores 2018: Corinthians, Palmeiras, Santos, Grêmio, Cruzeiro, Flamengo, Vasco da Gama, Chapecoense.",
-                                                                                                      "Sul-Americana 2018: Atlético-MG,Botafogo, Athletico-PR, Bahia, São Paulo, Fluminense.",
-                                                                                                      "Rebaixados para Série B: Coritiba, Avaí, Ponte Preta, Atlético-GO."))
+                                  tab2017 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Cruzeiro e Grêmio estão garantidos na Copa Libertadores de 2018 por serem campeões da Copa do Brasil de 2017 e da Copa Libertadores de 2017, respectivamente.",
+                                                                                                          "Libertadores 2018: Corinthians, Palmeiras, Santos, Grêmio, Cruzeiro, Flamengo, Vasco da Gama, Chapecoense.",
+                                                                                                          "Sul-Americana 2018: Atlético-MG, Botafogo, Athletico-PR, Bahia, São Paulo, Fluminense.",
+                                                                                                          "Rebaixados para Série B: Coritiba, Avaí, Ponte Preta, Atlético-GO."))
                                   tab2017
                                   
                                 } else {
                                   
                                   if(input$Temporada53=="2018"){
                                     
-                                    tab2018 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Cruzeiro e Atlético Paranaense têm vaga garantida na Copa Libertadores de 2019 por serem campeões, respectivamente, da Copa do Brasil de 2018 e da Copa Sul-Americana de 2018.",
-                                                                                                        "Libertadores 2019: Palmeiras, Flamengo, Internacional, Grêmio, São Paulo, Atlético-MG, Athletico-PR, Cruzeiro.",
-                                                                                                        "Sul-Americana 2019: Botafogo, Santos,Bahia, Fluminense, Corinthians, Chapecoense.",
-                                                                                                        "Rebaixados para Série B: Sport, América-MG, Vitória, Paraná."))
+                                    tab2018 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Cruzeiro e Atlético Paranaense estão garantidos na Copa Libertadores de 2019 por serem campeões da Copa do Brasil de 2018 e da Copa Sul-Americana de 2018, respectivamente.",
+                                                                                                            "Libertadores 2019: Palmeiras, Flamengo, Internacional, Grêmio, São Paulo, Atlético-MG, Athletico-PR, Cruzeiro.",
+                                                                                                            "Sul-Americana 2019: Botafogo, Santos, Bahia, Fluminense, Corinthians, Chapecoense.",
+                                                                                                            "Rebaixados para Série B: Sport, América-MG, Vitória, Paraná."))
                                     tab2018
                                     
                                   } else {
                                     
                                     if(input$Temporada53=="2019"){
                                       
-                                      tab2019 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Flamengo e Athletico Paranaense têm vagas garantidas na Copa Libertadores de 2020 por serem campeões da Copa Libertadores de 2019 e da Copa do Brasil de 2019, respectivamente.",
-                                                                                                          "Libertadores 2020: Flamengo, Santos, Palmeiras, Grêmio, Athletico-PR, São Paulo, Internacional, Corinthians.",
-                                                                                                          "Sul-Americana 2020: Fortaleza, Góias, Bahia, Vasco da Gama, Atlético-MG, Fluminense.",
-                                                                                                          "Rebaixados para Série B: Cruzeiro, CSA, Chapecoense, Avaí."))
+                                      tab2019 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("Flamengo e Athletico Paranaense estão garantidos na Copa Libertadores de 2020 por serem campeões da Copa Libertadores de 2019 e da Copa do Brasil de 2019, respectivamente.",
+                                                                                                              "Libertadores 2020: Flamengo, Santos, Palmeiras, Grêmio, Athletico-PR, São Paulo, Internacional, Corinthians.",
+                                                                                                              "Sul-Americana 2020: Fortaleza, Goiás, Bahia, Vasco da Gama, Atlético-MG, Fluminense.",
+                                                                                                              "Rebaixados para Série B: Cruzeiro, CSA, Chapecoense, Avaí."))
                                       tab2019
                                       
                                     } else {
                                       
                                       if(input$Temporada53=="2020"){
-                                      
-                                      tab2020 <- data.frame("Informações"= c("1", "2","3","4","5","6"), "Descrição"=c("Devido às restrições provacada pelo COVID-19 o Brasileirão de 2020 finalizou no Temporada de 2021.",
-                                                                                                                      "Palmeiras têm vagas garantidas na Copa Libertadores de 2021 por ser campeão da Copa Libertadores de 2020 e da Copa do Brasil de 2020. Com isso, o Grêmio herdou a vaga para Libertadores 2021 pelo Brasileirão.",
-                                                                                                                      "Libertadores 2021: Flamengo, Internacional, Atlético-MG, São Paulo, Fluminense, Grêmio, Palmeiras.",
-                                                                                                                      "Sul-Americana 2021: Santos, Athletico-PR, Bragantino, Ceará, Corinthians, Atlético-GO, Bahia.",
-                                                                                                                      "Rebaixados para Série B: Vasco da Gama*, Goiás, Coritiba, Botafogo.",
-                                                                                                                      "*O Vasco da Gama foi rebaixado para a Série B pelo critério de desempate, visto que terminou com o Saldo de Gols -19 e o Fortaleza com Saldo de Gols -10."))
-                                      tab2020
-                                      
-                                      } 
                                         
-                                        #Text
+                                        tab2020 <- data.frame("Informações"= c("1", "2","3","4","5","6"), "Descrição"=c("Devido às restrições causadas pela pandemia do COVID-19 o Brasileirão de 2020 terminou no início de 2021.",
+                                                                                                                        "Palmeiras está classificado para a Copa Libertadores de 2021 por ser campeão da Copa Libertadores de 2020 e da Copa do Brasil de 2020. Dessa maneira, o Grêmio herdou a vaga para Libertadores 2021 pelo Brasileirão.",
+                                                                                                                        "Libertadores 2021: Flamengo, Internacional, Atlético-MG, São Paulo, Fluminense, Grêmio, Palmeiras.",
+                                                                                                                        "Sul-Americana 2021: Santos, Athletico-PR, Bragantino, Ceará, Corinthians, Atlético-GO, Bahia.",
+                                                                                                                        "Rebaixados para Série B: Vasco da Gama*, Goiás, Coritiba, Botafogo.",
+                                                                                                                        "*O Vasco da Gama foi rebaixado para a Série B pelo critério de desempate, visto que terminou com o Saldo de Gols -19 e o Fortaleza com Saldo de Gols -10."))
+                                        tab2020
+                                        
+                                      } 
+                                      
+                                      #Text
                                     }
                                   }
                                 }
@@ -614,11 +613,11 @@ shinyServer(function(input, output, session) {
         }
       }
       
-      }
+    }
     
     
-  
-    })
+    
+  })
   
   output$plot99 <- renderPlotly({
     #input$Temporada99

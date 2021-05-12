@@ -6,7 +6,7 @@ O aplicativo foi desenvolvido em 2020.
 
 Tem como objetivo facilitar a visualização dos resultados do Brasileirão Série - A.
 
-Os scripts utilizados estão disponíveis neste link: [https://github.com/fsbmat-ufv/FilipeTCC](https://github.com/fsbmat-ufv/FilipeTCC).
+Os scripts utilizados estão disponíveis neste link: [https://github.com/fsbmat-ufv/brasileiraoTCC](https://github.com/fsbmat-ufv/brasileiraoTCC).
 
 A Monografria pode ser acessada neste link: 
 

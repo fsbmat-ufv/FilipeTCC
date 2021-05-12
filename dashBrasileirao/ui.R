@@ -511,7 +511,8 @@ shinyUI(fluidPage(
              ######################## ABA DERROTAS ############################
              
              tabPanel("Derrotas",
-                      tabsetPanel(
+                          tabsetPanel(
+                        
                         ##
                         tabPanel("Derrotas por Temporada",
                                  fluidRow(column(3, 
@@ -539,7 +540,7 @@ shinyUI(fluidPage(
                                                              selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot23", height = 600)))),
-                        tabPanel("Derrotas como Mandante",
+                                tabPanel("Derrotas como Mandante",
                                  fluidRow(column(3,
                                                  selectInput("Temporada95", 
                                                              strong("Selecione o Ano:"), 
