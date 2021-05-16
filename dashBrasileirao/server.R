@@ -52,7 +52,7 @@ shinyServer(function(input, output, session) {
     
     if(input$Temporada1=="2003"){
       
-      tab2003 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Maracanã foi o estádio que recebeu mais jogos"))
+      tab2003 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Maracanã foi o Estádio que recebeu mais jogos"))
       
       tab2003
       
@@ -67,7 +67,7 @@ shinyServer(function(input, output, session) {
         
         if(input$Temporada1=="2005"){
           
-          tab2005 <- data.frame("Informações"= c("1","2"), "Descrição"=c("Devido às obras no Maracanã o estádio sediou poucos jogos.",
+          tab2005 <- data.frame("Informações"= c("1","2"), "Descrição"=c("Devido às obras no Maracanã o Estádio sediou poucos jogos.",
                                                                          "O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica."))
           tab2005                                                                  
           
@@ -76,8 +76,8 @@ shinyServer(function(input, output, session) {
           
           if(input$Temporada1=="2006"){
             
-            tab2006 <- data.frame("Informações"= c("1","2"), "Descrição"=c("O estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
-                                                                     de 2006-2008 o estádio teve concessão de naming rights.",
+            tab2006 <- data.frame("Informações"= c("1","2"), "Descrição"=c("O Estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
+                                                                     de 2006-2008 o Estádio teve concessão de naming rights.",
                                                                            "O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica."))
             tab2006   
             
@@ -87,8 +87,8 @@ shinyServer(function(input, output, session) {
               
               tab2007 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica.",
                                                                                   "Em 2007 foi inaugurado o Estádio Olímpico João Havelange, popularmente conhecido como Engenhão, no Rio de Janeiro.",
-                                                                                  "O estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
-                                                                     de 2006-2008 o estádio teve concessão de naming rights."))
+                                                                                  "O Estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
+                                                                     de 2006-2008 o Estádio teve concessão de naming rights."))
               tab2007
               
             } else {
@@ -96,8 +96,8 @@ shinyServer(function(input, output, session) {
               if(input$Temporada1=="2008"){
                 
                 tab2008 <- data.frame("Informações"= c("1","2"), "Descrição"=c("O Estádio Palestra Itália é também conhecido popularmente como Parque Antártica.",
-                                                                               "O estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
-                                                                     de 2006-2008 o estádio teve concessão de naming rights."))
+                                                                               "O Estádio Kyocera Arena é a antiga Arena da Baixada, entre os anos
+                                                                     de 2006-2008 o Estádio teve concessão de naming rights."))
                 tab2008
                 
               } else {
@@ -111,8 +111,8 @@ shinyServer(function(input, output, session) {
                   
                   if(input$Temporada1=="2010"){
                     
-                    tab2010 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã sediou poucos jogos.",
-                                                                                        "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão sediou poucos jogos.",
+                    tab2010 <- data.frame("Informações"= c("1", "2","3"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o Estádio do Maracanã sediou poucos jogos.",
+                                                                                        "Devido às obras para a Copa do Mundo de 2014 no Brasil, o Estádio Mineirão sediou poucos jogos.",
                                                                                         "Em 2010 iniciaram as reformas no Estádio Palestra Itália é também conhecido popularmente como Parque Antártica."))
                     
                     tab2010
@@ -121,16 +121,16 @@ shinyServer(function(input, output, session) {
                     
                     if(input$Temporada1=="2011"){
                       
-                      tab2011 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã não sediou jogos.",
-                                                                                      "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão não sediou jogos."))
+                      tab2011 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o Estádio do Maracanã não sediou jogos.",
+                                                                                      "Devido às obras para a Copa do Mundo de 2014 no Brasil, o Estádio Mineirão não sediou jogos."))
                       tab2011
                       
                     } else {
                       
                       if(input$Temporada1=="2012"){
                         
-                        tab2012 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio do Maracanã não sediou jogos.",
-                                                                                        "Devido às obras para a Copa do Mundo de 2014 no Brasil, o estádio Mineirão não sediou jogos."))
+                        tab2012 <- data.frame("Informações"= c("1", "2"), "Descrição"=c("Devido às obras para a Copa do Mundo de 2014 no Brasil, o Estádio do Maracanã não sediou jogos.",
+                                                                                        "Devido às obras para a Copa do Mundo de 2014 no Brasil, o Estádio Mineirão não sediou jogos."))
                         tab2012
                         
                       } else {
@@ -140,7 +140,7 @@ shinyServer(function(input, output, session) {
                           tab2013 <- data.frame("Informações"= c("1","2","3"), "Descrição"=c("O Grêmio deixou de mandar seus jogos no Olímpico Monumental e passou a 
                                                                                        jogar na Arena do Grêmio.",
                                                                                              "Em 2013 foi inaugurado a Arena Pernambuco no Recife.",
-                                                                                             "Em 2013 o estádio Beira Rio não sediou jogos pelas reformas da Copa do Mundo no Brasil em 2014."))
+                                                                                             "Em 2013 o Estádio Beira Rio não sediou jogos pelas reformas da Copa do Mundo no Brasil em 2014."))
                           tab2013
                           
                         } else {
@@ -157,45 +157,45 @@ shinyServer(function(input, output, session) {
                             
                             if(input$Temporada1=="2015"){
                               
-                              tab2015 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras, teve concessão de naming rights."))
+                              tab2015 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras, teve concessão de naming rights."))
                               tab2015
                               
                             } else {
                               
                               if(input$Temporada1=="2016"){
                                 
-                                tab2016 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
+                                tab2016 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
                                 tab2016
                                 
                               } else {
                                 
                                 if(input$Temporada1=="2017"){
                                   
-                                  tab2017 <- data.frame("Informações"= c("1"), "Descrição"=c("Em 2017 estádio Olímpico Monumental em Goiás sediou jogos dos Atlético-GO."))
+                                  tab2017 <- data.frame("Informações"= c("1"), "Descrição"=c("Em 2017 Estádio Olímpico Monumental em Goiás sediou jogos dos Atlético-GO."))
                                   tab2017
                                   
                                 } else {
                                   
                                   if(input$Temporada1=="2018"){
                                     
-                                    tab2018 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
+                                    tab2018 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
                                     tab2018
                                     
                                   } else {
                                     
                                     if(input$Temporada1=="2019"){
                                       
-                                      tab2019 <- data.frame("Informações"= c("1"), "Descrição"=c("O estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
+                                      tab2019 <- data.frame("Informações"= c("1"), "Descrição"=c("O Estádio Allianz Parque é também conhecido como Palestra Itália/Arena Palmeiras."))
                                       tab2019
                                       
                                     } else {
                                       
                                       if(input$Temporada1=="2020"){
                                         
-                                        tab2020 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O estádio Neo Química Arena, conhecido também como Arena Corinthians, teve concessão de naming rights.",
+                                        tab2020 <- data.frame("Informações"= c("1", "2","3","4"), "Descrição"=c("O Estádio Neo Química Arena, conhecido também como Arena Corinthians, teve concessão de naming rights.",
                                                                                                                 "O Estádio Olímpico Nilton Santos, antes denominado Estádio Olímpico João Havelange e popularmente conhecido como Engenhão.",
-                                                                                                                "O estádio Itaipava Arena Fonte Nova, conhecido também como Arena Fonte Nova, teve concessão de naming rights.",
-                                                                                                                "O estádio Serrinha em Goiás recebeu jogos do Goiás."))
+                                                                                                                "O Estádio Itaipava Arena Fonte Nova, conhecido também como Arena Fonte Nova, teve concessão de naming rights.",
+                                                                                                                "O Estádio Serrinha em Goiás recebeu jogos do Goiás."))
                                         tab2020
                                         
                                       } 
