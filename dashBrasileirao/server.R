@@ -697,9 +697,9 @@ shinyServer(function(input, output, session) {
                                   text=paste("Time:", Time, "<br>", 
                                              "Pontuação: ", Pontos)))+
       geom_col(show.legend = FALSE)+
-      theme_bw()+xlab(paste0("Menores pontuadores do Temporada ", input$Temporada98))+
-      geom_text(aes(label=Pontos),nudge_y = 1)
-    
+      theme_bw()+xlab(paste0("Menores pontuadores da Temporada ", input$Temporada98))+
+      geom_text(aes(label=Pontos),nudge_y = 1)+
+    ggtitle("Menores pontuadores da Temporada ")
     ggplotly(plot, tooltip = "text", width = 600, height = 600)
     
     
