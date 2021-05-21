@@ -272,9 +272,9 @@ shinyServer(function(input, output, session) {
   
   output$plot3 <- renderPlotly({
     
-    if(input$Temporada51=="Todas Temporada") {
+    if(input$Temporada51=="Todas Temporadas") {
       plot3 <- d2021 %>% #filter(Temporada==input$Temporada51)%>% 
-        group_by(Mandante) %>% summarise(PontMan=sum(PontMandante)) %>% ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=Mandante, text=paste("Núm. de Pontos =", PontMan, "<br>",
+        group_by(Mandante) %>% summarise(PontMan=sum(PontMandante)) %>% ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=Mandante, text=paste("Pontuação =", PontMan, "<br>",
                                                                                                                                                "Time = ", Mandante)))+
         geom_col(show.legend = FALSE)+
         theme(panel.background = element_rect(fill = "white", colour = "black")) +
@@ -288,7 +288,7 @@ shinyServer(function(input, output, session) {
       
     } else {
       plot3 <- d2021 %>% filter(Temporada==input$Temporada51)%>% 
-        group_by(Mandante) %>% summarise(PontMan=sum(PontMandante)) %>% ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=PontMan, text=paste("Núm. de Pontos =", PontMan, "<br>",
+        group_by(Mandante) %>% summarise(PontMan=sum(PontMandante)) %>% ggplot(aes(PontMan,reorder(Mandante,PontMan),fill=PontMan, text=paste("Pontuação =", PontMan, "<br>",
                                                                                                                                               "Time = ", Mandante)))+
         geom_col(show.legend = FALSE)+
         theme(panel.background = element_rect(fill = "white", colour = "black")) +
@@ -307,10 +307,10 @@ shinyServer(function(input, output, session) {
   
   output$plot4 <- renderPlotly({
     
-    if(input$Temporada52=="Todas Temporada") {   
+    if(input$Temporada52=="Todas Temporadas") {   
       plot4 <- d2021 %>% 
         #filter(Temporada==input$Temporada52)%>%  
-        group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante)) %>% ggplot(aes(PontVis,reorder(Visitante,PontVis),fill=Visitante, text=paste("Núm. de Pontos =", PontVis, "<br>",
+        group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante)) %>% ggplot(aes(PontVis,reorder(Visitante,PontVis),fill=Visitante, text=paste("Pontuação =", PontVis, "<br>",
                                                                                                                                                    "Time = ", Visitante)))+
         geom_col(show.legend = FALSE)+
         theme(panel.background = element_rect(fill = "white", colour = "black")) +
@@ -325,7 +325,7 @@ shinyServer(function(input, output, session) {
     }else {
       plot4 <- d2021 %>% 
         filter(Temporada==input$Temporada52)%>%  
-        group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante)) %>% ggplot(aes(PontVis,reorder(Visitante,PontVis),fill=PontVis, text=paste("Núm. de Pontos =", PontVis, "<br>",
+        group_by(Visitante) %>% summarise(PontVis=sum(PontVisitante)) %>% ggplot(aes(PontVis,reorder(Visitante,PontVis),fill=PontVis, text=paste("Pontuação =", PontVis, "<br>",
                                                                                                                                                  "Time = ", Visitante)))+
         geom_col(show.legend = FALSE)+
         theme(panel.background = element_rect(fill = "white", colour = "black")) +
@@ -344,7 +344,7 @@ shinyServer(function(input, output, session) {
   
   output$plot5 <- renderPlotly({
     
-    if(input$Temporada53=="Todas Temporada") {
+    if(input$Temporada53=="Todas Temporadas") {
       
       ptM <- d2021 %>% 
         #filter(Temporada==input$Temporada53)%>% 
@@ -644,7 +644,7 @@ shinyServer(function(input, output, session) {
                                 text=paste("Time:", Time, "<br>", 
                                            "Pontuação: ", Pontos)))+
       geom_col(show.legend = FALSE)+
-      theme_bw()+xlab(paste0("Maiores pontuadores do Temporada ", input$Temporada99))+
+      theme_bw()+xlab(paste0("Maiores pontuadores da Temporada ", input$Temporada99))+
       geom_text(aes(label=Pontos),nudge_y = 1)
     
     ggplotly(plot, tooltip = "text", width = 600, height = 600)%>% 
@@ -720,7 +720,7 @@ shinyServer(function(input, output, session) {
   
   output$plot6 <- renderPlotly({
     
-    if(input$Temporada22=="Todas Temporada") {
+    if(input$Temporada22=="Todas Temporadas") {
       
       d2021$vitMan <- ifelse(d2021$Mandante==d2021$Vencedor,1,0)
       testeM <- d2021 %>% filter(Vencedor!="EMPATE") %>% 
@@ -761,7 +761,7 @@ shinyServer(function(input, output, session) {
   
   output$plot7 <- renderPlotly({
     
-    if(input$Temporada42=="Todas Temporada") {
+    if(input$Temporada42=="Todas Temporadas") {
       
       d2021$vitVist <- ifelse(d2021$Visitante==d2021$Vencedor,1,0)
       testeV <- d2021 %>% filter(Vencedor!="EMPATE") %>% 
@@ -803,7 +803,7 @@ shinyServer(function(input, output, session) {
   
   output$plot22 <- renderPlotly({
     
-    if(input$Temporada2=="Todas Temporada") {
+    if(input$Temporada2=="Todas Temporadas") {
       
       plot22 <- d2021 %>% filter(Vencedor!="EMPATE") %>% 
         
@@ -845,7 +845,7 @@ shinyServer(function(input, output, session) {
   
   output$plot9 <- renderPlotly({
     
-    if(input$Temporada91=="Todas Temporada") {
+    if(input$Temporada91=="Todas Temporadas") {
       
       empate <- d2021 %>% filter(Vencedor=="EMPATE") %>%
         group_by(Mandante,Visitante,Vencedor) %>% summarise(Quant=n(),.groups="drop")
@@ -912,7 +912,7 @@ shinyServer(function(input, output, session) {
   
   output$plot10 <- renderPlotly({
     
-    if(input$Temporada92=="Todas Temporada") {
+    if(input$Temporada92=="Todas Temporadas") {
       empate <- d2021 %>% filter(Vencedor=="EMPATE") %>%
         group_by(Mandante,Visitante,Vencedor) %>% summarise(Quant=n(),.groups="drop")
       
@@ -963,7 +963,7 @@ shinyServer(function(input, output, session) {
   
   output$plot11 <- renderPlotly({
     
-    if(input$Temporada93=="Todas Temporada"){
+    if(input$Temporada93=="Todas Temporadas"){
       empate <- d2021 %>% filter(Vencedor=="EMPATE") %>%
         group_by(Mandante,Visitante,Vencedor) %>% summarise(Quant=n(),.groups="drop")
       
@@ -1020,13 +1020,13 @@ shinyServer(function(input, output, session) {
   
   output$plot23 <- renderPlotly({
     
-    if(input$Temporada3=="Todas Temporada") {
+    if(input$Temporada3=="Todas Temporadas") {
       
       derotpt <- d2021 %>% 
         filter(Vencedor!="EMPATE") %>%  
         group_by(Derrotado) %>% summarise(Quant=n(),.groups="drop")
       plot23 <- derotpt %>%  ggplot(aes(Quant,reorder(Derrotado,Quant),fill=Derrotado, text=paste("Núm. de Derrotas =", Quant, "<br>",
-                                                                                                  "Derrotado = ", Derrotado)))+
+                                                                                                  "Time = ", Derrotado)))+
         geom_col(show.legend = FALSE)+
         theme(panel.background = element_rect(fill = "white", colour = "black")) +
         theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
@@ -1043,7 +1043,7 @@ shinyServer(function(input, output, session) {
         filter(Temporada==input$Temporada3, Vencedor!="EMPATE") %>%  
         group_by(Derrotado) %>% summarise(Quant=n(),.groups="drop")
       plot23 <- derotpt %>%  ggplot(aes(Quant,reorder(Derrotado,Quant),fill=Quant, text=paste("Núm. de Derrotas =", Quant, "<br>",
-                                                                                              "Derrotado = ", Derrotado)))+
+                                                                                              "Time = ", Derrotado)))+
         geom_col(show.legend = FALSE)+
         theme(panel.background = element_rect(fill = "white", colour = "black")) +
         theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
@@ -1060,7 +1060,7 @@ shinyServer(function(input, output, session) {
   
   output$plot13 <- renderPlotly({
     
-    if(input$Temporada95=="Todas Temporada") {
+    if(input$Temporada95=="Todas Temporadas") {
       
       d2021$derMand <- ifelse(d2021$Mandante==d2021$Derrotado,1,0)
       testederM <- d2021 %>% filter(Derrotado!="EMPATE")%>%
@@ -1101,7 +1101,7 @@ shinyServer(function(input, output, session) {
   }) 
   
   output$plot14 <- renderPlotly({
-    if(input$Temporada94=="Todas Temporada") {
+    if(input$Temporada94=="Todas Temporadas") {
       
       d2021$derVist <- ifelse(d2021$Visitante==d2021$Derrotado,1,0)
       testederV <- d2021 %>% filter(Derrotado!="EMPATE")%>%  
@@ -1145,7 +1145,7 @@ shinyServer(function(input, output, session) {
   
   
   output$plot16 <- renderPlotly({
-    if(input$Temporada84=="Todas Temporada") {
+    if(input$Temporada84=="Todas Temporadas") {
       
       mandanteNG <- d2021 %>%  
         #filter(Temporada=="2019")%>% 
@@ -1188,7 +1188,7 @@ shinyServer(function(input, output, session) {
   }) 
   
   output$plot17 <- renderPlotly({
-    if(input$Temporada85=="Todas Temporada") {
+    if(input$Temporada85=="Todas Temporadas") {
       
       visitanteNG <- d2021 %>% 
         #filter(Temporada=="2019")%>% 
@@ -1231,7 +1231,7 @@ shinyServer(function(input, output, session) {
   
   
   output$plot59 <- renderPlotly({
-    if(input$Temporada59=="Todas Temporada") {
+    if(input$Temporada59=="Todas Temporadas") {
       
       mandanteNG <- d2021 %>%  
         #filter(Temporada=="2019")%>% 
@@ -1293,7 +1293,7 @@ shinyServer(function(input, output, session) {
   
   
   output$plot300 <- renderPlotly({
-    if(input$Temporada300=="Todas Temporada") {
+    if(input$Temporada300=="Todas Temporadas") {
       
       mandanteNGS <- d2021 %>%  
         #filter(Temporada=="2019")%>% 
@@ -1336,7 +1336,7 @@ shinyServer(function(input, output, session) {
   }) 
   
   output$plot301 <- renderPlotly({
-    if(input$Temporada301=="Todas Temporada") {
+    if(input$Temporada301=="Todas Temporadas") {
       
       visitanteNGS <- d2021 %>% 
         #filter(Temporada=="2019")%>% 
@@ -1379,7 +1379,7 @@ shinyServer(function(input, output, session) {
   
   
   output$plot302 <- renderPlotly({
-    if(input$Temporada302=="Todas Temporada") {
+    if(input$Temporada302=="Todas Temporadas") {
       
       mandanteNGS <- d2021 %>%  
         #filter(Temporada=="2019")%>% 
@@ -1502,7 +1502,7 @@ shinyServer(function(input, output, session) {
       group_by(Visitante) %>% summarise(Quant=n(),.groups="drop")
     names(jogosV) <- c("Time","JogosV")
     
-    plot20 <- jogosV %>%  ggplot(aes(JogosV,reorder(Time,JogosV),fill=Time, text=paste("Núm. de Empates =", JogosV, "<br>",
+    plot20 <- jogosV %>%  ggplot(aes(JogosV,reorder(Time,JogosV),fill=Time, text=paste("Núm. de Jogos =", JogosV, "<br>",
                                                                                        "Time = ", Time)))+
       geom_col(show.legend = FALSE)+
       theme(panel.background = element_rect(fill = "white", colour = "black")) +
