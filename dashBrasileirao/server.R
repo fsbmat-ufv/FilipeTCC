@@ -315,7 +315,7 @@ shinyServer(function(input, output, session) {
         geom_col(show.legend = FALSE)+
         theme(panel.background = element_rect(fill = "white", colour = "black")) +
         theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
-        xlab("Número de pontos dos times como visitantes")+
+        xlab("Número de pontos dos times como visitante")+
         ylab("Times que disputaram o Brasileirão")+
         geom_text(aes(label=PontVis),nudge_x = 1)+
         theme_classic()+
@@ -330,7 +330,7 @@ shinyServer(function(input, output, session) {
         geom_col(show.legend = FALSE)+
         theme(panel.background = element_rect(fill = "white", colour = "black")) +
         theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
-        xlab("Número de pontos dos times como visitantes")+
+        xlab("Número de pontos dos times como visitante")+
         ylab("Times que disputaram o Brasileirão")+
         geom_text(aes(label=PontVis),nudge_x = 1)+
         theme_classic()+
@@ -1508,7 +1508,7 @@ shinyServer(function(input, output, session) {
       theme(panel.background = element_rect(fill = "white", colour = "black")) +
       theme(panel.grid.major = element_line(colour = "Black", linetype = "solid")) + 
       xlab("Número de jogos como visitante")+
-      ylab("Equipes visitantes")+
+      ylab("Equipes visitante")+
       theme_classic()+
       geom_text(aes(label=JogosV),nudge_x = 1)+
       ggtitle("Quantidade de jogos dos times como visitante")

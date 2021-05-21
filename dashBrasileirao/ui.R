@@ -182,10 +182,10 @@ shinyUI(fluidPage(
                                                  plotlyOutput("plot21", height = 600),
                                                  tableOutput("tabTemporada1")))),
                         
-                        tabPanel("Arenas com mais jogos",
+                        tabPanel("Arenas com Mais Jogos",
                                  fluidRow(column(9,
                                                  plotlyOutput("plot1", height = 600)))),
-                        tabPanel("Arenas com menos jogos",
+                        tabPanel("Arenas com Menos Jogos",
                                  fluidRow(column(9,
                                                  plotlyOutput("plot2", height = 600))))
                         
@@ -197,7 +197,7 @@ shinyUI(fluidPage(
              tabPanel("Pontuação",
                       tabsetPanel(
                         ##
-                        tabPanel("Pontuação final",
+                        tabPanel("Pontuação Final",
                                  fluidRow(column(3, 
                                                  selectInput("Temporada53", 
                                                              strong("Selecione o Ano:"), 
@@ -277,7 +277,7 @@ shinyUI(fluidPage(
                                                              selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot4", height = 600)))),
-                        tabPanel("Maior pontuação",
+                        tabPanel("Maior Pontuação",
                                  fluidRow(column(3, 
                                                  selectInput("Temporada99", 
                                                              strong("Selecione o Ano:"), 
@@ -599,10 +599,10 @@ shinyUI(fluidPage(
              
              ######################## ABA GOLS ############################
              
-             tabPanel("Gols por equipes",
+             tabPanel("Gols por Equipes",
                       tabsetPanel(
                         ##
-                        tabPanel("Gols pró por Temporada",
+                        tabPanel("Gols Pró por Temporada",
                                  fluidRow(column(3, 
                                                  selectInput("Temporada59", 
                                                              strong("Selecione o Ano:"), 
@@ -628,7 +628,7 @@ shinyUI(fluidPage(
                                                              selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot59", height = 600)))),
-                        tabPanel("Gols pró como Mandante",
+                        tabPanel("Gols Pró como Mandante",
                                  fluidRow(column(3, 
                                                  selectInput("Temporada84", 
                                                              strong("Selecione o Ano:"), 
@@ -654,7 +654,7 @@ shinyUI(fluidPage(
                                                              selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot16", height = 600)))),
-                        tabPanel("Gols pró como Visitante",
+                        tabPanel("Gols Pró como Visitante",
                                  fluidRow(column(3, 
                                                  selectInput("Temporada85", 
                                                              strong("Selecione o Ano:"), 
@@ -680,7 +680,7 @@ shinyUI(fluidPage(
                                                              selected = "2020")),
                                           column(9,
                                                  plotlyOutput("plot17", height = 600)))),
-                        tabPanel("Gols Sofridos por temporada",
+                        tabPanel("Gols Sofridos por Temporada",
                                  fluidRow(column(3, 
                                                  selectInput("Temporada302", 
                                                              strong("Selecione o Ano:"), 
@@ -765,10 +765,10 @@ shinyUI(fluidPage(
              
              ######################## ABA JOGOS ############################
              
-             tabPanel("Números de jogos",
+             tabPanel("Números de Jogos",
                       tabsetPanel(
                         ##
-                        tabPanel("Jogos disputados",
+                        tabPanel("Jogos Disputados",
                                  fluidRow(column(9,
                                                  plotlyOutput("plot18", height = 600)))),
                         tabPanel("Jogos como Mandante",
